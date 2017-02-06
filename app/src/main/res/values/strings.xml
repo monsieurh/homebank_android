@@ -90,4 +90,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="link_dropbox_file">Link Dropbox File</string>
+    <string name="link_local_file">Link to local file</string>
 </resources>
