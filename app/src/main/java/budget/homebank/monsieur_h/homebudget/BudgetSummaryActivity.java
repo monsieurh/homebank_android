@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ExpandableListView;
 import com.dropbox.chooser.android.DbxChooser;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -25,7 +26,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BudgetSummary extends AppCompatActivity {
+public class BudgetSummaryActivity extends AppCompatActivity {
 
 
     static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
@@ -34,11 +35,13 @@ public class BudgetSummary extends AppCompatActivity {
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private final CategoryMapper categoryMapper = new CategoryMapper();
     private final OperationFactory operationFactory = new OperationFactory();
+    private ExpandableListView expandableListView;
+    private MyViewAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_budget_summary);
+        setContentView(R.layout.activity_tmp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,42 +60,61 @@ public class BudgetSummary extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == DBX_CHOOSE_FILE_REQUEST) {
-            if (resultCode == Activity.RESULT_OK) {
-                DbxChooser.Result result = new DbxChooser.Result(data);
-                Log.d("main", "Link to selected file: " + result.getLink());
+        if (requestCode == DBX_CHOOSE_FILE_REQUEST && resultCode == Activity.RESULT_OK) {
+            DbxChooser.Result result = new DbxChooser.Result(data);
+            try {
+                parseFile(result.getLink());
+                updateView();
+            } catch (SAXException | IOException | ParserConfigurationException e) {
+                e.printStackTrace();
             }
-        } else if (requestCode == LOCAL_CHOOSE_FILE_REQUEST) {
+            Log.d("main", "Link to selected file: " + result.getLink());
+        } else if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
             Uri fileUri = data.getData();
             Log.d("main", "Found file " + fileUri);
             try {
-//     FileInputStream inputStream = new FileProvider().openAssetFile(fileUri, "").createInputStream();
-
-                InputStream fileInputStream = getApplicationContext().getContentResolver().openInputStream(fileUri);
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                dbf.setNamespaceAware(false);
-                dbf.setValidating(false);
-
-                Document doc = dbf.newDocumentBuilder().parse(fileInputStream);
-                NodeList categories = doc.getElementsByTagName("cat");
-                for (int i = 0; i < categories.getLength(); i++) {
-                    categoryMapper.addFromNode(categories.item(i));
-                }
-                categoryMapper.linkParents();
-
-                NodeList operations = doc.getElementsByTagName("ope");
-                List<Operation> operationList = new ArrayList<>();
-                for (int i = 0; i < operations.getLength(); i++) {
-                    operationList.add(operationFactory.fromNode(operations.item(i)));
-                }
-                categoryMapper.addOperations(operationList);
-                Log.d("CAT", categoryMapper.toString());
+                parseFile(fileUri);
+                updateView();
             } catch (IOException | ParserConfigurationException | SAXException e) {
                 e.printStackTrace();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    private void updateView() {//fixme not working (yet)
+        MyViewAdapter myViewAdapter = new MyViewAdapter(this, categoryMapper.getCategories());
+
+        //get reference to the ExpandableListView
+        expandableListView = (ExpandableListView) findViewById(R.id.myList);
+        //create the adapter by passing your ArrayList data
+        listAdapter = new MyViewAdapter(BudgetSummaryActivity.this, categoryMapper.getCategories());
+        //attach the adapter to the list
+        expandableListView.setAdapter(listAdapter);
+        categoryMapper.filterForMonth(2);
+    }
+
+    private void parseFile(Uri fileUri) throws SAXException, IOException, ParserConfigurationException {
+        InputStream fileInputStream = getApplicationContext().getContentResolver().openInputStream(fileUri);
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setNamespaceAware(false);
+        dbf.setValidating(false);
+
+        Document doc = dbf.newDocumentBuilder().parse(fileInputStream);
+        NodeList categories = doc.getElementsByTagName("cat");
+        for (int i = 0; i < categories.getLength(); i++) {
+            categoryMapper.addFromNode(categories.item(i));
+        }
+        categoryMapper.linkParents();
+
+        NodeList operations = doc.getElementsByTagName("ope");
+        List<Operation> operationList = new ArrayList<>();
+        for (int i = 0; i < operations.getLength(); i++) {
+            operationList.add(operationFactory.fromNode(operations.item(i)));
+        }
+        categoryMapper.addOperations(operationList);
+        Log.d("CAT", categoryMapper.toString());
     }
 
     @Override
@@ -116,7 +138,7 @@ public class BudgetSummary extends AppCompatActivity {
 
         if (id == R.id.link_dropbox_file) {
             DbxChooser mChooser = new DbxChooser(DBX_APP_KEY);
-            mChooser.forResultType(DbxChooser.ResultType.FILE_CONTENT).launch(BudgetSummary.this, DBX_CHOOSE_FILE_REQUEST);
+            mChooser.forResultType(DbxChooser.ResultType.FILE_CONTENT).launch(BudgetSummaryActivity.this, DBX_CHOOSE_FILE_REQUEST);
             return true;
         }
 
@@ -128,8 +150,8 @@ public class BudgetSummary extends AppCompatActivity {
                 startActivityForResult(getXhbFileIntent, LOCAL_CHOOSE_FILE_REQUEST);
             } catch (ActivityNotFoundException e) {
 
-                Snackbar.make(this.findViewById(R.id.app_bar), "No file manager", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(this.findViewById(R.id.app_bar), "No file manager", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         }
         return super.onOptionsItemSelected(item);

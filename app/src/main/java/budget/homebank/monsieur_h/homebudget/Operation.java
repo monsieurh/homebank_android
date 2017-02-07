@@ -15,11 +15,20 @@ class Operation {
         this.date = date;
     }
 
+
     int getCategoryKey() {
         return categoryKey;
     }
 
     void setCategoryKey(int categoryKey) {
         this.categoryKey = categoryKey;
+    }
+
+    Date getDate() {
+        return date;
+    }
+
+    float getAmount() {
+        return amount;
     }
 }

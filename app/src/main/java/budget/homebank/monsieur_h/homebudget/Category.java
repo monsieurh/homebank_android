@@ -1,7 +1,6 @@
 package budget.homebank.monsieur_h.homebudget;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class Category {
@@ -45,34 +44,59 @@ class Category {
         }
     }
 
-    public void addOperation(Operation operation) {
+    void addOperation(Operation operation) {
         operations.add(operation);
     }
 
-    public int getKey() {
+    int getKey() {
         return key;
     }
 
-    public int getParentKey() {
+    int getParentKey() {
         return parentKey;
     }
 
 
-    public void setParentKey(int parentKey) {
+    void setParentKey(int parentKey) {
         this.parentKey = parentKey;
+    }
+
+    float getMonthlyBudget(int month) {
+        return monthlyBudget[month];
+    }
+
+    float getMonthlyExpense(int month) {
+        double sum = 0;
+        for (Operation ope : operations) {
+            if (ope.getDate().getMonth() == month) {
+                sum += ope.getAmount();
+            }
+        }
+        return (float) sum;
+    }
+
+    float getMonthlyExpenseRatio(int month) {
+        return getMonthlyExpense(month) / getMonthlyBudget(month);
     }
 
     @Override
     public String toString() {
-        return "Category{" +
-                "name='" + name + '\'' +
-                ", key=" + key +
-                ", parentKey=" + parentKey +
-                ", monthlyBudget=" + Arrays.toString(monthlyBudget) +
-                ", children=" + children.size() +
-                ", operations=" + operations.size() +
-                ", flags=" + flags +
-                '}';
+        return String.format("%s : %f (%f/%f)", getName(), getMonthlyExpenseRatio(2), getMonthlyExpense(2), getMonthlyBudget(2));
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Category> getChildren() {
+        return children;
+    }
+
+    void filterForMonth(int month) {
+        for (int i = operations.size() - 1; i >= 0; i++) {
+            if (operations.get(i).getDate().getMonth() != month) {
+                operations.remove(i);
+            }
+        }
+    }
 }

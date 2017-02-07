@@ -1,7 +1,6 @@
 package budget.homebank.monsieur_h.homebudget;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
@@ -11,11 +10,11 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CategoryMapper {
-    private List<Category> allCategories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
     private Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
 
     void linkParents() {
-        for (Category child : allCategories) {
+        for (Category child : categories) {
             if (child.getParentKey() != 0) {
                 Category parent = find(child.getParentKey());
                 parent.addChild(child);
@@ -39,12 +38,11 @@ public class CategoryMapper {
 
     private Category find(int key) {
         for (Category cat :
-                allCategories) {
+                categories) {
             if (cat.getKey() == key) {
                 return cat;
             }
         }
-        Log.e("CATEGORY", String.format("Did not find category for key %d", key));
         return NO_CATEGORY;
     }
 
@@ -55,7 +53,7 @@ public class CategoryMapper {
         addMonthlyBudget(attributes, cat);
         addFlags(attributes, cat);
 
-        allCategories.add(cat);
+        categories.add(cat);
     }
 
     private void addFlags(NamedNodeMap attributes, Category cat) {
@@ -91,11 +89,22 @@ public class CategoryMapper {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        for (Category cat : allCategories) {
+        for (Category cat : categories) {
             str.append(cat.toString());
             str.append("\n");
         }
         return str.toString();
     }
 
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    void filterForMonth(int month) {
+        for (int i = categories.size() - 1; i >= 0; i--) {
+            if (categories.get(i).getMonthlyBudget(month) == 0) {
+                categories.remove(i);
+            }
+        }
+    }
 }
