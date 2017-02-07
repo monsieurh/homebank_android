@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import com.dropbox.chooser.android.DbxChooser;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -23,6 +22,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BudgetSummary extends AppCompatActivity {
 
@@ -31,6 +32,8 @@ public class BudgetSummary extends AppCompatActivity {
     private static final String DBX_APP_KEY = "ktvth6u26gs18v4";
     private static final String DBX_APP_SECRET = "jwed8hoj12jldlv";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
+    private final CategoryMapper categoryMapper = new CategoryMapper();
+    private final OperationFactory operationFactory = new OperationFactory();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +72,21 @@ public class BudgetSummary extends AppCompatActivity {
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 dbf.setNamespaceAware(false);
                 dbf.setValidating(false);
-                Document parse = dbf.newDocumentBuilder().parse(fileInputStream);
-                NodeList categories = parse.getElementsByTagName("cat");
+
+                Document doc = dbf.newDocumentBuilder().parse(fileInputStream);
+                NodeList categories = doc.getElementsByTagName("cat");
                 for (int i = 0; i < categories.getLength(); i++) {
-                    NamedNodeMap attrs = categories.item(i).getAttributes();
-                    Log.d("CAT", "debug: " + categories.item(i).getNodeValue());
-                    for (int j = 0; j < attrs.getLength(); j++) {
-                        Log.d("CAT", "Category debug: " + attrs.item(i).getNodeValue());
-                    }
+                    categoryMapper.addFromNode(categories.item(i));
                 }
+                categoryMapper.linkParents();
+
+                NodeList operations = doc.getElementsByTagName("ope");
+                List<Operation> operationList = new ArrayList<>();
+                for (int i = 0; i < operations.getLength(); i++) {
+                    operationList.add(operationFactory.fromNode(operations.item(i)));
+                }
+                categoryMapper.addOperations(operationList);
+                Log.d("CAT", categoryMapper.toString());
             } catch (IOException | ParserConfigurationException | SAXException e) {
                 e.printStackTrace();
             }
