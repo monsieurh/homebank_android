@@ -107,4 +107,26 @@ public class CategoryMapper {
             }
         }
     }
+
+    List<Category> getTopLevelCategoriesForMonth(int month) {
+        List<Category> topLevel = new ArrayList<>();
+        for (Category category : categories) {
+            Category filtered = new Category(category);
+            filtered.filterForMonth(month);
+            if (filtered.hasChild()) {
+                topLevel.add(filtered);
+            }
+        }
+        return topLevel;
+    }
+
+    List<Category> getTopLevelCategories() {
+        List<Category> topLevel = new ArrayList<>();
+        for (Category category : categories) {
+            if (category.hasChild()) {
+                topLevel.add(category);
+            }
+        }
+        return topLevel;
+    }
 }

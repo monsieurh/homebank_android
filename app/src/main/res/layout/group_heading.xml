@@ -5,10 +5,10 @@
               android:layout_height="match_parent">
 
     <TextView
-            android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/heading"
+            android:paddingLeft="35sp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
             />

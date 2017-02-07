@@ -26,22 +26,22 @@ public class MyViewAdapter extends BaseExpandableListAdapter {
         }
 
         TextView heading = (TextView) view.findViewById(R.id.heading);
-        heading.setText(cat.toString());
+        heading.setText(cat.getName());
 
         return view;
     }
 
     @Override
     public View getChildView(int i, int j, boolean isLastChild, View view, ViewGroup viewGroup) {
-        Category operation = (Category) getChild(i, j);
+        Category category = (Category) getChild(i, j);
         if (view == null) {
             view = inflater.inflate(R.layout.child_row, null);
         }
 
         TextView sequence = (TextView) view.findViewById(R.id.sequence);
-        sequence.setText(operation.toString());
+        sequence.setText(category.getName());
         TextView childItem = (TextView) view.findViewById(R.id.childitem);
-        childItem.setText("ChildItem");
+        childItem.setText("" + category.getKey());
 
         return view;
     }

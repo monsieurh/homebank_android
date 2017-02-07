@@ -46,6 +46,10 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        expandableListView = (ExpandableListView) findViewById(R.id.myList);
+//        expandableListView.setGroupIndicator(null);
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new OnClickListener() {
             @Override
@@ -85,16 +89,9 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     }
 
     private void updateView() {
-        MyViewAdapter myViewAdapter = new MyViewAdapter(this, categoryMapper.getCategories());
-
-        //get reference to the ExpandableListView
-        expandableListView = (ExpandableListView) findViewById(R.id.myList);
-        //create the adapter by passing your ArrayList data
-        listAdapter = new MyViewAdapter(BudgetSummaryActivity.this, categoryMapper.getCategories());
-        //attach the adapter to the list
+        listAdapter = new MyViewAdapter(BudgetSummaryActivity.this, categoryMapper.getTopLevelCategoriesForMonth(2));
         expandableListView.setAdapter(listAdapter);
-//        categoryMapper.filterForMonth(2);
-        expandAll();
+//        expandAll();
     }
 
 

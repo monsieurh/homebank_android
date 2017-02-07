@@ -15,6 +15,13 @@ class Operation {
         this.date = date;
     }
 
+    public Operation(Operation op) {
+        this.amount = op.amount;
+        this.accountKey = op.accountKey;
+        this.date = op.date;
+        this.categoryKey = op.categoryKey;
+    }
+
 
     int getCategoryKey() {
         return categoryKey;

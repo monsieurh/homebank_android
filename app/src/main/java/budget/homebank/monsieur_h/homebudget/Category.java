@@ -12,6 +12,20 @@ class Category {
     private int flags;
     private List<Operation> operations = new ArrayList<>();
 
+    Category(Category original) {
+        this.name = original.name;
+        this.key = original.key;
+        this.parentKey = original.parentKey;
+        this.monthlyBudget = original.monthlyBudget.clone();
+        this.flags = original.flags;
+        for (Category cat : original.getChildren()) {
+            children.add(new Category(cat));
+        }
+        for (Operation op : original.operations) {
+            operations.add(new Operation(op));
+        }
+    }
+
     Category(String name, int key) {
 
         this.name = name;
@@ -88,15 +102,19 @@ class Category {
         return name;
     }
 
-    public List<Category> getChildren() {
+    List<Category> getChildren() {
         return children;
     }
 
     void filterForMonth(int month) {
-        for (int i = operations.size() - 1; i >= 0; i++) {
+        for (int i = operations.size() - 1; i >= 0; i--) {
             if (operations.get(i).getDate().getMonth() != month) {
                 operations.remove(i);
             }
         }
+    }
+
+    boolean hasChild() {
+        return getChildren().size() > 0;
     }
 }
