@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
 import com.dropbox.chooser.android.DbxChooser;
 import org.w3c.dom.Document;
@@ -26,7 +27,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BudgetSummaryActivity extends AppCompatActivity {
+public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
     static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
@@ -46,7 +47,7 @@ public class BudgetSummaryActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -83,7 +84,7 @@ public class BudgetSummaryActivity extends AppCompatActivity {
         }
     }
 
-    private void updateView() {//fixme not working (yet)
+    private void updateView() {
         MyViewAdapter myViewAdapter = new MyViewAdapter(this, categoryMapper.getCategories());
 
         //get reference to the ExpandableListView
@@ -92,7 +93,26 @@ public class BudgetSummaryActivity extends AppCompatActivity {
         listAdapter = new MyViewAdapter(BudgetSummaryActivity.this, categoryMapper.getCategories());
         //attach the adapter to the list
         expandableListView.setAdapter(listAdapter);
-        categoryMapper.filterForMonth(2);
+//        categoryMapper.filterForMonth(2);
+        expandAll();
+    }
+
+
+    //method to collapse all groups
+    private void collapseAll() {
+        int count = listAdapter.getGroupCount();
+        for (int i = 0; i < count; i++) {
+            expandableListView.collapseGroup(i);
+        }
+    }
+
+
+    //method to expand all groups
+    private void expandAll() {
+        int count = listAdapter.getGroupCount();
+        for (int i = 0; i < count; i++) {
+            expandableListView.expandGroup(i);
+        }
     }
 
     private void parseFile(Uri fileUri) throws SAXException, IOException, ParserConfigurationException {
@@ -155,5 +175,9 @@ public class BudgetSummaryActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
     }
 }

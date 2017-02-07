@@ -11,28 +11,18 @@ import java.util.List;
 
 public class MyViewAdapter extends BaseExpandableListAdapter {
     private final LayoutInflater inflater;
-    private Context context;
     private List<Category> groupList;
 
-    public MyViewAdapter(Context context, List<Category> initialList) {
-        this.context = context;
+    MyViewAdapter(Context context, List<Category> initialList) {
         this.groupList = initialList;
         this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-//            view = inflater.inflate(R.id.category_row, null);
-//        }
-//        final Category item = (Category) getGroup(i);
-//        TextView textView = (TextView) view;
-//        textView.setText(item.toString());
-//        return view;
         Category cat = (Category) getGroup(i);
         if (view == null) {
-            LayoutInflater inf = (LayoutInflater)
-                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inf.inflate(R.layout.group_heading, null);
+            view = inflater.inflate(R.layout.group_heading, null);
         }
 
         TextView heading = (TextView) view.findViewById(R.id.heading);
@@ -43,18 +33,9 @@ public class MyViewAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int i, int j, boolean isLastChild, View view, ViewGroup viewGroup) {
-//        if (view == null) {
-//            view = inflater.inflate(R.id.item_row, null);
-//        }
-//        final Category item = (Category) getGroup(i);
-//        TextView textView = (TextView) view;
-//        textView.setText(item.toString());
-
-        Operation operation = (Operation) getChild(i, j);
+        Category operation = (Category) getChild(i, j);
         if (view == null) {
-            LayoutInflater infalInflater = (LayoutInflater)
-                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = infalInflater.inflate(R.layout.child_row, null);
+            view = inflater.inflate(R.layout.child_row, null);
         }
 
         TextView sequence = (TextView) view.findViewById(R.id.sequence);
@@ -103,9 +84,5 @@ public class MyViewAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int i, int i1) {
         return true;
-    }
-
-    private static final class ViewHolder {
-        TextView textLabel;
     }
 }
