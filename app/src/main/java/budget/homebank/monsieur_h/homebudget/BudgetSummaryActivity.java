@@ -3,6 +3,7 @@ package budget.homebank.monsieur_h.homebudget;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -59,20 +60,23 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             }
         });
 
-//        Uri lastFile = Uri.parse(getPreferences(MODE_PRIVATE).getString("lastFile", ""));
-//        try {
-//            parseFile(lastFile);
-//            updateView();
-//        } catch (SAXException | IOException | ParserConfigurationException e) {
-//            e.printStackTrace();
-//            Log.e("Shit", "shit");
-//        }
+        try {
+            Uri lastFile = Uri.parse(getPreferences(MODE_PRIVATE).getString("lastFile", ""));
+            parseFile(lastFile);
+            updateView();
+            Log.d("DEBUG", "Parsed last file automatically");
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+            e.printStackTrace();
+            Log.e("Shit", "shit");
+        }
     }
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
+            int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION & Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
+//            getContentResolver().takePersistableUriPermission(fileUri, flags);
             fileUri = data.getData();
             try {
                 getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
@@ -110,7 +114,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     }
 
     private void parseFile(Uri fileUri) throws SAXException, IOException, ParserConfigurationException {
-        InputStream fileInputStream = getApplicationContext().getContentResolver().openInputStream(fileUri);
+        InputStream fileInputStream = this.getContentResolver().openInputStream(fileUri);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(false);
         dbf.setValidating(false);
@@ -128,7 +132,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             operationList.add(operationFactory.fromNode(operations.item(i)));
         }
         categoryMapper.addOperations(operationList);
-        Log.d("CAT", categoryMapper.toString());
     }
 
     @Override
@@ -151,11 +154,20 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         }
 
         if (id == R.id.link_local_file) {
-            Intent getXhbFileIntent = new Intent();
-            getXhbFileIntent.setAction(Intent.ACTION_GET_CONTENT);
-            getXhbFileIntent.setType("*/*");
+            Intent readFileIntent = new Intent();
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+                readFileIntent.setAction(Intent.ACTION_GET_CONTENT);
+
+            } else {
+                readFileIntent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+                readFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
+            }
+
+
+            readFileIntent.setType("*/*");
             try {
-                startActivityForResult(getXhbFileIntent, LOCAL_CHOOSE_FILE_REQUEST);
+                startActivityForResult(readFileIntent, LOCAL_CHOOSE_FILE_REQUEST);
             } catch (ActivityNotFoundException e) {
 
 //                Snackbar.make(this.findViewById(R.id.app_bar), "No file manager", Snackbar.LENGTH_LONG)
