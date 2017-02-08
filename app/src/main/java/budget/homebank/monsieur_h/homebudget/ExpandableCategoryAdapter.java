@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class MyViewAdapter extends BaseExpandableListAdapter {
+public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     private final LayoutInflater inflater;
+    private final int month;
     private List<Category> groupList;
 
-    MyViewAdapter(Context context, List<Category> initialList) {
+    ExpandableCategoryAdapter(Context context, List<Category> initialList, int month) {
         this.groupList = initialList;
         this.inflater = LayoutInflater.from(context);
+        this.month = month;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class MyViewAdapter extends BaseExpandableListAdapter {
         }
 
         TextView heading = (TextView) view.findViewById(R.id.heading);
-        heading.setText(cat.getName());
+        heading.setText(cat.getName() + " " + cat.getMonthlyExpense(month));
 
         return view;
     }
@@ -41,7 +43,8 @@ public class MyViewAdapter extends BaseExpandableListAdapter {
         TextView sequence = (TextView) view.findViewById(R.id.sequence);
         sequence.setText(category.getName());
         TextView childItem = (TextView) view.findViewById(R.id.childitem);
-        childItem.setText("" + category.getKey());
+
+        childItem.setText(String.format("%fe", category.getMonthlyExpense(month)));
 
         return view;
     }

@@ -23,6 +23,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
@@ -32,7 +33,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private final CategoryMapper categoryMapper = new CategoryMapper();
     private final OperationFactory operationFactory = new OperationFactory();
     private ExpandableListView expandableListView;
-    private MyViewAdapter listAdapter;
+    private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
     private boolean expanded;
 
@@ -91,7 +92,9 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     }
 
     private void updateView() {
-        listAdapter = new MyViewAdapter(BudgetSummaryActivity.this, categoryMapper.getTopLevelCategoriesForMonth(2));
+        int month = Calendar.getInstance().getTime().getMonth();
+        Log.d("MONTH", "" + month);
+        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, categoryMapper.getTopLevelCategoriesForMonth(month), month);
         expandableListView.setAdapter(listAdapter);
     }
 

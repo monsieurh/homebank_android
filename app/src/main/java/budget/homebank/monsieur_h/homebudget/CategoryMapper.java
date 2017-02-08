@@ -13,6 +13,28 @@ public class CategoryMapper {
     private List<Category> categories = new ArrayList<>();
     private Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
 
+    List<Category> getTopLevelCategoriesForMonth(int month) {
+        List<Category> topLevel = new ArrayList<>();
+        for (Category category : categories) {
+            Category filtered = new Category(category);
+            filtered.filterForMonth(month);
+            if (filtered.hasChild()) {
+                topLevel.add(filtered);
+            }
+        }
+        return topLevel;
+    }
+
+    List<Category> getTopLevelCategories() {
+        List<Category> topLevel = new ArrayList<>();
+        for (Category category : categories) {
+            if (category.hasChild()) {
+                topLevel.add(category);
+            }
+        }
+        return topLevel;
+    }
+
     void linkParents() {
         for (Category child : categories) {
             if (child.getParentKey() != 0) {
@@ -106,27 +128,5 @@ public class CategoryMapper {
                 categories.remove(i);
             }
         }
-    }
-
-    List<Category> getTopLevelCategoriesForMonth(int month) {
-        List<Category> topLevel = new ArrayList<>();
-        for (Category category : categories) {
-            Category filtered = new Category(category);
-            filtered.filterForMonth(month);
-            if (filtered.hasChild()) {
-                topLevel.add(filtered);
-            }
-        }
-        return topLevel;
-    }
-
-    List<Category> getTopLevelCategories() {
-        List<Category> topLevel = new ArrayList<>();
-        for (Category category : categories) {
-            if (category.hasChild()) {
-                topLevel.add(category);
-            }
-        }
-        return topLevel;
     }
 }

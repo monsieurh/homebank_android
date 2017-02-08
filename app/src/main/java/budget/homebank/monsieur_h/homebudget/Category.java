@@ -7,7 +7,8 @@ class Category {
     private final String name;
     private final int key;
     private int parentKey;
-    private float[] monthlyBudget = new float[13];
+    private float[] monthlyBudget = new float[12];
+    private float defaultMonthlyBudget = 0f;
     private List<Category> children = new ArrayList<>();
     private int flags;
     private List<Operation> operations = new ArrayList<>();
@@ -17,6 +18,7 @@ class Category {
         this.key = original.key;
         this.parentKey = original.parentKey;
         this.monthlyBudget = original.monthlyBudget.clone();
+        this.defaultMonthlyBudget = original.defaultMonthlyBudget;
         this.flags = original.flags;
         for (Category cat : original.getChildren()) {
             children.add(new Category(cat));
@@ -48,14 +50,16 @@ class Category {
     void setBudget(int month, float amount) {
         if (month == 0) {
             setDefaultMonthlyBudget(amount);
+        } else {
+            monthlyBudget[month - 1] = amount;// '-1' because January is 0 to me, but 1 to Homebank
         }
-        monthlyBudget[month] = amount;
     }
 
     private void setDefaultMonthlyBudget(float amount) {
-        for (int i = 0; i <= 12; i++) {
+        for (int i = 0; i < 12; i++) {
             monthlyBudget[i] = amount;
         }
+        defaultMonthlyBudget = amount;
     }
 
     void addOperation(Operation operation) {
@@ -85,6 +89,9 @@ class Category {
             if (ope.getDate().getMonth() == month) {
                 sum += ope.getAmount();
             }
+        }
+        for (Category child : getChildren()) {
+            sum += child.getMonthlyExpense(month);
         }
         return (float) sum;
     }
