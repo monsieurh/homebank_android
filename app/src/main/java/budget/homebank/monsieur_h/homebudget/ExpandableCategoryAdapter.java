@@ -1,10 +1,12 @@
 package budget.homebank.monsieur_h.homebudget;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -22,13 +24,34 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-        Category cat = (Category) getGroup(i);
+        Category category = (Category) getGroup(i);
         if (view == null) {
             view = inflater.inflate(R.layout.group_heading, null);
         }
 
         TextView heading = (TextView) view.findViewById(R.id.heading);
-        heading.setText(cat.getName() + " " + cat.getMonthlyExpense(month));
+        heading.setText(category.getName());
+
+        TextView amount = (TextView) view.findViewById(R.id.heading_amount);
+        float budget = category.getMonthlyBudget(month);
+        float expense = category.getMonthlyExpense(month);
+        float whatsLeft = budget - expense;
+
+        amount.setText(String.format("%.2f", whatsLeft));
+
+        ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
+        int progress = (int) (category.getMonthlyExpenseRatio(month) * Category.PROGRESS_PRECISION);
+        progress = Math.abs(progress);
+        bar.setProgress(progress);
+
+        TextView summary = (TextView) view.findViewById(R.id.summary);
+        summary.setText(String.format("%d%%", progress));
+
+        if (progress > 100) {
+            bar.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+        } else {
+            bar.getProgressDrawable().setColorFilter(Color.rgb(0, 200, 0), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
 
         return view;
     }
@@ -44,7 +67,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         sequence.setText(category.getName());
         TextView childItem = (TextView) view.findViewById(R.id.childitem);
 
-        childItem.setText(String.format("%fe", category.getMonthlyExpense(month)));
+        childItem.setText(String.format("%.2fe", category.getMonthlyExpense(month)));
 
         return view;
     }

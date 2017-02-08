@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Category {
+    static final int PROGRESS_PRECISION = 100;
     private final String name;
     private final int key;
     private int parentKey;
@@ -80,7 +81,15 @@ class Category {
     }
 
     float getMonthlyBudget(int month) {
-        return monthlyBudget[month];
+        float monthly = monthlyBudget[month];
+        if (monthly != 0) {
+            return monthly;
+        } else {
+            for (Category child : getChildren()) {
+                monthly += child.getMonthlyBudget(month);
+            }
+            return monthly;
+        }
     }
 
     float getMonthlyExpense(int month) {
