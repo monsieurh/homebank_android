@@ -25,6 +25,10 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         Category category = (Category) getGroup(i);
+        float budget = category.getMonthlyBudget(month);
+        float expense = category.getMonthlyExpense(month);
+        float whatsLeft = (budget - expense) * 1f;
+
         if (view == null) {
             view = inflater.inflate(R.layout.group_heading, null);
         }
@@ -33,11 +37,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         heading.setText(category.getName());
 
         TextView amount = (TextView) view.findViewById(R.id.heading_amount);
-        float budget = category.getMonthlyBudget(month);
-        float expense = category.getMonthlyExpense(month);
-        float whatsLeft = budget - expense;
-
-        amount.setText(String.format("%.2f", whatsLeft));
+        amount.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
         int progress = (int) (category.getMonthlyExpenseRatio(month) * Category.PROGRESS_PRECISION);
@@ -59,16 +59,29 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int i, int j, boolean isLastChild, View view, ViewGroup viewGroup) {
         Category category = (Category) getChild(i, j);
+        float budget = category.getMonthlyBudget(month);
+        float expense = category.getMonthlyExpense(month);
+        float whatsLeft = (budget - expense) * 1f;
         if (view == null) {
             view = inflater.inflate(R.layout.child_row, null);
         }
 
         TextView sequence = (TextView) view.findViewById(R.id.sequence);
         sequence.setText(category.getName());
+
         TextView childItem = (TextView) view.findViewById(R.id.childitem);
+        childItem.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
-        childItem.setText(String.format("%.2fe", category.getMonthlyExpense(month)));
+        ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);
+        int progress = (int) (category.getMonthlyExpenseRatio(month) * Category.PROGRESS_PRECISION);
+        progress = Math.abs(progress);
+        bar.setProgress(progress);
 
+        if (progress > 100) {
+            bar.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+        } else {
+            bar.getProgressDrawable().setColorFilter(Color.rgb(0, 200, 0), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
         return view;
     }
 

@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-        >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sequence"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:padding="16sp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            />
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
+
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sequence"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp"
+                android:paddingTop="8sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                />
+
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/childitem"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@id/sequence"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp"
+                android:paddingTop="8sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_alignParentRight="true"
+                android:textAlignment="viewEnd"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/childitem"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/sequence"
-            android:padding="16sp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_alignParentRight="true"
-            android:textAlignment="viewEnd"/>
-</RelativeLayout>
+            android:id="@+id/child_progress"
+            android:paddingLeft="36sp"
+            android:paddingRight="36sp"
+            android:paddingBottom="8sp"/>
+
+
+</LinearLayout>

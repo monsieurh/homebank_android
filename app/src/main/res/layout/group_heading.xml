@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/progress"
             android:max="100"
+            android:paddingBottom="16sp"
             android:progress="0"/>
 
 </LinearLayout>
