@@ -1,12 +1,10 @@
 package budget.homebank.monsieur_h.homebudget;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
-import com.dropbox.chooser.android.DbxChooser;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -30,14 +27,13 @@ import java.util.List;
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
-    static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
-    private static final String DBX_APP_KEY = "ktvth6u26gs18v4";
-    private static final String DBX_APP_SECRET = "jwed8hoj12jldlv";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private final CategoryMapper categoryMapper = new CategoryMapper();
     private final OperationFactory operationFactory = new OperationFactory();
     private ExpandableListView expandableListView;
     private MyViewAdapter listAdapter;
+    private Uri fileUri;
+    private boolean expanded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,37 +43,39 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         setSupportActionBar(toolbar);
 
         expandableListView = (ExpandableListView) findViewById(R.id.myList);
-//        expandableListView.setGroupIndicator(null);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                if (expanded) {
+                    collapseAll();
+                } else {
+                    expandAll();
+                }
+                expanded = !expanded;
             }
         });
+
+//        Uri lastFile = Uri.parse(getPreferences(MODE_PRIVATE).getString("lastFile", ""));
+//        try {
+//            parseFile(lastFile);
+//            updateView();
+//        } catch (SAXException | IOException | ParserConfigurationException e) {
+//            e.printStackTrace();
+//            Log.e("Shit", "shit");
+//        }
     }
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == DBX_CHOOSE_FILE_REQUEST && resultCode == Activity.RESULT_OK) {
-            DbxChooser.Result result = new DbxChooser.Result(data);
+        if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
+            fileUri = data.getData();
             try {
-                parseFile(result.getLink());
-                updateView();
-            } catch (SAXException | IOException | ParserConfigurationException e) {
-                e.printStackTrace();
-            }
-            Log.d("main", "Link to selected file: " + result.getLink());
-        } else if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
-            Uri fileUri = data.getData();
-            Log.d("main", "Found file " + fileUri);
-            try {
+                getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
                 parseFile(fileUri);
                 updateView();
             } catch (IOException | ParserConfigurationException | SAXException e) {
@@ -91,7 +89,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private void updateView() {
         listAdapter = new MyViewAdapter(BudgetSummaryActivity.this, categoryMapper.getTopLevelCategoriesForMonth(2));
         expandableListView.setAdapter(listAdapter);
-//        expandAll();
     }
 
 
@@ -150,12 +147,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
-        }
-
-        if (id == R.id.link_dropbox_file) {
-            DbxChooser mChooser = new DbxChooser(DBX_APP_KEY);
-            mChooser.forResultType(DbxChooser.ResultType.FILE_CONTENT).launch(BudgetSummaryActivity.this, DBX_CHOOSE_FILE_REQUEST);
             return true;
         }
 

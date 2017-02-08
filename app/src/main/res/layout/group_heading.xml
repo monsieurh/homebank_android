@@ -9,7 +9,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/heading"
             android:paddingLeft="35sp"
+            android:paddingTop="16sp"
+            android:paddingBottom="16sp"
+            android:paddingRight="16sp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
-            />
+            android:textSize="24sp"/>
 </LinearLayout>

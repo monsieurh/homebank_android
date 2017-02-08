@@ -11,7 +11,7 @@
             android:id="@+id/sequence"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:paddingRight="16sp"
+            android:padding="16sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             />
 
@@ -22,7 +22,7 @@
             android:id="@+id/childitem"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/sequence"
-            android:paddingLeft="16sp"
+            android:padding="16sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_alignParentRight="true"
             android:textAlignment="viewEnd"/>

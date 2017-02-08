@@ -7,9 +7,6 @@
             android:orderInCategory="100"
             android:title="@string/action_settings"
             app:showAsAction="never"/>
-    <item
-            android:title="@string/link_dropbox_file"
-            android:id="@+id/link_dropbox_file"/>
     <item android:title="@string/link_local_file"
           android:id="@+id/link_local_file"/>
 
