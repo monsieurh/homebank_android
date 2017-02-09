@@ -21,6 +21,17 @@ class OperationFactory {
             operation.setCategoryKey(Integer.parseInt(category.getNodeValue()));
         }
 
+        Node wording = attributes.getNamedItem("wording");
+        if (wording != null) {
+            operation.setWording(wording.getNodeValue());
+        }
+
+        Node flags = attributes.getNamedItem("flags");
+        if (flags != null) {
+            operation.setFlags(Integer.parseInt(flags.getNodeValue()));
+        }
+
+
         return operation;
     }
 }

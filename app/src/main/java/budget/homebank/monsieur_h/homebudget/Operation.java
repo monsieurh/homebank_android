@@ -7,6 +7,8 @@ class Operation {
     private final int accountKey;
     private final Date date;
     private int categoryKey;
+    private String wording;
+    private int flags;
 
     Operation(float amount, int accountKey, Date date) {
 
@@ -38,4 +40,18 @@ class Operation {
     float getAmount() {
         return amount;
     }
+
+    public void setWording(String wording) {
+        this.wording = wording;
+    }
+
+    public void setFlags(int flags) {
+        this.flags = flags;
+    }
+
+    public boolean hasFlag(int flags) {
+        return (this.flags & flags) != 0;
+    }
+
+    s
 }

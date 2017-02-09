@@ -133,4 +133,8 @@ class Category {
     boolean hasChild() {
         return getChildren().size() > 0;
     }
+
+    public boolean hasFlag(int flags) {
+        return (this.flags & flags) != 0;
+    }
 }
