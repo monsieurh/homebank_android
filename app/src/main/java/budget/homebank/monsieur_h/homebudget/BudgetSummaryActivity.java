@@ -66,9 +66,8 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             parseFile(lastFile);
             updateView();
             Log.d("DEBUG", "Parsed last file automatically");
-        } catch (SAXException | IOException | ParserConfigurationException e) {
+        } catch (SAXException | IOException | ParserConfigurationException | SecurityException e) {
             e.printStackTrace();
-            Log.e("Shit", "shit");
         }
     }
 

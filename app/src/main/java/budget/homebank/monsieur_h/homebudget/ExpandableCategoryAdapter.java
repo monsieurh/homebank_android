@@ -44,9 +44,6 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         progress = Math.abs(progress);
         bar.setProgress(progress);
 
-        TextView summary = (TextView) view.findViewById(R.id.summary);
-        summary.setText(String.format("%d%%", progress));
-
         if (progress > 100) {
             bar.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
         } else {

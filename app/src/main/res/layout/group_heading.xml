@@ -34,15 +34,6 @@
 
     </RelativeLayout>
 
-    <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/summary"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textAlignment="center"
-            android:textStyle="normal|italic"/>
-
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
