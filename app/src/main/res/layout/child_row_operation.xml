@@ -4,9 +4,52 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:text="TextView"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/operation_header"/>
+            android:layout_height="match_parent">
+
+
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/operation_payee"/>
+
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/operation_payee"
+                android:id="@+id/operation_balance"
+                android:textAlignment="viewEnd"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/operation_date"/>
+
+        <TextView
+                android:text=""
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/operation_date"
+                android:id="@+id/operation_wording"
+                android:textStyle="normal|italic"
+                android:textAlignment="viewEnd"/>
+    </RelativeLayout>
+
 </LinearLayout>

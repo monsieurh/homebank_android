@@ -18,6 +18,8 @@ public class OperationListActivity extends AppCompatActivity {
         month = getIntent().getExtras().getInt("MONTH");
         category = BudgetSummaryActivity.categoryMapper.find(category_key);
         category.filterForMonth(month);
+
+        setTitle(category.getName());
         operationListView = (ListView) findViewById(R.id.operation_list);
         operationListView.setAdapter(new OperationListAdapter(OperationListActivity.this, category, month));
     }

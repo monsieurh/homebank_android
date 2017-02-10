@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+
 public class OperationListAdapter implements ListAdapter {
     private final Context context;
     private final Category category;
@@ -27,9 +29,18 @@ public class OperationListAdapter implements ListAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.child_row_operation, null);
         }
-        TextView text = (TextView) convertView.findViewById(R.id.operation_header);
-        text.setText("" + operation.getAmount());
+        TextView text = (TextView) convertView.findViewById(R.id.operation_payee);
+        text.setText("Name of the payee");
 
+        TextView balanceView = (TextView) convertView.findViewById(R.id.operation_balance);
+        balanceView.setText("" + operation.getAmount());
+
+        TextView dateView = (TextView) convertView.findViewById(R.id.operation_date);
+        dateView.setText(SimpleDateFormat.getDateInstance().format(operation.getDate()));
+
+
+        TextView wordingView = (TextView) convertView.findViewById(R.id.operation_wording);
+        wordingView.setText(operation.getWording());
         return convertView;
     }
 

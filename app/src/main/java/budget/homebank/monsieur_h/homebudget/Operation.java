@@ -41,15 +41,19 @@ class Operation {
         return amount;
     }
 
-    public void setWording(String wording) {
-        this.wording = wording;
-    }
-
     public void setFlags(int flags) {
         this.flags = flags;
     }
 
     public boolean hasFlag(int flags) {
         return (this.flags & flags) != 0;
+    }
+
+    public String getWording() {
+        return wording;
+    }
+
+    public void setWording(String wording) {
+        this.wording = wording;
     }
 }
