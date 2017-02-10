@@ -1,9 +1,10 @@
 package budget.homebank.monsieur_h.homebudget;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-class Category {
+class Category implements Serializable {
     static final int PROGRESS_PRECISION = 100;
     private final String name;
     private final int key;
@@ -12,6 +13,8 @@ class Category {
     private float defaultMonthlyBudget = 0f;
     private List<Category> children = new ArrayList<>();
     private int flags;
+
+
     private List<Operation> operations = new ArrayList<>();
 
     Category(Category original) {
@@ -136,5 +139,9 @@ class Category {
 
     public boolean hasFlag(int flags) {
         return (this.flags & flags) != 0;
+    }
+
+    public List<Operation> getOperations() {
+        return operations;
     }
 }

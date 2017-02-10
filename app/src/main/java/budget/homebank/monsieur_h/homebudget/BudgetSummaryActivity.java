@@ -29,8 +29,8 @@ import java.util.List;
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
+    public static final CategoryMapper categoryMapper = new CategoryMapper();
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
-    private final CategoryMapper categoryMapper = new CategoryMapper();
     private final OperationFactory operationFactory = new OperationFactory();
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
@@ -45,7 +45,18 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         setSupportActionBar(toolbar);
 
         expandableListView = (ExpandableListView) findViewById(R.id.myList);
-
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Category child = (Category) listAdapter.getChild(groupPosition, childPosition);
+                Intent intent = new Intent(getBaseContext(), OperationListActivity.class);
+                Log.d("HEY", child.toString());
+                intent.putExtra("CATEGORY_KEY", child.getKey());
+                intent.putExtra("MONTH", listAdapter.getMonth());
+                startActivity(intent);
+                return true;
+            }
+        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new OnClickListener() {
             @Override

@@ -121,4 +121,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int i, int i1) {
         return true;
     }
+
+    public int getMonth() {
+        return month;
+    }
 }

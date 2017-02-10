@@ -52,6 +52,4 @@ class Operation {
     public boolean hasFlag(int flags) {
         return (this.flags & flags) != 0;
     }
-
-    s
 }

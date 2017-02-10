@@ -58,7 +58,7 @@ public class CategoryMapper {
         }
     }
 
-    private Category find(int key) {
+    public Category find(int key) {
         for (Category cat :
                 categories) {
             if (cat.getKey() == key) {
