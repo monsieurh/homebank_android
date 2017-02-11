@@ -54,6 +54,20 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         setSupportActionBar(toolbar);
 
         expandableListView = (ExpandableListView) findViewById(R.id.myList);
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                Category clickedCategory = (Category) listAdapter.getGroup(groupPosition);
+                if (clickedCategory.hasChildren()) {
+                    return false;
+                }
+                Intent intent = new Intent(getBaseContext(), OperationListActivity.class);
+                intent.putExtra("CATEGORY_KEY", clickedCategory.getKey());
+                intent.putExtra("MONTH", listAdapter.getMonth());
+                startActivity(intent);
+                return true;
+            }
+        });
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {

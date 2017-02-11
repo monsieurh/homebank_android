@@ -157,4 +157,8 @@ public class Category implements Serializable {
         this.parent = parent;
         this.parentKey = parent.getKey();
     }
+
+    public boolean hasChildren() {
+        return !getChildren().isEmpty();
+    }
 }
