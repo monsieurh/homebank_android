@@ -59,7 +59,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Category child = (Category) listAdapter.getChild(groupPosition, childPosition);
                 Intent intent = new Intent(getBaseContext(), OperationListActivity.class);
-                Log.d("HEY", child.toString());
                 intent.putExtra("CATEGORY_KEY", child.getKey());
                 intent.putExtra("MONTH", listAdapter.getMonth());
                 startActivity(intent);

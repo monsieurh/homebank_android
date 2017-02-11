@@ -3,6 +3,8 @@ package budget.homebank.monsieur_h.homebudget.homebank;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class HomebankMapper {
@@ -15,13 +17,16 @@ public class HomebankMapper {
     public List<Category> getTopCategoriesForMonthlyBudget(int month) {
         List<Category> topLevel = new ArrayList<>();
         for (Category category : categories) {
-            if (category.getMonthlyBudget(month) == 0 && !category.hasFlag(CategoryFlags.GF_FORCED)) {
+            if (category.getMonthlyBudget(month) == 0 && !category.hasFlag(CategoryFlags.GF_BUDGET)) {
                 continue;
             }
-            Category filtered = new Category(category);
-            filtered.filterForMonth(month);
-            if (filtered.hasChild()) {
-                topLevel.add(filtered);
+            if (category.hasFlag(CategoryFlags.GF_BUDGET)) {
+                Log.e("DEBUG", category.getName() + " is forced !");
+            }
+            Category copy = new Category(category);
+            copy.filterForMonth(month);
+            if (!copy.hasParent()) {
+                topLevel.add(copy);
             }
         }
 
@@ -29,6 +34,12 @@ public class HomebankMapper {
             filterOutNoBudgetAccounts(cat);
         }
 
+        Collections.sort(topLevel, new Comparator<Category>() {
+            @Override
+            public int compare(Category o1, Category o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
         return topLevel;
     }
 

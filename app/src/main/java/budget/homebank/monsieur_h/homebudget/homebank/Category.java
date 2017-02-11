@@ -15,6 +15,7 @@ public class Category implements Serializable {
 
 
     private List<Operation> operations = new ArrayList<>();
+    private Category parent;
 
     Category(Category original) {
         this.name = original.name;
@@ -23,6 +24,7 @@ public class Category implements Serializable {
         this.monthlyBudget = original.monthlyBudget.clone();
         this.defaultMonthlyBudget = original.defaultMonthlyBudget;
         this.flags = original.flags;
+        this.parent = original.parent;
         for (Category cat : original.getChildren()) {
             children.add(new Category(cat));
         }
@@ -44,10 +46,6 @@ public class Category implements Serializable {
     public void setFlags(int flags) {
 
         this.flags = flags;
-    }
-
-    void setParent(Category parent) {
-        this.parentKey = parent.getKey();
     }
 
     public void setBudget(int month, float amount) {
@@ -76,7 +74,6 @@ public class Category implements Serializable {
     int getParentKey() {
         return parentKey;
     }
-
 
     public void setParentKey(int parentKey) {
         this.parentKey = parentKey;
@@ -146,5 +143,18 @@ public class Category implements Serializable {
 
     void removeOperation(Operation o) {
         operations.remove(o);
+    }
+
+    public boolean hasParent() {
+        return !(getParent() == null);
+    }
+
+    public Category getParent() {
+        return parent;
+    }
+
+    void setParent(Category parent) {
+        this.parent = parent;
+        this.parentKey = parent.getKey();
     }
 }
