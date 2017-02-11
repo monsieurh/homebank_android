@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import budget.homebank.monsieur_h.homebudget.R;
+import budget.homebank.monsieur_h.homebudget.Util;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
 import java.util.List;
 
@@ -16,7 +19,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     private final int month;
     private List<Category> groupList;
 
-    ExpandableCategoryAdapter(Context context, List<Category> initialList, int month) {
+    public ExpandableCategoryAdapter(Context context, List<Category> initialList, int month) {
         this.groupList = initialList;
         this.inflater = LayoutInflater.from(context);
         this.month = month;
@@ -40,7 +43,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         amount.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
-        int progress = (int) (category.getMonthlyExpenseRatio(month) * Category.PROGRESS_PRECISION);
+        int progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
         progress = Math.abs(progress);
         bar.setProgress(progress);
 
@@ -70,7 +73,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         childItem.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);
-        int progress = (int) (category.getMonthlyExpenseRatio(month) * Category.PROGRESS_PRECISION);
+        int progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
         progress = Math.abs(progress);
         bar.setProgress(progress);
 

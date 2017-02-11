@@ -1,8 +1,11 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import budget.homebank.monsieur_h.homebudget.R;
+import budget.homebank.monsieur_h.homebudget.adapters.OperationListAdapter;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
 public class OperationListActivity extends AppCompatActivity {
 

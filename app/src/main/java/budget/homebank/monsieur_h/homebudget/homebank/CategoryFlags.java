@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.homebank;
 
 public class CategoryFlags {
     public static int GF_SUB = 1 << 0;

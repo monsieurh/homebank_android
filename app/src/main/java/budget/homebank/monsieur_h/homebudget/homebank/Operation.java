@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.homebank;
 
 import java.util.Date;
 
@@ -35,11 +35,11 @@ public class Operation {
         this.categoryKey = categoryKey;
     }
 
-    Date getDate() {
+    public Date getDate() {
         return date;
     }
 
-    float getAmount() {
+    public float getAmount() {
         return amount;
     }
 

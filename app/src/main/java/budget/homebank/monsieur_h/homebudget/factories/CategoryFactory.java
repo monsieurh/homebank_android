@@ -1,6 +1,6 @@
 package budget.homebank.monsieur_h.homebudget.factories;
 
-import budget.homebank.monsieur_h.homebudget.Category;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 

@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.homebank;
 
 import android.util.Log;
 
@@ -11,7 +11,7 @@ public class HomebankMapper {
     private List<Payee> payees = new ArrayList<>();
     private List<Operation> operations = new ArrayList<>();
 
-    List<Category> getTopLevelCategoriesForMonth(int month) {
+    public List<Category> getTopLevelCategoriesForMonth(int month) {
         List<Category> topLevel = new ArrayList<>();
         for (Category category : categories) {
             Category filtered = new Category(category);
@@ -33,7 +33,7 @@ public class HomebankMapper {
         return topLevel;
     }
 
-    void bindAll() {
+    public void bindAll() {
         for (Category child : categories) {
             if (child.getParentKey() != 0) {
                 Category parent = findCategory(child.getParentKey());
@@ -57,7 +57,7 @@ public class HomebankMapper {
         return null;
     }
 
-    void addOperation(Operation operation) {
+    public void addOperation(Operation operation) {
         operations.add(operation);
 
     }
@@ -73,7 +73,7 @@ public class HomebankMapper {
         return NO_CATEGORY;
     }
 
-    void addCategory(Category category) {
+    public void addCategory(Category category) {
         categories.add(category);
     }
 

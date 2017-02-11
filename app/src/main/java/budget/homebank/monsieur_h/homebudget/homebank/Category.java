@@ -1,11 +1,10 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.homebank;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Category implements Serializable {
-    static final int PROGRESS_PRECISION = 100;
     private final String name;
     private final int key;
     private int parentKey;
@@ -70,7 +69,7 @@ public class Category implements Serializable {
         operations.add(operation);
     }
 
-    int getKey() {
+    public int getKey() {
         return key;
     }
 
@@ -83,7 +82,7 @@ public class Category implements Serializable {
         this.parentKey = parentKey;
     }
 
-    float getMonthlyBudget(int month) {
+    public float getMonthlyBudget(int month) {
         float monthly = monthlyBudget[month];
         if (monthly != 0) {
             return monthly;
@@ -95,7 +94,7 @@ public class Category implements Serializable {
         }
     }
 
-    float getMonthlyExpense(int month) {
+    public float getMonthlyExpense(int month) {
         double sum = 0;
         for (Operation ope : operations) {
             if (ope.getDate().getMonth() == month) {
@@ -108,7 +107,7 @@ public class Category implements Serializable {
         return (float) sum;
     }
 
-    float getMonthlyExpenseRatio(int month) {
+    public float getMonthlyExpenseRatio(int month) {
         return getMonthlyExpense(month) / getMonthlyBudget(month);
     }
 
@@ -121,11 +120,11 @@ public class Category implements Serializable {
         return name;
     }
 
-    List<Category> getChildren() {
+    public List<Category> getChildren() {
         return children;
     }
 
-    void filterForMonth(int month) {
+    public void filterForMonth(int month) {
         for (int i = operations.size() - 1; i >= 0; i--) {
             if (operations.get(i).getDate().getMonth() != month) {
                 operations.remove(i);

@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.homebank;
 
 import java.util.Calendar;
 import java.util.Date;

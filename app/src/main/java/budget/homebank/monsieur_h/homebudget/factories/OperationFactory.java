@@ -1,7 +1,7 @@
 package budget.homebank.monsieur_h.homebudget.factories;
 
-import budget.homebank.monsieur_h.homebudget.HbCompat;
-import budget.homebank.monsieur_h.homebudget.Operation;
+import budget.homebank.monsieur_h.homebudget.homebank.HbCompat;
+import budget.homebank.monsieur_h.homebudget.homebank.Operation;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 

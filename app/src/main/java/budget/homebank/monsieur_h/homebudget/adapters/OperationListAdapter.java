@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.adapters;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -7,17 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import budget.homebank.monsieur_h.homebudget.R;
+import budget.homebank.monsieur_h.homebudget.Util;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
+import budget.homebank.monsieur_h.homebudget.homebank.Operation;
 
 import java.text.SimpleDateFormat;
 
 public class OperationListAdapter implements ListAdapter {
-    private final Context context;
     private final Category category;
     private final LayoutInflater inflater;
     private int month;
 
     public OperationListAdapter(Context context, Category category, int month) {
-        this.context = context;
         this.category = category;
         this.month = month;
         inflater = LayoutInflater.from(context);
@@ -33,7 +35,7 @@ public class OperationListAdapter implements ListAdapter {
         text.setText(operation.getPayee().getName());
 
         TextView balanceView = (TextView) convertView.findViewById(R.id.operation_balance);
-        balanceView.setText("" + operation.getAmount());
+        balanceView.setText(String.format(Util.CURRENCY_FMT, operation.getAmount()));
 
         TextView dateView = (TextView) convertView.findViewById(R.id.operation_date);
         dateView.setText(SimpleDateFormat.getDateInstance().format(operation.getDate()));

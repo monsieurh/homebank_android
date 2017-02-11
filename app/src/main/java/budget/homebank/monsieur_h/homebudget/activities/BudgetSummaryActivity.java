@@ -1,4 +1,4 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.activities;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -14,9 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
+import budget.homebank.monsieur_h.homebudget.R;
+import budget.homebank.monsieur_h.homebudget.adapters.ExpandableCategoryAdapter;
 import budget.homebank.monsieur_h.homebudget.factories.CategoryFactory;
 import budget.homebank.monsieur_h.homebudget.factories.OperationFactory;
 import budget.homebank.monsieur_h.homebudget.factories.PayeeFactory;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
+import budget.homebank.monsieur_h.homebudget.homebank.HomebankMapper;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -30,7 +34,7 @@ import java.util.Calendar;
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
-    public static final HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
+    static final HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private final OperationFactory operationFactory = new OperationFactory();
     private final PayeeFactory payeeFactory = new PayeeFactory();
