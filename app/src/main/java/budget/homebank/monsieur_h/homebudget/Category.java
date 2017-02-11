@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-class Category implements Serializable {
+public class Category implements Serializable {
     static final int PROGRESS_PRECISION = 100;
     private final String name;
     private final int key;
@@ -32,7 +32,7 @@ class Category implements Serializable {
         }
     }
 
-    Category(String name, int key) {
+    public Category(String name, int key) {
 
         this.name = name;
         this.key = key;
@@ -42,7 +42,7 @@ class Category implements Serializable {
         children.add(category);
     }
 
-    void setFlags(int flags) {
+    public void setFlags(int flags) {
 
         this.flags = flags;
     }
@@ -51,7 +51,7 @@ class Category implements Serializable {
         this.parentKey = parent.getKey();
     }
 
-    void setBudget(int month, float amount) {
+    public void setBudget(int month, float amount) {
         if (month == 0) {
             setDefaultMonthlyBudget(amount);
         } else {
@@ -79,7 +79,7 @@ class Category implements Serializable {
     }
 
 
-    void setParentKey(int parentKey) {
+    public void setParentKey(int parentKey) {
         this.parentKey = parentKey;
     }
 

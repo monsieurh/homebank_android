@@ -16,7 +16,7 @@ public class OperationListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_operation_list);
         int category_key = getIntent().getExtras().getInt("CATEGORY_KEY");
         month = getIntent().getExtras().getInt("MONTH");
-        category = BudgetSummaryActivity.categoryMapper.find(category_key);
+        category = BudgetSummaryActivity.HOMEBANK_MAPPER.findCategory(category_key);
         category.filterForMonth(month);
 
         setTitle(category.getName());

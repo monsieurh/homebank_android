@@ -1,10 +1,13 @@
-package budget.homebank.monsieur_h.homebudget;
+package budget.homebank.monsieur_h.homebudget.factories;
 
+import budget.homebank.monsieur_h.homebudget.HbCompat;
+import budget.homebank.monsieur_h.homebudget.Operation;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-class OperationFactory {
-    Operation fromNode(Node operationNode) {
+public class OperationFactory implements HBFactory<Operation> {
+    @Override
+    public Operation fromNode(Node operationNode) {
         NamedNodeMap attributes = operationNode.getAttributes();
 
         String date = attributes.getNamedItem("date").getNodeValue();
@@ -31,6 +34,10 @@ class OperationFactory {
             operation.setFlags(Integer.parseInt(flags.getNodeValue()));
         }
 
+        Node payeeKey = attributes.getNamedItem("payee");
+        if (payeeKey != null) {
+            operation.setPayeeKey(Integer.parseInt(payeeKey.getNodeValue()));
+        }
 
         return operation;
     }

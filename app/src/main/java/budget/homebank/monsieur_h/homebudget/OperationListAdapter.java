@@ -30,7 +30,7 @@ public class OperationListAdapter implements ListAdapter {
             convertView = inflater.inflate(R.layout.child_row_operation, null);
         }
         TextView text = (TextView) convertView.findViewById(R.id.operation_payee);
-        text.setText("Name of the payee");
+        text.setText(operation.getPayee().getName());
 
         TextView balanceView = (TextView) convertView.findViewById(R.id.operation_balance);
         balanceView.setText("" + operation.getAmount());

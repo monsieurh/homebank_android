@@ -2,15 +2,17 @@ package budget.homebank.monsieur_h.homebudget;
 
 import java.util.Date;
 
-class Operation {
+public class Operation {
     private final float amount;
     private final int accountKey;
     private final Date date;
+    private int payeeKey;
     private int categoryKey;
     private String wording;
     private int flags;
+    private Payee payee;
 
-    Operation(float amount, int accountKey, Date date) {
+    public Operation(float amount, int accountKey, Date date) {
 
         this.amount = amount;
         this.accountKey = accountKey;
@@ -29,7 +31,7 @@ class Operation {
         return categoryKey;
     }
 
-    void setCategoryKey(int categoryKey) {
+    public void setCategoryKey(int categoryKey) {
         this.categoryKey = categoryKey;
     }
 
@@ -55,5 +57,21 @@ class Operation {
 
     public void setWording(String wording) {
         this.wording = wording;
+    }
+
+    public int getPayeeKey() {
+        return payeeKey;
+    }
+
+    public void setPayeeKey(int payeeKey) {
+        this.payeeKey = payeeKey;
+    }
+
+    public Payee getPayee() {
+        return payee;
+    }
+
+    public void setPayee(Payee payee) {
+        this.payee = payee;
     }
 }

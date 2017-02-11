@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
+import budget.homebank.monsieur_h.homebudget.factories.CategoryFactory;
+import budget.homebank.monsieur_h.homebudget.factories.OperationFactory;
+import budget.homebank.monsieur_h.homebudget.factories.PayeeFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -22,16 +25,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
-    public static final CategoryMapper categoryMapper = new CategoryMapper();
+    public static final HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private final OperationFactory operationFactory = new OperationFactory();
+    private final PayeeFactory payeeFactory = new PayeeFactory();
+    private final CategoryFactory categoryFactory = new CategoryFactory();
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
@@ -104,7 +107,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private void updateView() {
         int month = Calendar.getInstance().getTime().getMonth();
         Log.d("MONTH", "" + month);
-        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, categoryMapper.getTopLevelCategoriesForMonth(month), month);
+        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HOMEBANK_MAPPER.getTopLevelCategoriesForMonth(month), month);
         expandableListView.setAdapter(listAdapter);
     }
 
@@ -135,16 +138,19 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         Document doc = dbf.newDocumentBuilder().parse(fileInputStream);
         NodeList categories = doc.getElementsByTagName("cat");
         for (int i = 0; i < categories.getLength(); i++) {
-            categoryMapper.addFromNode(categories.item(i));
+            HOMEBANK_MAPPER.addCategory(categoryFactory.fromNode(categories.item(i)));
         }
-        categoryMapper.linkParents();
 
         NodeList operations = doc.getElementsByTagName("ope");
-        List<Operation> operationList = new ArrayList<>();
         for (int i = 0; i < operations.getLength(); i++) {
-            operationList.add(operationFactory.fromNode(operations.item(i)));
+            HOMEBANK_MAPPER.addOperation(operationFactory.fromNode(operations.item(i)));
         }
-        categoryMapper.addOperations(operationList);
+
+        NodeList payees = doc.getElementsByTagName("pay");
+        for (int i = 0; i < payees.getLength(); i++) {
+            HOMEBANK_MAPPER.addPayee(payeeFactory.fromNode(payees.item(i)));
+        }
+        HOMEBANK_MAPPER.bindAll();
     }
 
     @Override
