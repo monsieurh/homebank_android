@@ -136,11 +136,15 @@ public class Category implements Serializable {
         return getChildren().size() > 0;
     }
 
-    public boolean hasFlag(int flags) {
-        return (this.flags & flags) != 0;
+    public boolean hasFlag(int flag) {
+        return (this.flags & flag) != 0;
     }
 
     public List<Operation> getOperations() {
         return operations;
+    }
+
+    void removeOperation(Operation o) {
+        operations.remove(o);
     }
 }

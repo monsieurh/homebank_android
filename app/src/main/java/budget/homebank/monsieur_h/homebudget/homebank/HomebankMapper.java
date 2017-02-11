@@ -10,27 +10,39 @@ public class HomebankMapper {
     private Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
     private List<Payee> payees = new ArrayList<>();
     private List<Operation> operations = new ArrayList<>();
+    private List<Account> accounts = new ArrayList<>();
 
-    public List<Category> getTopLevelCategoriesForMonth(int month) {
+    public List<Category> getTopCategoriesForMonthlyBudget(int month) {
         List<Category> topLevel = new ArrayList<>();
         for (Category category : categories) {
+            if (category.getMonthlyBudget(month) == 0 && !category.hasFlag(CategoryFlags.GF_FORCED)) {
+                continue;
+            }
             Category filtered = new Category(category);
             filtered.filterForMonth(month);
             if (filtered.hasChild()) {
                 topLevel.add(filtered);
             }
         }
+
+        for (Category cat : topLevel) {
+            filterOutNoBudgetAccounts(cat);
+        }
+
         return topLevel;
     }
 
-    List<Category> getTopLevelCategories() {
-        List<Category> topLevel = new ArrayList<>();
-        for (Category category : categories) {
-            if (category.hasChild()) {
-                topLevel.add(category);
+    public void filterOutNoBudgetAccounts(Category currentCat) {
+        for (Category childCat : currentCat.getChildren()) {
+            filterOutNoBudgetAccounts(childCat);
+        }
+
+        for (int i = currentCat.getOperations().size() - 1; i >= 0; i--) {
+            final Operation o = currentCat.getOperations().get(i);
+            if (o.getAccount().hasFlag(AccountFlags.AF_NOBUDGET)) {
+                currentCat.removeOperation(o);
             }
         }
-        return topLevel;
     }
 
     public void bindAll() {
@@ -41,10 +53,24 @@ public class HomebankMapper {
                 child.setParent(parent);
             }
         }
+
         for (Operation op : operations) {
             findCategory(op.getCategoryKey()).addOperation(op);
             op.setPayee(findPayee(op.getPayeeKey()));
+            Account account = findAccount(op.getAccountKey());
+            account.addOperation(op);
+            op.setAccount(account);
         }
+    }
+
+    private Account findAccount(int key) {
+        for (Account a : accounts) {
+            if (a.getKey() == key) {
+                return a;
+            }
+        }
+        Log.e("HBMapper", "Could not find Account " + key);
+        return null;
     }
 
     private Payee findPayee(int key) {
@@ -59,7 +85,6 @@ public class HomebankMapper {
 
     public void addOperation(Operation operation) {
         operations.add(operation);
-
     }
 
     public Category findCategory(int key) {
@@ -87,20 +112,11 @@ public class HomebankMapper {
         return str.toString();
     }
 
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    void filterForMonth(int month) {
-        for (int i = categories.size() - 1; i >= 0; i--) {
-            if (categories.get(i).getMonthlyBudget(month) == 0) {
-                categories.remove(i);
-            }
-        }
-    }
-
     public void addPayee(Payee payee) {
-        Log.d("P", "Adding payee " + payee);
         payees.add(payee);
+    }
+
+    public void addAccount(Account account) {
+        accounts.add(account);
     }
 }

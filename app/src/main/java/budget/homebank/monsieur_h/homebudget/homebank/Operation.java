@@ -11,6 +11,7 @@ public class Operation {
     private String wording;
     private int flags;
     private Payee payee;
+    private Account account;
 
     public Operation(float amount, int accountKey, Date date) {
 
@@ -24,6 +25,7 @@ public class Operation {
         this.accountKey = op.accountKey;
         this.date = op.date;
         this.categoryKey = op.categoryKey;
+        this.account = op.account;
     }
 
 
@@ -73,5 +75,17 @@ public class Operation {
 
     public void setPayee(Payee payee) {
         this.payee = payee;
+    }
+
+    public int getAccountKey() {
+        return accountKey;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

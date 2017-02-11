@@ -31,6 +31,10 @@ public class OperationListAdapter implements ListAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.child_row_operation, null);
         }
+
+        TextView operation_account_name = (TextView) convertView.findViewById(R.id.operation_account_name);
+        operation_account_name.setText(operation.getAccount().getName());
+
         TextView text = (TextView) convertView.findViewById(R.id.operation_payee);
         text.setText(operation.getPayee().getName());
 
@@ -58,12 +62,12 @@ public class OperationListAdapter implements ListAdapter {
 
     @Override
     public boolean areAllItemsEnabled() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled(int position) {
-        return true;
+        return false;
     }
 
     @Override

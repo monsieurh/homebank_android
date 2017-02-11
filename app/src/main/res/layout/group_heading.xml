@@ -16,7 +16,6 @@
                 android:paddingTop="16sp"
                 android:paddingRight="16sp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold"
                 android:textSize="24sp"/>
 
         <TextView
@@ -29,7 +28,6 @@
                 android:paddingRight="16sp"
                 android:layout_alignParentRight="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold"
                 android:textSize="24sp"/>
 
     </RelativeLayout>

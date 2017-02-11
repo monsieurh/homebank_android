@@ -14,7 +14,8 @@ public class OperationFactory implements HBFactory<Operation> {
         String accountKey = attributes.getNamedItem("account").getNodeValue();
         String amount = attributes.getNamedItem("amount").getNodeValue();
 
-        Operation operation = new Operation(Float.parseFloat(amount),
+        Operation operation = new Operation(
+                Float.parseFloat(amount),
                 Integer.parseInt(accountKey),
                 HbCompat.julianToDate(Long.parseLong(date))
         );
@@ -38,7 +39,6 @@ public class OperationFactory implements HBFactory<Operation> {
         if (payeeKey != null) {
             operation.setPayeeKey(Integer.parseInt(payeeKey.getNodeValue()));
         }
-
         return operation;
     }
 }

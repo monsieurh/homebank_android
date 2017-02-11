@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.ExpandableCategoryAdapter;
+import budget.homebank.monsieur_h.homebudget.factories.AccountFactory;
 import budget.homebank.monsieur_h.homebudget.factories.CategoryFactory;
 import budget.homebank.monsieur_h.homebudget.factories.OperationFactory;
 import budget.homebank.monsieur_h.homebudget.factories.PayeeFactory;
@@ -38,6 +39,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private final OperationFactory operationFactory = new OperationFactory();
     private final PayeeFactory payeeFactory = new PayeeFactory();
+    private final AccountFactory accountFactory = new AccountFactory();
     private final CategoryFactory categoryFactory = new CategoryFactory();
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
@@ -111,7 +113,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private void updateView() {
         int month = Calendar.getInstance().getTime().getMonth();
         Log.d("MONTH", "" + month);
-        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HOMEBANK_MAPPER.getTopLevelCategoriesForMonth(month), month);
+        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HOMEBANK_MAPPER.getTopCategoriesForMonthlyBudget(month), month);
         expandableListView.setAdapter(listAdapter);
     }
 
@@ -154,6 +156,12 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         for (int i = 0; i < payees.getLength(); i++) {
             HOMEBANK_MAPPER.addPayee(payeeFactory.fromNode(payees.item(i)));
         }
+
+        NodeList accounts = doc.getElementsByTagName("account");
+        for (int i = 0; i < accounts.getLength(); i++) {
+            HOMEBANK_MAPPER.addAccount(accountFactory.fromNode(accounts.item(i)));
+        }
+
         HOMEBANK_MAPPER.bindAll();
     }
 
