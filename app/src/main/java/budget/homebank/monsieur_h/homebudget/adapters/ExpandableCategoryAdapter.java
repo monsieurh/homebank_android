@@ -30,7 +30,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         Category category = (Category) getGroup(i);
         float budget = category.getMonthlyBudget(month);
         float expense = category.getMonthlyExpense(month);
-        float whatsLeft = (budget - expense);
+        float whatsLeft = (budget - expense) * -1;
 
         if (view == null) {
             view = inflater.inflate(R.layout.group_heading, null);
@@ -61,7 +61,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         Category category = (Category) getChild(i, j);
         float budget = category.getMonthlyBudget(month);
         float expense = category.getMonthlyExpense(month);
-        float whatsLeft = (budget - expense);
+        float whatsLeft = (budget - expense) * -1;
         if (view == null) {
             view = inflater.inflate(R.layout.child_row, null);
         }

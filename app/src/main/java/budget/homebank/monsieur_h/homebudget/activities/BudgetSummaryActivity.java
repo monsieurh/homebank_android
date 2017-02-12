@@ -53,7 +53,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        expandableListView = (ExpandableListView) findViewById(R.id.myList);
+        expandableListView = (ExpandableListView) findViewById(R.id.expandable_category_list);
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {

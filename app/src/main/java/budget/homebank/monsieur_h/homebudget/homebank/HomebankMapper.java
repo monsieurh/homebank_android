@@ -10,6 +10,7 @@ import java.util.List;
 public class HomebankMapper {
     private List<Category> categories = new ArrayList<>();
     private Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
+    private Payee NO_PAYEE = new Payee(0, "NO_PAYEE");
     private List<Payee> payees = new ArrayList<>();
     private List<Operation> operations = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
@@ -91,7 +92,7 @@ public class HomebankMapper {
             }
         }
         Log.e("HBMapper", "Could not find Payee " + key);
-        return null;
+        return NO_PAYEE;
     }
 
     public void addOperation(Operation operation) {

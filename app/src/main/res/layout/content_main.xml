@@ -15,7 +15,7 @@
         tools:context="budget.homebank.monsieur_h.homebudget.activities.BudgetSummaryActivity">
 
     <ExpandableListView
-            android:id="@+id/myList"
+            android:id="@+id/expandable_category_list"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"/>
 </RelativeLayout>
