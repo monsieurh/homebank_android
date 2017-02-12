@@ -43,8 +43,13 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         amount.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
-        int progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
-        progress = Math.abs(progress);
+        int progress;
+        if (budget != 0) {
+            progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
+            progress = Math.abs(progress);
+        } else {
+            progress = expense == 0 ? 0 : 101;
+        }
         bar.setProgress(progress);
 
         if (progress > 100) {
@@ -73,8 +78,13 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         childItem.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);
-        int progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
-        progress = Math.abs(progress);
+        int progress;
+        if (budget != 0) {
+            progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
+            progress = Math.abs(progress);
+        } else {
+            progress = expense == 0 ? 0 : 101;
+        }
         bar.setProgress(progress);
 
         if (progress > 100) {
