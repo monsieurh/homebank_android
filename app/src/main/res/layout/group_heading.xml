@@ -15,8 +15,11 @@
                 android:paddingLeft="35sp"
                 android:paddingTop="16sp"
                 android:paddingRight="16sp"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/heading_amount"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="24sp"/>
+                android:textSize="24sp"
+                />
 
         <TextView
                 android:text="TextView"
