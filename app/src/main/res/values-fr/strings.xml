@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HomeBudget</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="montly_budget_activity_title">Budget mensuel</string>
+    <string name="open_dropbox_file">Ouvrir un fichier Dropbox</string>
+    <string name="open_local_file">Ouvrir un fichier local</string>
+</resources>

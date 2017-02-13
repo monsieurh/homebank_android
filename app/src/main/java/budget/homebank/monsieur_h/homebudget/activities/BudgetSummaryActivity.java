@@ -1,11 +1,16 @@
 package budget.homebank.monsieur_h.homebudget.activities;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,6 +27,7 @@ import budget.homebank.monsieur_h.homebudget.factories.OperationFactory;
 import budget.homebank.monsieur_h.homebudget.factories.PayeeFactory;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
 import budget.homebank.monsieur_h.homebudget.homebank.HomebankMapper;
+import com.dropbox.chooser.android.DbxChooser;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -35,8 +41,12 @@ import java.util.Calendar;
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
-    static final HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
+    static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
+    private static final String DBX_APP_KEY = "ktvth6u26gs18v4";
+    private static final String DBX_APP_SECRET = "jwed8hoj12jldlv";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
+    private static final int PERMISSION_CUSTOM_CODE = 16;
+    static HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
     private final OperationFactory operationFactory = new OperationFactory();
     private final PayeeFactory payeeFactory = new PayeeFactory();
     private final AccountFactory accountFactory = new AccountFactory();
@@ -94,6 +104,8 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             }
         });
 
+        checkPerms();
+
         try {
             Uri lastFile = Uri.parse(getPreferences(MODE_PRIVATE).getString("lastFile", ""));
             parseFile(lastFile);
@@ -101,6 +113,42 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             Log.d("DEBUG", "Parsed last file automatically");
         } catch (SAXException | IOException | ParserConfigurationException | SecurityException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean ok = true;
+        for (int p : grantResults) {
+            ok = ok && (p == PackageManager.PERMISSION_GRANTED);
+        }
+        if (!ok) {
+            Log.e("PERMS", "User refused perms, should display error message");//todo
+        }
+
+    }
+
+    private boolean hasPerms() {
+        int perms = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        perms |= ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        perms |= ContextCompat.checkSelfPermission(this, Manifest.permission.MANAGE_DOCUMENTS);
+        return perms != PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void checkPerms() {
+        if (hasPerms()) {
+            Log.e("PERMS", "Missing permissions");
+//                Snackbar.make(this, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.MANAGE_DOCUMENTS
+                    },
+                    PERMISSION_CUSTOM_CODE
+            );
         }
     }
 
@@ -121,6 +169,21 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+
+        if (requestCode == DBX_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
+            DbxChooser.Result result = new DbxChooser.Result(data);
+            fileUri = result.getLink();
+
+            try {//todo:duplicate code refactor
+                getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
+                parseFile(fileUri);
+                updateView();
+            } catch (IOException | ParserConfigurationException | SAXException e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 
     private void updateView() {
@@ -149,6 +212,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     }
 
     private void parseFile(Uri fileUri) throws SAXException, IOException, ParserConfigurationException {
+        HOMEBANK_MAPPER = new HomebankMapper();
         InputStream fileInputStream = this.getContentResolver().openInputStream(fileUri);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(false);
@@ -193,6 +257,12 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == R.id.link_dropbox_file) {
+            DbxChooser mChooser = new DbxChooser(DBX_APP_KEY);
+            mChooser.forResultType(DbxChooser.ResultType.FILE_CONTENT).launch(BudgetSummaryActivity.this, DBX_CHOOSE_FILE_REQUEST);
             return true;
         }
 

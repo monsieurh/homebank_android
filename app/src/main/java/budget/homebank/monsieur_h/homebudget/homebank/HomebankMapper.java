@@ -1,7 +1,5 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,9 +18,6 @@ public class HomebankMapper {
         for (Category category : categories) {
             if (category.getMonthlyBudget(month) == 0 && !category.hasFlag(CategoryFlags.GF_BUDGET)) {
                 continue;
-            }
-            if (category.hasFlag(CategoryFlags.GF_BUDGET)) {
-                Log.e("DEBUG", category.getName() + " is forced !");
             }
             Category copy = new Category(category);
             copy.filterForMonth(month);
@@ -81,7 +76,7 @@ public class HomebankMapper {
                 return a;
             }
         }
-        Log.e("HBMapper", "Could not find Account " + key);
+//        Log.e("HBMapper", "Could not find Account " + key);
         return null;
     }
 
@@ -91,7 +86,7 @@ public class HomebankMapper {
                 return p;
             }
         }
-        Log.e("HBMapper", "Could not find Payee " + key);
+//        Log.e("HBMapper", "Could not find Payee " + key);
         return NO_PAYEE;
     }
 
@@ -106,7 +101,7 @@ public class HomebankMapper {
                 return cat;
             }
         }
-        Log.e("HBMapper", "Could not find Category" + key);
+//        Log.e("HBMapper", "Could not find Category" + key);
         return NO_CATEGORY;
     }
 
