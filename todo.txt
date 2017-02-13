@@ -2,3 +2,6 @@ can't select dropbox with OPEN_FILE?
 back button dans activity 2
 hide unfold button if list empty
 button to inspect list with children
+margin with category list
+fab button
+trier categories par alphabetique
