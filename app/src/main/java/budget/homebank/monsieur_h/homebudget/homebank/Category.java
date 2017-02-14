@@ -161,4 +161,8 @@ public class Category implements Serializable {
     public boolean hasChildren() {
         return !getChildren().isEmpty();
     }
+
+    public boolean hasOperations() {
+        return operations.size() != 0;
+    }
 }

@@ -131,8 +131,14 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public boolean isChildSelectable(int i, int i1) {
-        return true;
+    public boolean isChildSelectable(int i, int j) {
+        Category child = (Category) getChild(i, j);
+        return child.hasOperations();
+    }
+
+    @Override
+    public boolean areAllItemsEnabled() {
+        return false;
     }
 
     public int getMonth() {

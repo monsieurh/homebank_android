@@ -4,9 +4,9 @@ hide unfold button if list empty
 [?]button to inspect list with children
 clickable official site
 ratemyapp shortcut
-margin with category list
+[OK]margin with category list
 [OK]fab button -> remove?
-don't switch to operation view if nothing to see
+[OK]don't switch to operation view if nothing to see
 trier categories par alphabetique
 -0.00
 
@@ -14,4 +14,4 @@ Mail MD:
 - hello
 - thanks
 - icon
-- source ?
+- source / license ?

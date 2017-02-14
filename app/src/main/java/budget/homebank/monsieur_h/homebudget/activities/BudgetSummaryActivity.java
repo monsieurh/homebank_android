@@ -41,8 +41,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
 
 
     static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
-    private static final String DBX_APP_KEY = "ktvth6u26gs18v4";
-    private static final String DBX_APP_SECRET = "jwed8hoj12jldlv";
+    private static final String DBX_APP_KEY = "ljtfuzjpqye9hne";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private static final int PERMISSION_CUSTOM_CODE = 16;
     static HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
@@ -53,7 +52,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
-    private boolean expanded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +65,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 Category clickedCategory = (Category) listAdapter.getGroup(groupPosition);
-                if (clickedCategory.hasChildren()) {
+                if (clickedCategory.hasChildren() || !clickedCategory.hasOperations()) {
                     return false;
                 }
                 Intent intent = new Intent(getBaseContext(), OperationListActivity.class);
@@ -81,6 +79,9 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Category child = (Category) listAdapter.getChild(groupPosition, childPosition);
+                if (!child.hasOperations()) {
+                    return false;
+                }
                 Intent intent = new Intent(getBaseContext(), OperationListActivity.class);
                 intent.putExtra("CATEGORY_KEY", child.getKey());
                 intent.putExtra("MONTH", listAdapter.getMonth());
