@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -87,20 +86,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
                 intent.putExtra("MONTH", listAdapter.getMonth());
                 startActivity(intent);
                 return true;
-            }
-        });
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                if (expanded) {
-                    collapseAll();
-                } else {
-                    expandAll();
-                }
-                expanded = !expanded;
             }
         });
 

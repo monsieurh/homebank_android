@@ -71,10 +71,10 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
             view = inflater.inflate(R.layout.category_row, null);
         }
 
-        TextView sequence = (TextView) view.findViewById(R.id.sequence);
+        TextView sequence = (TextView) view.findViewById(R.id.subcategory);
         sequence.setText(category.getName());
 
-        TextView childItem = (TextView) view.findViewById(R.id.childitem);
+        TextView childItem = (TextView) view.findViewById(R.id.subcategory_whatsleft);
         childItem.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);

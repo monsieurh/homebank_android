@@ -8,7 +8,7 @@
         android:fitsSystemWindows="true"
         tools:context="budget.homebank.monsieur_h.homebudget.activities.BudgetSummaryActivity">
 
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/category_list"/>
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

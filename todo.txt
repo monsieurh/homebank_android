@@ -5,7 +5,8 @@ hide unfold button if list empty
 clickable official site
 ratemyapp shortcut
 margin with category list
-fab button -> remove?
+[OK]fab button -> remove?
+don't switch to operation view if nothing to see
 trier categories par alphabetique
 -0.00
 

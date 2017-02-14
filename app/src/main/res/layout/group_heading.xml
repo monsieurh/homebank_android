@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/heading"
-                android:paddingLeft="35sp"
+                android:paddingLeft="32sp"
                 android:paddingTop="16sp"
                 android:paddingRight="16sp"
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/heading_amount"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="24sp"
-                />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="Category"/>
 
         <TextView
-                android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/heading_amount"
                 android:paddingLeft="16sp"
                 android:paddingTop="16sp"
-                android:paddingRight="16sp"
+                android:paddingRight="32sp"
                 android:layout_alignParentRight="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="24sp"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="+256.00"
+                android:textSize="18sp"/>
 
     </RelativeLayout>
 
@@ -44,6 +44,7 @@
             android:layout_marginLeft="32sp"
             android:layout_marginRight="32sp"
             android:paddingBottom="16sp"
-            android:progress="0"/>
+            android:progress="0"
+            />
 
 </LinearLayout>
