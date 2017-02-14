@@ -2,12 +2,12 @@
 back button dans activity 2
 hide unfold button if list empty
 [?]button to inspect list with children
-clickable official site
-ratemyapp shortcut
+[OK]clickable official site
+[OK]ratemyapp shortcut
 [OK]margin with category list
 [OK]fab button -> remove?
 [OK]don't switch to operation view if nothing to see
-trier categories par alphabetique
+[OK]trier categories par alphabetique
 -0.00
 
 Mail MD:

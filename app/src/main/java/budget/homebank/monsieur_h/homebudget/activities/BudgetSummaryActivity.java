@@ -124,8 +124,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private void checkPerms() {
         if (hasPerms()) {
             Log.e("PERMS", "Missing permissions");
-//                Snackbar.make(this, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             ActivityCompat.requestPermissions(
                     this,
                     new String[]{

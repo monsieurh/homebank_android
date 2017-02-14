@@ -20,12 +20,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:autoLink="web"
                 android:id="@+id/hb"
                 tools:text="@string/about_homebank"
                 android:text="@string/about_homebank"
                 android:clickable="true"
-                android:contextClickable="true"/>
+                android:linksClickable="true"/>
 
         <View
                 android:layout_width="match_parent"

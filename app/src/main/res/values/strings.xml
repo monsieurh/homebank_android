@@ -8,5 +8,5 @@
     <string name="about_homebank">This application is a companion app for Homebank. Homebank is a free accounting software for Linux, Macintosh and Windows copyright of Maxime Doyen. Homebank can be found on <a href="http://homebank.free.fr">its official website</a>.</string>
     <string name="about_companion">The android companion app will only work with an homebank file, and not on its own.</string>
     <string name="about_authors">Homebank is developed Maxime Doyen. Homebank Android Companion is developed by Hubert Ray</string>
-    <string name="about_help">You can help by funding homebank development, or by rating the companion app on the store.</string>
+    <string name="about_help">You can help by funding homebank development, or by <a href="market://details?id=com.monsieur_h">rating the companion app on the store.</a></string>
 </resources>
