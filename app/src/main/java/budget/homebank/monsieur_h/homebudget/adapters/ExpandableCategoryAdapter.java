@@ -68,7 +68,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         float expense = category.getMonthlyExpense(month);
         float whatsLeft = (budget - expense) * -1;
         if (view == null) {
-            view = inflater.inflate(R.layout.child_row, null);
+            view = inflater.inflate(R.layout.category_row, null);
         }
 
         TextView sequence = (TextView) view.findViewById(R.id.sequence);

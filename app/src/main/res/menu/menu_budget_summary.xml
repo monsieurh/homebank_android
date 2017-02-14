@@ -1,17 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="budget.homebank.monsieur_h.homebudget.activities.BudgetSummaryActivity">
-    <item
-            android:id="@+id/action_settings"
-            android:orderInCategory="100"
-            android:title="@string/action_settings"
-            app:showAsAction="never"/>
     <item
             android:title="@string/open_dropbox_file"
             android:id="@+id/link_dropbox_file"/>
     <item
             android:title="@string/open_local_file"
             android:id="@+id/link_local_file"/>
+    <item
+            android:title="@string/about"
+            android:id="@+id/about"/>
 
 </menu>

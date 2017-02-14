@@ -256,8 +256,9 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.about) {
+            Intent about = new Intent(getBaseContext(), AboutActivity.class);
+            startActivity(about);
         }
 
         if (id == R.id.link_dropbox_file) {

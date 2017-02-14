@@ -41,6 +41,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/progress"
             android:max="100"
+            android:layout_marginLeft="32sp"
+            android:layout_marginRight="32sp"
             android:paddingBottom="16sp"
             android:progress="0"/>
 

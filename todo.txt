@@ -1,7 +1,16 @@
-can't select dropbox with OPEN_FILE?
+[OK]can't select dropbox with OPEN_FILE?
 back button dans activity 2
 hide unfold button if list empty
-button to inspect list with children
+[?]button to inspect list with children
+clickable official site
+ratemyapp shortcut
 margin with category list
-fab button
+fab button -> remove?
 trier categories par alphabetique
+-0.00
+
+Mail MD:
+- hello
+- thanks
+- icon
+- source ?
