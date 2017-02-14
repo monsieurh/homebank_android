@@ -19,6 +19,7 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:autoLink="web"
                 android:id="@+id/hb"
                 tools:text="@string/about_homebank"
@@ -37,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/hba"
                 tools:text="@string/about_companion"
-                android:text="@string/about_companion"/>
+                android:text="@string/about_companion"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <View
                 android:layout_width="match_parent"
@@ -50,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/authors"
                 tools:text="@string/about_authors"
-                android:text="@string/about_authors"/>
+                android:text="@string/about_authors"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <View
                 android:layout_width="match_parent"
@@ -63,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/help"
                 tools:text="@string/about_help"
-                android:text="@string/about_help"/>
+                android:text="@string/about_help"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     </LinearLayout>
 </RelativeLayout>
