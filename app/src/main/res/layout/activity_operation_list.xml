@@ -11,7 +11,7 @@
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:dividerHeight="2sp"
-            android:divider="@color/blackBackground"
+            android:focusable="true"
+            android:clickable="false"
             android:id="@+id/operation_list"/>
 </RelativeLayout>
