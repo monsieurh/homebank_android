@@ -1,6 +1,4 @@
 [OK]can't select dropbox with OPEN_FILE?
-back button dans activity 2
-hide unfold button if list empty
 [?]button to inspect list with children
 [OK]clickable official site
 [OK]ratemyapp shortcut
@@ -8,12 +6,9 @@ hide unfold button if list empty
 [OK]fab button -> remove?
 [OK]don't switch to operation view if nothing to see
 [OK]trier categories par alphabetique
+[OK]date off-by-one
+widget
 -0.00
 Opérations ventilées
-[OK]date off-by-one
-
-Mail MD:
-- hello
-- thanks
-- icon
-- source / license ?
+back button dans activity 2
+hide unfold button if list empty
