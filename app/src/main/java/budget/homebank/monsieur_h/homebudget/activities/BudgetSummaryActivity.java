@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -109,9 +110,9 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             ok = ok && (p == PackageManager.PERMISSION_GRANTED);
         }
         if (!ok) {
-            Log.e("PERMS", "User refused perms, should display error message");//todo
+            Log.e("PERMS", "User refused perms, should display error message");
+            Snackbar.make(findViewById(R.id.toolbar), "Perms error ?", Snackbar.LENGTH_SHORT);
         }
-
     }
 
     private boolean hasPerms() {
@@ -175,24 +176,6 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         Log.d("MONTH", "" + month);
         listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HOMEBANK_MAPPER.getTopCategoriesForMonthlyBudget(month), month);
         expandableListView.setAdapter(listAdapter);
-    }
-
-
-    //method to collapse all groups
-    private void collapseAll() {
-        int count = listAdapter.getGroupCount();
-        for (int i = 0; i < count; i++) {
-            expandableListView.collapseGroup(i);
-        }
-    }
-
-
-    //method to expand all groups
-    private void expandAll() {
-        int count = listAdapter.getGroupCount();
-        for (int i = 0; i < count; i++) {
-            expandableListView.expandGroup(i);
-        }
     }
 
     private void parseFile(Uri fileUri) throws SAXException, IOException, ParserConfigurationException {

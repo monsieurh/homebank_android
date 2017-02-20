@@ -19,6 +19,7 @@ public class AboutActivity extends AppCompatActivity {
 
         TextView t2 = (TextView) findViewById(R.id.hb);
         t2.setMovementMethod(LinkMovementMethod.getInstance());
+
         TextView t1 = (TextView) findViewById(R.id.help);
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +29,6 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        t2.setMovementMethod(LinkMovementMethod.getInstance());
+        t1.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
