@@ -9,6 +9,8 @@ hide unfold button if list empty
 [OK]don't switch to operation view if nothing to see
 [OK]trier categories par alphabetique
 -0.00
+Opérations ventilées
+[OK]date off-by-one
 
 Mail MD:
 - hello

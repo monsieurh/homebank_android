@@ -4,10 +4,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-/**
- * Created by hub on 01/02/17.
- */
-
 public class HbCompat {
 
     public static long dateToJulian(Date date) {
@@ -35,7 +31,7 @@ public class HbCompat {
 
         GregorianCalendar calendarDate = new GregorianCalendar();
         calendarDate.setTimeInMillis(0);
-        calendarDate.add(GregorianCalendar.DAY_OF_MONTH, days + 2);
+        calendarDate.add(GregorianCalendar.DAY_OF_MONTH, days + 1);//todo : why +1 ?
 
         return calendarDate.getTime();
     }
