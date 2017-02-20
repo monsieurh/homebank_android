@@ -6,15 +6,9 @@
 [OK]fab button -> remove?
 [OK]don't switch to operation view if nothing to see
 [OK]trier categories par alphabetique
-back button dans activity 2
-divider dans OperationList
-hide unfold button if list empty
+[OK]date off-by-one
 widget
--0.00 should be 0.00
+-0.00
 Opérations ventilées
-
-[OK]Mail MD:
-- hello
-- thanks
-- icon
-- source / license ?
+back button dans activity 2
+hide unfold button if list empty

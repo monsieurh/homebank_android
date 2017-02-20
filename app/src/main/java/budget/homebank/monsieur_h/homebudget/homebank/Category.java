@@ -40,6 +40,7 @@ public class Category implements Serializable {
     }
 
     void addChild(Category category) {
+        if (children.contains(category)) return;
         children.add(category);
     }
 
@@ -64,6 +65,7 @@ public class Category implements Serializable {
     }
 
     void addOperation(Operation operation) {
+        if (operations.contains(operation)) return;
         operations.add(operation);
     }
 

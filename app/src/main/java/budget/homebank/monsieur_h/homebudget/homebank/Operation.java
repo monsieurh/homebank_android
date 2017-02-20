@@ -1,6 +1,8 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Operation {
     private final float amount;
@@ -12,6 +14,7 @@ public class Operation {
     private int flags;
     private Payee payee;
     private Account account;
+    private List<SubOperation> subOperations = new ArrayList<>();
 
     public Operation(float amount, int accountKey, Date date) {
 
@@ -26,6 +29,7 @@ public class Operation {
         this.date = op.date;
         this.categoryKey = op.categoryKey;
         this.account = op.account;
+        this.subOperations.addAll(op.subOperations);
     }
 
 
@@ -87,5 +91,14 @@ public class Operation {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public void setSubOperations(List<SubOperation> split) {
+        subOperations.clear();
+        subOperations.addAll(split);
+    }
+
+    public List<SubOperation> getSuboperations() {
+        return subOperations;
     }
 }

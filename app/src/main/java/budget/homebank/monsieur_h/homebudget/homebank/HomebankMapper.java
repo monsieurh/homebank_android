@@ -67,6 +67,12 @@ public class HomebankMapper {
             Account account = findAccount(op.getAccountKey());
             account.addOperation(op);
             op.setAccount(account);
+            if (op.hasFlag(OperationFlags.OF_SPLIT)) {
+                for (SubOperation sub : op.getSuboperations()) {
+                    Category category = findCategory(sub.categoryKey);
+                    category.addOperation(op);
+                }
+            }
         }
     }
 

@@ -26,10 +26,14 @@
     <color name="filelistItemPressed">#f4faff</color>
     <color name="folderTitleBackground">#e6e7e8</color>
     <color name="folderTitleBackgroundBorder">#a9a9a9</color>
-    <color ns1:default="#000000" ns1:samsung="#ff2b2b2b" name="galleryChromeBackground">#000000</color>
-    <color ns1:default="#cc000000" ns1:samsung="#ff000000" name="galleryChromeTransparencyBackgroundDark">#cc000000</color>
-    <color ns1:default="#99000000" ns1:samsung="#ff0d0d0d" name="galleryChromeTransparencyBackgroundLight">#99000000</color>
-    <color ns1:default="#55007ee5" ns1:samsung="#00000000" name="galleryItemSelectedOverlay">#55007ee5</color>
+    <color ns1:default="#000000" ns1:samsung="#ff2b2b2b" name="galleryChromeBackground">#000000
+    </color>
+    <color ns1:default="#cc000000" ns1:samsung="#ff000000" name="galleryChromeTransparencyBackgroundDark">#cc000000
+    </color>
+    <color ns1:default="#99000000" ns1:samsung="#ff0d0d0d" name="galleryChromeTransparencyBackgroundLight">#99000000
+    </color>
+    <color ns1:default="#55007ee5" ns1:samsung="#00000000" name="galleryItemSelectedOverlay">#55007ee5
+    </color>
     <color name="grayBlueishText">#768195</color>
     <color name="grayButtonText">#111</color>
     <color name="green">#FF00FF00</color>
@@ -68,11 +72,14 @@
     <color name="tourGrayBorder">#999999</color>
     <color name="tourText">#718297</color>
     <color name="tourTitleText">#2a405c</color>
-    <color ns1:default="#E6000000" ns1:samsung="#FF000000" name="translucentBlackBackground">#E6000000</color>
+    <color ns1:default="#E6000000" ns1:samsung="#FF000000" name="translucentBlackBackground">#E6000000
+    </color>
     <color name="translucentFileListMediumGrayText">#E6666666</color>
-    <color ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF" name="translucentWhiteBackground">#E6FFFFFF</color>
+    <color ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF" name="translucentWhiteBackground">#E6FFFFFF
+    </color>
     <color name="translucentWhiteText">#E6FFFFFF</color>
-    <color ns1:default="#AA000000" ns1:samsung="#ff000000" name="videoIconDetailsBackground">#AA000000</color>
+    <color ns1:default="#AA000000" ns1:samsung="#ff000000" name="videoIconDetailsBackground">#AA000000
+    </color>
     <color name="whiteBackground">#FFFFFF</color>
     <color name="whiteText">#ffffff</color>
     <dimen name="appStoreInterstitialMargin">25dp</dimen>
