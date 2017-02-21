@@ -107,7 +107,11 @@ public class Category implements Serializable {
     }
 
     public float getMonthlyExpenseRatio(int month) {
-        return getMonthlyExpense(month) / getMonthlyBudget(month);
+        float monthlyBudget = getMonthlyBudget(month);
+        if (monthlyBudget == 0) {
+            return 0;
+        }
+        return getMonthlyExpense(month) / monthlyBudget;
     }
 
     @Override

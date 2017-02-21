@@ -9,4 +9,7 @@
     <string name="about_companion">The android companion app will only work with an homebank file, and not on its own.</string>
     <string name="about_authors">Homebank is developed Maxime Doyen. Homebank Android Companion is developed by Hubert Ray</string>
     <string name="about_help">You can help by funding homebank development, or by <a href="market://details?id=com.monsieur_h">rating the companion app on the store.</a></string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="widget_budget_message">Budget for</string>
 </resources>

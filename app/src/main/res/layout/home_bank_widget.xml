@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/blackBackground"
+                android:padding="@dimen/widget_margin">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+        <TextView
+                android:id="@+id/appwidget_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/appwidget_text"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/widget_budget_message"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:theme="@style/AppBaseTheme"/>
+
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_progressbar"
+                android:layout_weight="1"
+                android:layout_margin="8sp"
+                android:theme="@style/AppBaseTheme"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
