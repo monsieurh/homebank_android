@@ -26,13 +26,13 @@
     <color name="filelistItemPressed">#f4faff</color>
     <color name="folderTitleBackground">#e6e7e8</color>
     <color name="folderTitleBackgroundBorder">#a9a9a9</color>
-    <color ns1:default="#000000" ns1:samsung="#ff2b2b2b" name="galleryChromeBackground">#000000
+    <color name="galleryChromeBackground" ns1:default="#000000" ns1:samsung="#ff2b2b2b">#000000
     </color>
-    <color ns1:default="#cc000000" ns1:samsung="#ff000000" name="galleryChromeTransparencyBackgroundDark">#cc000000
+    <color name="galleryChromeTransparencyBackgroundDark" ns1:default="#cc000000" ns1:samsung="#ff000000">#cc000000
     </color>
-    <color ns1:default="#99000000" ns1:samsung="#ff0d0d0d" name="galleryChromeTransparencyBackgroundLight">#99000000
+    <color name="galleryChromeTransparencyBackgroundLight" ns1:default="#99000000" ns1:samsung="#ff0d0d0d">#99000000
     </color>
-    <color ns1:default="#55007ee5" ns1:samsung="#00000000" name="galleryItemSelectedOverlay">#55007ee5
+    <color name="galleryItemSelectedOverlay" ns1:default="#55007ee5" ns1:samsung="#00000000">#55007ee5
     </color>
     <color name="grayBlueishText">#768195</color>
     <color name="grayButtonText">#111</color>
@@ -72,13 +72,12 @@
     <color name="tourGrayBorder">#999999</color>
     <color name="tourText">#718297</color>
     <color name="tourTitleText">#2a405c</color>
-    <color ns1:default="#E6000000" ns1:samsung="#FF000000" name="translucentBlackBackground">#E6000000
+    <color name="translucentBlackBackground" ns1:default="#E6000000" ns1:samsung="#FF000000">#E6000000
     </color>
     <color name="translucentFileListMediumGrayText">#E6666666</color>
-    <color ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF" name="translucentWhiteBackground">#E6FFFFFF
-    </color>
+    <color ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF" name="translucentWhiteBackground">#e6ffffff</color>
     <color name="translucentWhiteText">#E6FFFFFF</color>
-    <color ns1:default="#AA000000" ns1:samsung="#ff000000" name="videoIconDetailsBackground">#AA000000
+    <color name="videoIconDetailsBackground" ns1:default="#AA000000" ns1:samsung="#ff000000">#AA000000
     </color>
     <color name="whiteBackground">#FFFFFF</color>
     <color name="whiteText">#ffffff</color>
@@ -115,14 +114,10 @@
     <string name="dbx_update_main">Please Update the Dropbox App</string>
     <string name="dbx_update_sub">With the new Dropbox app, you can access all your stuff in your favorite apps, like this one!</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="BottomBar">
         <item name="android:layout_width">match_parent</item>

@@ -1,8 +1,10 @@
 package budget.homebank.monsieur_h.homebudget.activities;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.RemoteViews;
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
@@ -25,7 +27,7 @@ public class HomeBankWidget extends AppWidgetProvider {
         views.setTextViewText(R.id.appwidget_text, widgetText);
 
         int month = Calendar.getInstance().getTime().getMonth();
-        List<Category> topCategoriesForMonthlyBudget = BudgetSummaryActivity.HOMEBANK_MAPPER.getTopCategoriesForMonthlyBudget(month);
+        List<Category> topCategoriesForMonthlyBudget = BudgetSummaryActivity.HOMEBANK_MAPPER.getTopCategoriesForMonthlyBudget(month);//todo: doesn't work if homebank not open
         float sumRatio = 0;
         for (Category category : topCategoriesForMonthlyBudget) {
             sumRatio += category.getMonthlyExpenseRatio(month);
@@ -33,11 +35,18 @@ public class HomeBankWidget extends AppWidgetProvider {
 
         float progress = sumRatio / topCategoriesForMonthlyBudget.size() * 100;
         views.setProgressBar(R.id.widget_progressbar, 100, (int) progress, false);
-
-        String monthName = (String) android.text.format.DateFormat.format("MMMM", Calendar.getInstance().getTime());
-        String widgetMessage = String.format(Locale.getDefault(), "%s %s : %.2f %%", context.getString(R.string.widget_budget_message), monthName, progress);
+        String widgetMessage = String.format(Locale.getDefault(), "%.2f %%", progress);
         views.setTextViewText(R.id.appwidget_text, widgetMessage);
 
+        views.setImageViewResource(R.id.widget_icon, R.drawable.hb_icon);
+        views.setOnClickPendingIntent(R.id.appwidget_text,
+                PendingIntent.getActivity(
+                        context,
+                        0,
+                        new Intent(context, BudgetSummaryActivity.class),
+                        0
+                )
+        );
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }

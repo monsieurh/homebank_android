@@ -90,7 +90,7 @@
     <color name="folderTitleBackgroundBorder">#a9a9a9</color>
     <color name="translucentWhiteBackground"
            dbxbuild:default="#E6FFFFFF"
-           dbxbuild:samsung="#FFFFFFFF">#E6FFFFFF
+           dbxbuild:samsung="#FFFFFFFF">#e6ffffff
     </color>
     <color name="translucentBlackBackground"
            dbxbuild:default="#E6000000"

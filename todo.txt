@@ -7,14 +7,10 @@
 [OK]don't switch to operation view if nothing to see
 [OK]trier categories par alphabetique
 back button dans activity 2
-divider dans OperationList
+[OK]divider dans OperationList
 hide unfold button if list empty
-widget
+widget bugs if homebank is closed
 -0.00 should be 0.00
-Opérations ventilées
+[TEST]Opérations ventilées
 
 [OK]Mail MD:
-- hello
-- thanks
-- icon
-- source / license ?

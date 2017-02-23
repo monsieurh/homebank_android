@@ -10,5 +10,4 @@
     <string name="about_companion">L\'application compagnion ne fonctionne qu\'avec un fichier Homebank et non pas seule.</string>
     <string name="about_help">Vous pouvez aider en financant le développement de Homebank ou en <a href="market://details?id=com.monsieur_h">notant l\'application compagnon sur le store</a>.</string>
     <string name="about_homebank">"Cette application est une application compagnon pour Homebank. Homebank est un logiciel de comptabilité libre et gratuit pour Linux, Macintosh et Windows, propriété de Maxime Doyen. Homebank peut être téléchargé <a href="http://homebank.free.fr">sur son site officiel</a>. "</string>
-    <string name="widget_budget_message">Budget for</string>
 </resources>
