@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class HomebankMapper {
+public class HomebankHistory {
     private List<Category> categories = new ArrayList<>();
     private Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
     private Payee NO_PAYEE = new Payee(0, "NO_PAYEE");

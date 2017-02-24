@@ -21,21 +21,14 @@ import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.ExpandableCategoryAdapter;
-import budget.homebank.monsieur_h.homebudget.factories.AccountFactory;
-import budget.homebank.monsieur_h.homebudget.factories.CategoryFactory;
-import budget.homebank.monsieur_h.homebudget.factories.OperationFactory;
-import budget.homebank.monsieur_h.homebudget.factories.PayeeFactory;
+import budget.homebank.monsieur_h.homebudget.factories.XhbFileParser;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
-import budget.homebank.monsieur_h.homebudget.homebank.HomebankMapper;
+import budget.homebank.monsieur_h.homebudget.homebank.HomebankHistory;
 import com.dropbox.chooser.android.DbxChooser;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
 
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
@@ -45,11 +38,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private static final String DBX_APP_KEY = "ljtfuzjpqye9hne";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private static final int PERMISSION_CUSTOM_CODE = 16;
-    static HomebankMapper HOMEBANK_MAPPER = new HomebankMapper();
-    private final OperationFactory operationFactory = new OperationFactory();
-    private final PayeeFactory payeeFactory = new PayeeFactory();
-    private final AccountFactory accountFactory = new AccountFactory();
-    private final CategoryFactory categoryFactory = new CategoryFactory();
+    private HomebankHistory HISTORY = new HomebankHistory();
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
@@ -94,8 +83,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         checkPerms();
 
         try {
-            Uri lastFile = Uri.parse(getPreferences(MODE_PRIVATE).getString("lastFile", ""));
-            parseFile(lastFile);
+            HISTORY = XhbFileParser.parseLastfile(this);
             updateView();
             Log.d("DEBUG", "Parsed last file automatically");
         } catch (SAXException | IOException | ParserConfigurationException | SecurityException e) {
@@ -146,7 +134,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             fileUri = data.getData();
             try {
                 getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
-                parseFile(fileUri);
+                HISTORY = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
                 updateView();
             } catch (IOException | ParserConfigurationException | SAXException e) {
                 e.printStackTrace();
@@ -161,7 +149,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
 
             try {//todo:duplicate code refactor
                 getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
-                parseFile(fileUri);
+                HISTORY = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
                 updateView();
             } catch (IOException | ParserConfigurationException | SAXException e) {
                 e.printStackTrace();
@@ -174,39 +162,8 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private void updateView() {
         int month = Calendar.getInstance().getTime().getMonth();
         Log.d("MONTH", "" + month);
-        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HOMEBANK_MAPPER.getTopCategoriesForMonthlyBudget(month), month);
+        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HISTORY.getTopCategoriesForMonthlyBudget(month), month);
         expandableListView.setAdapter(listAdapter);
-    }
-
-    private void parseFile(Uri fileUri) throws SAXException, IOException, ParserConfigurationException {
-        HOMEBANK_MAPPER = new HomebankMapper();
-        InputStream fileInputStream = this.getContentResolver().openInputStream(fileUri);
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setNamespaceAware(false);
-        dbf.setValidating(false);
-
-        Document doc = dbf.newDocumentBuilder().parse(fileInputStream);
-        NodeList categories = doc.getElementsByTagName("cat");
-        for (int i = 0; i < categories.getLength(); i++) {
-            HOMEBANK_MAPPER.addCategory(categoryFactory.fromNode(categories.item(i)));
-        }
-
-        NodeList operations = doc.getElementsByTagName("ope");
-        for (int i = 0; i < operations.getLength(); i++) {
-            HOMEBANK_MAPPER.addOperation(operationFactory.fromNode(operations.item(i)));
-        }
-
-        NodeList payees = doc.getElementsByTagName("pay");
-        for (int i = 0; i < payees.getLength(); i++) {
-            HOMEBANK_MAPPER.addPayee(payeeFactory.fromNode(payees.item(i)));
-        }
-
-        NodeList accounts = doc.getElementsByTagName("account");
-        for (int i = 0; i < accounts.getLength(); i++) {
-            HOMEBANK_MAPPER.addAccount(accountFactory.fromNode(accounts.item(i)));
-        }
-
-        HOMEBANK_MAPPER.bindAll();
     }
 
     @Override

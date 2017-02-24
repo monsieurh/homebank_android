@@ -64,7 +64,7 @@
     <color name="tourBoxText">#000000</color>
 
     <color name="titleBarText">#333333</color>
-    <color name="titleBarTextWhite">#FFFFFF</color>
+    <color name="titleBarTextWhite">#ffffff</color>
 
     <color name="errorText">#bb0000</color>
 

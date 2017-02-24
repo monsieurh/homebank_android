@@ -11,6 +11,29 @@ back button dans activity 2
 hide unfold button if list empty
 widget bugs if homebank is closed
 -0.00 should be 0.00
+
 [TEST]Opérations ventilées
 
-[OK]Mail MD:
+[OK]Mail Maxime Doyen
+
+
+
+# Store page
+Homebank budget companion app
+
+This application is the ideal companion for Homebank. Link it to your homebank file to keep your budget in your pocket !
+Homebank budget companion works with the free and famous Homebank accounting software. If you are using Homebank to keep track of
+your expenses, this application is for you. Else, go ahead and try it, homebank is a free accounting software for Linux, Mac an Windows.
+
+# Github page
+Looking for the application ?
+[It's on the playstore](playstorelink)
+
+# Want to contribute ?
+
+- Help translating
+- Report a bug
+- Review the code
+
+
+gitignore
