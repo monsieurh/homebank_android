@@ -7,7 +7,7 @@ public class Account {
     private final int key;
     private final String name;
     private List<Operation> operations = new ArrayList<Operation>();
-    private int flags;
+    private int flags;//todo:currency
 
     public Account(int key, String name) {
 
@@ -32,7 +32,7 @@ public class Account {
     }
 
     public boolean hasFlag(int flag) {
-        return (this.flags & flag) != 0;//todo extends flaggable !
+        return (this.flags & flag) != 0;
     }
 
     public void addOperation(Operation op) {

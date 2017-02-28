@@ -8,6 +8,7 @@ public class Category implements Serializable {
     private final String name;
     private final int key;
     private int parentKey;
+    private Currency currency;
     private float[] monthlyBudget = new float[12];
     private float defaultMonthlyBudget = 0f;
     private List<Category> children = new ArrayList<>();
@@ -170,5 +171,13 @@ public class Category implements Serializable {
 
     public boolean hasOperations() {
         return operations.size() != 0;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
     }
 }

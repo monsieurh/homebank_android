@@ -6,12 +6,13 @@ import java.util.Comparator;
 import java.util.List;
 
 public class HomebankHistory {
+    private final Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
+    private final Payee NO_PAYEE = new Payee(0, "NO_PAYEE");
     private List<Category> categories = new ArrayList<>();
-    private Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
-    private Payee NO_PAYEE = new Payee(0, "NO_PAYEE");
     private List<Payee> payees = new ArrayList<>();
     private List<Operation> operations = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
+    private XhbProperties properties;
 
     public List<Category> getTopCategoriesForMonthlyBudget(int month) {
         List<Category> topLevel = new ArrayList<>();
@@ -131,5 +132,13 @@ public class HomebankHistory {
 
     public void addAccount(Account account) {
         accounts.add(account);
+    }
+
+    public XhbProperties getProperties() {
+        return properties;
+    }
+
+    public void setProperties(XhbProperties properties) {
+        this.properties = properties;
     }
 }

@@ -3,6 +3,7 @@ package budget.homebank.monsieur_h.homebudget.factories;
 import android.app.Activity;
 import android.net.Uri;
 import budget.homebank.monsieur_h.homebudget.homebank.HomebankHistory;
+import budget.homebank.monsieur_h.homebudget.homebank.XhbProperties;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -46,6 +47,13 @@ public class XhbFileParser {
         for (int i = 0; i < accounts.getLength(); i++) {
             history.addAccount(accountFactory.fromNode(accounts.item(i)));
         }
+
+        XhbProperties props = new XhbProperties.Builder()
+                .setPropertiesNode(doc.getElementsByTagName("properties").item(0))
+                .setHomebankNode(doc.getElementsByTagName("homebank").item(0))
+                .setCurrencyNodes(doc.getElementsByTagName("cur"))
+                .build();
+        history.setProperties(props);
 
         history.bindAll();
         return history;

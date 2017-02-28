@@ -9,8 +9,8 @@
 back button dans activity 2
 [OK]divider dans OperationList
 hide unfold button if list empty
-widget bugs if homebank is closed
 -0.00 should be 0.00
+multi currency
 
 [TEST]Opérations ventilées
 
@@ -28,12 +28,6 @@ your expenses, this application is for you. Else, go ahead and try it, homebank 
 # Github page
 Looking for the application ?
 [It's on the playstore](playstorelink)
-
-# Want to contribute ?
-
-- Help translating
-- Report a bug
-- Review the code
 
 
 gitignore

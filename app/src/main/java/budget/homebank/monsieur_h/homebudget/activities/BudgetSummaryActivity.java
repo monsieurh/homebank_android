@@ -154,8 +154,10 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     }
 
     private void updateView() {
-        int month = Calendar.getInstance().getTime().getMonth();
-        Log.d("MONTH", "" + month);
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        if (HISTORY != null) {
+            setTitle(HISTORY.getProperties().getTitle());
+        }
         listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HISTORY.getTopCategoriesForMonthlyBudget(month), month);
         expandableListView.setAdapter(listAdapter);
     }
