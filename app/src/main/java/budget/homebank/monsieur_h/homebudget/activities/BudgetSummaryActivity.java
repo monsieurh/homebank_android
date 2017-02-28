@@ -34,7 +34,7 @@ import java.util.Calendar;
 public class BudgetSummaryActivity extends AppCompatActivity implements OnClickListener {
 
 
-    static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
+    private static final int DBX_CHOOSE_FILE_REQUEST = 0;  // You can change this if needed
     private static final String DBX_APP_KEY = "ljtfuzjpqye9hne";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private static final int PERMISSION_CUSTOM_CODE = 16;
@@ -132,31 +132,25 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
             int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION & Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
 //            getContentResolver().takePersistableUriPermission(fileUri, flags);
             fileUri = data.getData();
-            try {
-                getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
-                HISTORY = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
-                updateView();
-            } catch (IOException | ParserConfigurationException | SAXException e) {
-                e.printStackTrace();
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
+            onFileSelected();
         }
-
         if (requestCode == DBX_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
             DbxChooser.Result result = new DbxChooser.Result(data);
             fileUri = result.getLink();
 
-            try {//todo:duplicate code refactor
-                getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
-                HISTORY = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
-                updateView();
-            } catch (IOException | ParserConfigurationException | SAXException e) {
-                e.printStackTrace();
-            }
+            onFileSelected();
         }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
-
+    private void onFileSelected() {
+        try {
+            HISTORY = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
+            updateView();
+            getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+            e.printStackTrace();
+        }
     }
 
     private void updateView() {
