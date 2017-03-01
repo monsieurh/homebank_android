@@ -7,8 +7,8 @@ import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.OperationListAdapter;
 import budget.homebank.monsieur_h.homebudget.factories.XhbFileParser;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
-import budget.homebank.monsieur_h.homebudget.homebank.HomebankHistory;
 import budget.homebank.monsieur_h.homebudget.homebank.Operation;
+import budget.homebank.monsieur_h.homebudget.homebank.XHB;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -29,7 +29,7 @@ public class OperationListActivity extends AppCompatActivity {
         int category_key = getIntent().getExtras().getInt("CATEGORY_KEY");
         month = getIntent().getExtras().getInt("MONTH");
         try {
-            HomebankHistory h = XhbFileParser.parseLastfile(this);
+            XHB h = XhbFileParser.parseLastfile(this);
             category = h.findCategory(category_key);
             category.filterForMonth(month);
             h.filterOutNoBudgetAccounts(category);

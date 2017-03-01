@@ -2,7 +2,8 @@ package budget.homebank.monsieur_h.homebudget.factories;
 
 import android.app.Activity;
 import android.net.Uri;
-import budget.homebank.monsieur_h.homebudget.homebank.HomebankHistory;
+import budget.homebank.monsieur_h.homebudget.homebank.Currency;
+import budget.homebank.monsieur_h.homebudget.homebank.XHB;
 import budget.homebank.monsieur_h.homebudget.homebank.XhbProperties;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -21,8 +22,8 @@ public class XhbFileParser {
     private final static AccountFactory accountFactory = new AccountFactory();
     private final static CategoryFactory categoryFactory = new CategoryFactory();
 
-    public static HomebankHistory parse(InputStream fileInputStream) throws SAXException, IOException, ParserConfigurationException {
-        HomebankHistory history = new HomebankHistory();
+    public static XHB parse(InputStream fileInputStream) throws SAXException, IOException, ParserConfigurationException {
+        XHB history = new XHB();
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(false);
         dbf.setValidating(false);
@@ -48,10 +49,15 @@ public class XhbFileParser {
             history.addAccount(accountFactory.fromNode(accounts.item(i)));
         }
 
+
+        NodeList currencies = doc.getElementsByTagName("cur");
+        for (int i = 0; i < currencies.getLength(); i++) {
+            history.addCurrency(Currency.fromNode(currencies.item(i)));
+        }
+
         XhbProperties props = new XhbProperties.Builder()
                 .setPropertiesNode(doc.getElementsByTagName("properties").item(0))
                 .setHomebankNode(doc.getElementsByTagName("homebank").item(0))
-                .setCurrencyNodes(doc.getElementsByTagName("cur"))
                 .build();
         history.setProperties(props);
 
@@ -59,7 +65,7 @@ public class XhbFileParser {
         return history;
     }
 
-    public static HomebankHistory parseLastfile(Activity activity) throws IOException, ParserConfigurationException, SAXException {
+    public static XHB parseLastfile(Activity activity) throws IOException, ParserConfigurationException, SAXException {
         Uri lastFile = Uri.parse(activity.getPreferences(MODE_PRIVATE).getString("lastFile", ""));
         return parse(activity.getContentResolver().openInputStream(lastFile));
     }

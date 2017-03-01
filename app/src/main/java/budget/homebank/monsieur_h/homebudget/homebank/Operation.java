@@ -15,6 +15,7 @@ public class Operation {
     private Payee payee;
     private Account account;
     private List<SubOperation> subOperations = new ArrayList<>();
+    private XHB xhb;
 
     public Operation(float amount, int accountKey, Date date) {
 
@@ -30,6 +31,7 @@ public class Operation {
         this.categoryKey = op.categoryKey;
         this.account = op.account;
         this.subOperations.addAll(op.subOperations);
+        this.xhb = op.xhb;
     }
 
 
@@ -100,5 +102,9 @@ public class Operation {
 
     public List<SubOperation> getSuboperations() {
         return subOperations;
+    }
+
+    public void setXhb(XHB xhb) {
+        this.xhb = xhb;
     }
 }

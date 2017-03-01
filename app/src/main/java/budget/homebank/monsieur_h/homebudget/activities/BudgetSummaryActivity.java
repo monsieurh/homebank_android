@@ -23,7 +23,7 @@ import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.ExpandableCategoryAdapter;
 import budget.homebank.monsieur_h.homebudget.factories.XhbFileParser;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
-import budget.homebank.monsieur_h.homebudget.homebank.HomebankHistory;
+import budget.homebank.monsieur_h.homebudget.homebank.XHB;
 import com.dropbox.chooser.android.DbxChooser;
 import org.xml.sax.SAXException;
 
@@ -38,7 +38,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     private static final String DBX_APP_KEY = "ljtfuzjpqye9hne";
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private static final int PERMISSION_CUSTOM_CODE = 16;
-    private HomebankHistory HISTORY = new HomebankHistory();
+    private XHB xhb = new XHB();
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
@@ -83,7 +83,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         checkPerms();
 
         try {
-            HISTORY = XhbFileParser.parseLastfile(this);
+            xhb = XhbFileParser.parseLastfile(this);
             updateView();
             Log.d("DEBUG", "Parsed last file automatically");
         } catch (SAXException | IOException | ParserConfigurationException | SecurityException e) {
@@ -145,7 +145,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
 
     private void onFileSelected() {
         try {
-            HISTORY = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
+            xhb = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
             updateView();
             getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
         } catch (SAXException | IOException | ParserConfigurationException e) {
@@ -155,10 +155,10 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
 
     private void updateView() {
         int month = Calendar.getInstance().get(Calendar.MONTH);
-        if (HISTORY != null) {
-            setTitle(HISTORY.getProperties().getTitle());
+        if (xhb != null) {
+            setTitle(xhb.getProperties().getTitle());
         }
-        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, HISTORY.getTopCategoriesForMonthlyBudget(month), month);
+        listAdapter = new ExpandableCategoryAdapter(BudgetSummaryActivity.this, xhb.getTopCategoriesForMonthlyBudget(month), month);
         expandableListView.setAdapter(listAdapter);
     }
 

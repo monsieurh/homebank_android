@@ -10,7 +10,8 @@ public class AccountFactory implements HBFactory<Account> {
         NamedNodeMap attributes = node.getAttributes();
         Account account = new Account(
                 Integer.parseInt(attributes.getNamedItem("key").getNodeValue()),
-                attributes.getNamedItem("name").getNodeValue()
+                attributes.getNamedItem("name").getNodeValue(),
+                Integer.parseInt(attributes.getNamedItem("curr").getNodeValue())
         );
 
         Node flags = attributes.getNamedItem("flags");

@@ -1,18 +1,53 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-public class HomebankHistory {
+public class XHB {
     private final Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
     private final Payee NO_PAYEE = new Payee(0, "NO_PAYEE");
-    private List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();//todo : hashmap may be better ?
     private List<Payee> payees = new ArrayList<>();
     private List<Operation> operations = new ArrayList<>();
     private List<Account> accounts = new ArrayList<>();
+    private HashMap<Integer, Currency> currencies = new HashMap<>();
     private XhbProperties properties;
+
+    public void bindAll() {
+        NO_CATEGORY.setXhb(this);
+        NO_PAYEE.setXhb(this);
+
+        for (Category child : categories) {
+            child.setXhb(this);
+            if (child.getParentKey() != 0) {
+                Category parent = findCategory(child.getParentKey());
+                parent.addChild(child);
+                child.setParent(parent);
+            }
+        }
+
+        for (Payee payee : payees) {
+            payee.setXhb(this);
+        }
+
+        for (Operation op : operations) {
+            findCategory(op.getCategoryKey()).addOperation(op);
+            op.setPayee(findPayee(op.getPayeeKey()));
+            op.setXhb(this);
+            Account account = findAccount(op.getAccountKey());
+            account.addOperation(op);
+            op.setAccount(account);
+            if (op.hasFlag(OperationFlags.OF_SPLIT)) {
+                for (SubOperation sub : op.getSuboperations()) {
+                    Category category = findCategory(sub.categoryKey);
+                    category.addOperation(op);
+                }
+            }
+        }
+
+        for (Account account : accounts) {
+            account.setXhb(this);
+        }
+    }
 
     public List<Category> getTopCategoriesForMonthlyBudget(int month) {
         List<Category> topLevel = new ArrayList<>();
@@ -49,30 +84,6 @@ public class HomebankHistory {
             final Operation o = currentCat.getOperations().get(i);
             if (o.getAccount().hasFlag(AccountFlags.AF_NOBUDGET)) {
                 currentCat.removeOperation(o);
-            }
-        }
-    }
-
-    public void bindAll() {
-        for (Category child : categories) {
-            if (child.getParentKey() != 0) {
-                Category parent = findCategory(child.getParentKey());
-                parent.addChild(child);
-                child.setParent(parent);
-            }
-        }
-
-        for (Operation op : operations) {
-            findCategory(op.getCategoryKey()).addOperation(op);
-            op.setPayee(findPayee(op.getPayeeKey()));
-            Account account = findAccount(op.getAccountKey());
-            account.addOperation(op);
-            op.setAccount(account);
-            if (op.hasFlag(OperationFlags.OF_SPLIT)) {
-                for (SubOperation sub : op.getSuboperations()) {
-                    Category category = findCategory(sub.categoryKey);
-                    category.addOperation(op);
-                }
             }
         }
     }
@@ -140,5 +151,13 @@ public class HomebankHistory {
 
     public void setProperties(XhbProperties properties) {
         this.properties = properties;
+    }
+
+    public void addCurrency(Currency currency) {
+        currencies.put(currency.key, currency);
+    }
+
+    public Currency getDefaultCurrency() {
+        return currencies.get(getProperties().getDefaultCurrencyCode());
     }
 }

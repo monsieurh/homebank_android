@@ -7,7 +7,7 @@ public class Currency {
     public final int key;
     public final String iso;
     public final String name;
-    public final char Symbol;
+    public final char symbol;
     public final char decimalChar;
     public final int decimalPrecision;
 
@@ -16,7 +16,7 @@ public class Currency {
         this.key = key;
         this.iso = iso;
         this.name = name;
-        Symbol = symbol;
+        this.symbol = symbol;
         this.decimalChar = decimalChar;
         this.decimalPrecision = decimalPrecision;
     }
@@ -31,5 +31,9 @@ public class Currency {
                 attributes.getNamedItem("dchar").getNodeValue().charAt(0),
                 Integer.parseInt(attributes.getNamedItem("frac").getNodeValue())
         );
+    }
+
+    public String getFormat() {
+        return String.format("%%+.%df %c", decimalPrecision, symbol);//todo check for thousand separator (',' in french)
     }
 }

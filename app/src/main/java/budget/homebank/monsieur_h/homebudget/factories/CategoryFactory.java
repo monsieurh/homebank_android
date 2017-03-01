@@ -16,7 +16,6 @@ public class CategoryFactory implements HBFactory<Category> {
         addParent(attributes, category);
         addMonthlyBudget(attributes, category);
         addFlags(attributes, category);
-
         return category;
     }
 

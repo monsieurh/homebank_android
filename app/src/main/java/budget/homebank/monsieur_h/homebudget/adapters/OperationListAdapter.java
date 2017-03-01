@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import budget.homebank.monsieur_h.homebudget.R;
-import budget.homebank.monsieur_h.homebudget.Util;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
 import budget.homebank.monsieur_h.homebudget.homebank.Operation;
 
@@ -17,12 +16,14 @@ import java.text.SimpleDateFormat;
 public class OperationListAdapter implements ListAdapter {
     private final Category category;
     private final LayoutInflater inflater;
+    private final String strFmt;
     private int month;
 
     public OperationListAdapter(Context context, Category category, int month) {
         this.category = category;
         this.month = month;
         inflater = LayoutInflater.from(context);
+        strFmt = category.getXhb().getDefaultCurrency().getFormat();
     }
 
     @Override
@@ -39,7 +40,7 @@ public class OperationListAdapter implements ListAdapter {
         text.setText(operation.getPayee().getName());
 
         TextView balanceView = (TextView) convertView.findViewById(R.id.operation_balance);
-        balanceView.setText(String.format(Util.CURRENCY_FMT, operation.getAmount()));
+        balanceView.setText(String.format(strFmt, operation.getAmount()));
 
         TextView dateView = (TextView) convertView.findViewById(R.id.operation_date);
         dateView.setText(SimpleDateFormat.getDateInstance().format(operation.getDate()));

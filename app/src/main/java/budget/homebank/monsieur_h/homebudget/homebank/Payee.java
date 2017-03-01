@@ -3,6 +3,7 @@ package budget.homebank.monsieur_h.homebudget.homebank;
 public class Payee {
     private final int key;
     private final String name;
+    private XHB xhb;
 
     public Payee(int key, String name) {
 
@@ -24,5 +25,9 @@ public class Payee {
                 "key=" + key +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void setXhb(XHB xhb) {
+        this.xhb = xhb;
     }
 }

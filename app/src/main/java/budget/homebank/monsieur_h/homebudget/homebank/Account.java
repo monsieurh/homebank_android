@@ -6,13 +6,17 @@ import java.util.List;
 public class Account {
     private final int key;
     private final String name;
+    private int currencyKey;
     private List<Operation> operations = new ArrayList<Operation>();
-    private int flags;//todo:currency
+    private int flags;
+    private Currency currency;
+    private XHB xhb;
 
-    public Account(int key, String name) {
+    public Account(int key, String name, int curr) {
 
         this.key = key;
         this.name = name;
+        currencyKey = curr;
     }
 
     public int getKey() {
@@ -37,5 +41,17 @@ public class Account {
 
     public void addOperation(Operation op) {
         operations.add(op);
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    public void setXhb(XHB xhb) {
+        this.xhb = xhb;
     }
 }

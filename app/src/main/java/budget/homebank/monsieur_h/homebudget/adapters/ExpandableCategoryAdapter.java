@@ -17,12 +17,14 @@ import java.util.List;
 public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     private final LayoutInflater inflater;
     private final int month;
+    private final String strFmt;
     private List<Category> groupList;
 
     public ExpandableCategoryAdapter(Context context, List<Category> initialList, int month) {
         this.groupList = initialList;
         this.inflater = LayoutInflater.from(context);
         this.month = month;
+        this.strFmt = initialList.size() > 0 ? initialList.get(0).getXhb().getDefaultCurrency().getFormat() : "%+.2f";
     }
 
     @Override
@@ -40,7 +42,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         heading.setText(category.getName());
 
         TextView amount = (TextView) view.findViewById(R.id.heading_amount);
-        amount.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
+        amount.setText(String.format(strFmt, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
         int progress;
@@ -75,7 +77,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         sequence.setText(category.getName());
 
         TextView childItem = (TextView) view.findViewById(R.id.subcategory_whatsleft);
-        childItem.setText(String.format(Util.CURRENCY_FMT, whatsLeft));
+        childItem.setText(String.format(strFmt, whatsLeft));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);
         int progress;
