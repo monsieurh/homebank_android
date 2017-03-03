@@ -67,7 +67,7 @@
     <color name="textFieldStroke">#359cf8</color>
     <color name="textHighlight">#1865a9</color>
     <color name="titleBarText">#333333</color>
-    <color name="titleBarTextWhite">#FFFFFF</color>
+    <color name="titleBarTextWhite">#ffffff</color>
     <color name="tourBoxText">#000000</color>
     <color name="tourGrayBorder">#999999</color>
     <color name="tourText">#718297</color>
@@ -75,7 +75,7 @@
     <color ns1:default="#E6000000" ns1:samsung="#FF000000" name="translucentBlackBackground">#E6000000
     </color>
     <color name="translucentFileListMediumGrayText">#E6666666</color>
-    <color ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF" name="translucentWhiteBackground">#E6FFFFFF
+    <color ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF" name="translucentWhiteBackground">#e6ffffff
     </color>
     <color name="translucentWhiteText">#E6FFFFFF</color>
     <color ns1:default="#AA000000" ns1:samsung="#ff000000" name="videoIconDetailsBackground">#AA000000

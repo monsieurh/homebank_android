@@ -6,5 +6,9 @@
     {
         "merged": "/home/hub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/icon_new.png",
         "source": "/home/hub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/icon_new.png"
+    },
+    {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/icon_new.png",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/icon_new.png"
     }
 ]

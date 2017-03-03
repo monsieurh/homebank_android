@@ -130,7 +130,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
             int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION & Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
-//            getContentResolver().takePersistableUriPermission(fileUri, flags);
+            getContentResolver().takePersistableUriPermission(fileUri, flags);
             fileUri = data.getData();
             onFileSelected();
         }
@@ -145,9 +145,9 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
 
     private void onFileSelected() {
         try {
-            xhb = XhbFileParser.parse(this.getContentResolver().openInputStream(fileUri));
+            XhbFileParser.setSaveFileUri(this, fileUri);
+            xhb = XhbFileParser.parse(this);
             updateView();
-            getPreferences(MODE_PRIVATE).edit().putString("lastFile", fileUri.toString()).apply();
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }

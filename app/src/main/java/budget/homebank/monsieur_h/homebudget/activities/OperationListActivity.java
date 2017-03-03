@@ -1,6 +1,7 @@
 package budget.homebank.monsieur_h.homebudget.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import budget.homebank.monsieur_h.homebudget.R;
@@ -13,8 +14,10 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Locale;
 
 public class OperationListActivity extends AppCompatActivity {
 
@@ -28,14 +31,15 @@ public class OperationListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_operation_list);
         int category_key = getIntent().getExtras().getInt("CATEGORY_KEY");
         month = getIntent().getExtras().getInt("MONTH");
+        operationListView = (ListView) findViewById(R.id.operation_list);
         try {
             XHB h = XhbFileParser.parseLastfile(this);
             category = h.findCategory(category_key);
             category.filterForMonth(month);
             h.filterOutNoBudgetAccounts(category);
 
-            setTitle(category.getName());
-            operationListView = (ListView) findViewById(R.id.operation_list);
+            String monthName = Calendar.getInstance().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
+            setTitle(String.format("%s (%s)", category.getName(), monthName));
 
             Collections.sort(category.getOperations(), new Comparator<Operation>() {
                 @Override
@@ -45,6 +49,7 @@ public class OperationListActivity extends AppCompatActivity {
             });
             operationListView.setAdapter(new OperationListAdapter(OperationListActivity.this, category, month));
         } catch (IOException | ParserConfigurationException | SAXException e) {
+            Snackbar.make(operationListView, "Error finding operations", Snackbar.LENGTH_LONG);//todo:fix
             e.printStackTrace();
         }
     }

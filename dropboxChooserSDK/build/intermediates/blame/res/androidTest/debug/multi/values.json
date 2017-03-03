@@ -2185,6 +2185,2205 @@
         ]
     },
     {
+        "outputFile": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 109,
+                    "endColumn": 53,
+                    "endOffset": 158
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 109,
+                        "endColumn": 53,
+                        "endOffset": 158
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 163,
+                    "endColumn": 52,
+                    "endOffset": 211
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 163,
+                        "endColumn": 52,
+                        "endOffset": 211
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 216,
+                    "endColumn": 56,
+                    "endOffset": 268
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 216,
+                        "endColumn": 56,
+                        "endOffset": 268
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 273,
+                    "endColumn": 55,
+                    "endOffset": 324
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 273,
+                        "endColumn": 55,
+                        "endOffset": 324
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 329,
+                    "endColumn": 64,
+                    "endOffset": 389
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 329,
+                        "endColumn": 64,
+                        "endOffset": 389
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 394,
+                    "endColumn": 38,
+                    "endOffset": 428
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 394,
+                        "endColumn": 38,
+                        "endOffset": 428
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 433,
+                    "endColumn": 44,
+                    "endOffset": 473
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 433,
+                        "endColumn": 44,
+                        "endOffset": 473
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 478,
+                    "endColumn": 42,
+                    "endOffset": 516
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 478,
+                        "endColumn": 42,
+                        "endOffset": 516
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 521,
+                    "endColumn": 48,
+                    "endOffset": 565
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 521,
+                        "endColumn": 48,
+                        "endOffset": 565
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 570,
+                    "endColumn": 49,
+                    "endOffset": 615
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 570,
+                        "endColumn": 49,
+                        "endOffset": 615
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 620,
+                    "endColumn": 40,
+                    "endOffset": 656
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 620,
+                        "endColumn": 40,
+                        "endOffset": 656
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 661,
+                    "endColumn": 48,
+                    "endOffset": 705
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 661,
+                        "endColumn": 48,
+                        "endOffset": 705
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 710,
+                    "endColumn": 49,
+                    "endOffset": 755
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 710,
+                        "endColumn": 49,
+                        "endOffset": 755
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 760,
+                    "endColumn": 46,
+                    "endOffset": 802
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 760,
+                        "endColumn": 46,
+                        "endOffset": 802
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 807,
+                    "endColumn": 48,
+                    "endOffset": 851
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 807,
+                        "endColumn": 48,
+                        "endOffset": 851
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 856,
+                    "endColumn": 46,
+                    "endOffset": 898
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 856,
+                        "endColumn": 46,
+                        "endOffset": 898
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 903,
+                    "endColumn": 60,
+                    "endOffset": 959
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 903,
+                        "endColumn": 60,
+                        "endOffset": 959
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 964,
+                    "endColumn": 43,
+                    "endOffset": 1003
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 964,
+                        "endColumn": 43,
+                        "endOffset": 1003
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1008,
+                    "endColumn": 52,
+                    "endOffset": 1056
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1008,
+                        "endColumn": 52,
+                        "endOffset": 1056
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1061,
+                    "endColumn": 56,
+                    "endOffset": 1113
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1061,
+                        "endColumn": 56,
+                        "endOffset": 1113
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1118,
+                    "endColumn": 56,
+                    "endOffset": 1170
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1118,
+                        "endColumn": 56,
+                        "endOffset": 1170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1175,
+                    "endColumn": 52,
+                    "endOffset": 1223
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1175,
+                        "endColumn": 52,
+                        "endOffset": 1223
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1228,
+                    "endColumn": 53,
+                    "endOffset": 1277
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1228,
+                        "endColumn": 53,
+                        "endOffset": 1277
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1282,
+                    "endColumn": 53,
+                    "endOffset": 1331
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1282,
+                        "endColumn": 53,
+                        "endOffset": 1331
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1336,
+                    "endColumn": 55,
+                    "endOffset": 1387
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1336,
+                        "endColumn": 55,
+                        "endOffset": 1387
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1392,
+                    "endColumn": 61,
+                    "endOffset": 1449
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1392,
+                        "endColumn": 61,
+                        "endOffset": 1449
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1454,
+                    "endLine": 29,
+                    "endColumn": 12,
+                    "endOffset": 1558
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1454,
+                        "endLine": 29,
+                        "endColumn": 12,
+                        "endOffset": 1558
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1563,
+                    "endLine": 31,
+                    "endColumn": 12,
+                    "endOffset": 1687
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1563,
+                        "endLine": 31,
+                        "endColumn": 12,
+                        "endOffset": 1687
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 1692,
+                    "endLine": 33,
+                    "endColumn": 12,
+                    "endOffset": 1817
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 1692,
+                        "endLine": 33,
+                        "endColumn": 12,
+                        "endOffset": 1817
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 1822,
+                    "endLine": 35,
+                    "endColumn": 12,
+                    "endOffset": 1933
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 1822,
+                        "endLine": 35,
+                        "endColumn": 12,
+                        "endOffset": 1933
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 1938,
+                    "endColumn": 49,
+                    "endOffset": 1983
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 1938,
+                        "endColumn": 49,
+                        "endOffset": 1983
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 37,
+                    "startColumn": 4,
+                    "startOffset": 1988,
+                    "endColumn": 45,
+                    "endOffset": 2029
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 4,
+                        "startOffset": 1988,
+                        "endColumn": 45,
+                        "endOffset": 2029
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 38,
+                    "startColumn": 4,
+                    "startOffset": 2034,
+                    "endColumn": 41,
+                    "endOffset": 2071
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 2034,
+                        "endColumn": 41,
+                        "endOffset": 2071
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 2076,
+                    "endColumn": 49,
+                    "endOffset": 2121
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 2076,
+                        "endColumn": 49,
+                        "endOffset": 2121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 2126,
+                    "endColumn": 53,
+                    "endOffset": 2175
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 2126,
+                        "endColumn": 53,
+                        "endOffset": 2175
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 2180,
+                    "endColumn": 54,
+                    "endOffset": 2230
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 41,
+                        "startColumn": 4,
+                        "startOffset": 2180,
+                        "endColumn": 54,
+                        "endOffset": 2230
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 2235,
+                    "endColumn": 44,
+                    "endOffset": 2275
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 42,
+                        "startColumn": 4,
+                        "startOffset": 2235,
+                        "endColumn": 44,
+                        "endOffset": 2275
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 43,
+                    "startColumn": 4,
+                    "startOffset": 2280,
+                    "endColumn": 57,
+                    "endOffset": 2333
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 2280,
+                        "endColumn": 57,
+                        "endOffset": 2333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 44,
+                    "startColumn": 4,
+                    "startOffset": 2338,
+                    "endColumn": 52,
+                    "endOffset": 2386
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 2338,
+                        "endColumn": 52,
+                        "endOffset": 2386
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 45,
+                    "startColumn": 4,
+                    "startOffset": 2391,
+                    "endColumn": 51,
+                    "endOffset": 2438
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 45,
+                        "startColumn": 4,
+                        "startOffset": 2391,
+                        "endColumn": 51,
+                        "endOffset": 2438
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 2443,
+                    "endColumn": 43,
+                    "endOffset": 2482
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 2443,
+                        "endColumn": 43,
+                        "endOffset": 2482
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 47,
+                    "startColumn": 4,
+                    "startOffset": 2487,
+                    "endColumn": 48,
+                    "endOffset": 2531
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 2487,
+                        "endColumn": 48,
+                        "endOffset": 2531
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 48,
+                    "startColumn": 4,
+                    "startOffset": 2536,
+                    "endColumn": 62,
+                    "endOffset": 2594
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 2536,
+                        "endColumn": 62,
+                        "endOffset": 2594
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 49,
+                    "startColumn": 4,
+                    "startOffset": 2599,
+                    "endColumn": 51,
+                    "endOffset": 2646
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 4,
+                        "startOffset": 2599,
+                        "endColumn": 51,
+                        "endOffset": 2646
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 50,
+                    "startColumn": 4,
+                    "startOffset": 2651,
+                    "endColumn": 51,
+                    "endOffset": 2698
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 2651,
+                        "endColumn": 51,
+                        "endOffset": 2698
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 51,
+                    "startColumn": 4,
+                    "startOffset": 2703,
+                    "endColumn": 51,
+                    "endOffset": 2750
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 2703,
+                        "endColumn": 51,
+                        "endOffset": 2750
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 52,
+                    "startColumn": 4,
+                    "startOffset": 2755,
+                    "endColumn": 51,
+                    "endOffset": 2802
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 2755,
+                        "endColumn": 51,
+                        "endOffset": 2802
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 2807,
+                    "endColumn": 58,
+                    "endOffset": 2861
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 2807,
+                        "endColumn": 58,
+                        "endOffset": 2861
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 2866,
+                    "endColumn": 60,
+                    "endOffset": 2922
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 2866,
+                        "endColumn": 60,
+                        "endOffset": 2922
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 2927,
+                    "endColumn": 54,
+                    "endOffset": 2977
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 2927,
+                        "endColumn": 54,
+                        "endOffset": 2977
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 56,
+                    "startColumn": 4,
+                    "startOffset": 2982,
+                    "endColumn": 60,
+                    "endOffset": 3038
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 2982,
+                        "endColumn": 60,
+                        "endOffset": 3038
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 3043,
+                    "endColumn": 52,
+                    "endOffset": 3091
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 3043,
+                        "endColumn": 52,
+                        "endOffset": 3091
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 3096,
+                    "endColumn": 39,
+                    "endOffset": 3131
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 3096,
+                        "endColumn": 39,
+                        "endOffset": 3131
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 3136,
+                    "endColumn": 47,
+                    "endOffset": 3179
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 3136,
+                        "endColumn": 47,
+                        "endOffset": 3179
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 60,
+                    "startColumn": 4,
+                    "startOffset": 3184,
+                    "endColumn": 45,
+                    "endOffset": 3225
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 3184,
+                        "endColumn": 45,
+                        "endOffset": 3225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 61,
+                    "startColumn": 4,
+                    "startOffset": 3230,
+                    "endColumn": 61,
+                    "endOffset": 3287
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 61,
+                        "startColumn": 4,
+                        "startOffset": 3230,
+                        "endColumn": 61,
+                        "endOffset": 3287
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 62,
+                    "startColumn": 4,
+                    "startOffset": 3292,
+                    "endColumn": 63,
+                    "endOffset": 3351
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 3292,
+                        "endColumn": 63,
+                        "endOffset": 3351
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 3356,
+                    "endColumn": 57,
+                    "endOffset": 3409
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 63,
+                        "startColumn": 4,
+                        "startOffset": 3356,
+                        "endColumn": 57,
+                        "endOffset": 3409
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 64,
+                    "startColumn": 4,
+                    "startOffset": 3414,
+                    "endColumn": 52,
+                    "endOffset": 3462
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 64,
+                        "startColumn": 4,
+                        "startOffset": 3414,
+                        "endColumn": 52,
+                        "endOffset": 3462
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 65,
+                    "startColumn": 4,
+                    "startOffset": 3467,
+                    "endColumn": 40,
+                    "endOffset": 3503
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 65,
+                        "startColumn": 4,
+                        "startOffset": 3467,
+                        "endColumn": 40,
+                        "endOffset": 3503
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 66,
+                    "startColumn": 4,
+                    "startOffset": 3508,
+                    "endColumn": 49,
+                    "endOffset": 3553
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 3508,
+                        "endColumn": 49,
+                        "endOffset": 3553
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 67,
+                    "startColumn": 4,
+                    "startOffset": 3558,
+                    "endColumn": 47,
+                    "endOffset": 3601
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 67,
+                        "startColumn": 4,
+                        "startOffset": 3558,
+                        "endColumn": 47,
+                        "endOffset": 3601
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 68,
+                    "startColumn": 4,
+                    "startOffset": 3606,
+                    "endColumn": 46,
+                    "endOffset": 3648
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 68,
+                        "startColumn": 4,
+                        "startOffset": 3606,
+                        "endColumn": 46,
+                        "endOffset": 3648
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 69,
+                    "startColumn": 4,
+                    "startOffset": 3653,
+                    "endColumn": 51,
+                    "endOffset": 3700
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 69,
+                        "startColumn": 4,
+                        "startOffset": 3653,
+                        "endColumn": 51,
+                        "endOffset": 3700
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 70,
+                    "startColumn": 4,
+                    "startOffset": 3705,
+                    "endColumn": 45,
+                    "endOffset": 3746
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 70,
+                        "startColumn": 4,
+                        "startOffset": 3705,
+                        "endColumn": 45,
+                        "endOffset": 3746
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 71,
+                    "startColumn": 4,
+                    "startOffset": 3751,
+                    "endColumn": 48,
+                    "endOffset": 3795
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 71,
+                        "startColumn": 4,
+                        "startOffset": 3751,
+                        "endColumn": 48,
+                        "endOffset": 3795
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 72,
+                    "startColumn": 4,
+                    "startOffset": 3800,
+                    "endColumn": 42,
+                    "endOffset": 3838
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 72,
+                        "startColumn": 4,
+                        "startOffset": 3800,
+                        "endColumn": 42,
+                        "endOffset": 3838
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 73,
+                    "startColumn": 4,
+                    "startOffset": 3843,
+                    "endColumn": 47,
+                    "endOffset": 3886
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 73,
+                        "startColumn": 4,
+                        "startOffset": 3843,
+                        "endColumn": 47,
+                        "endOffset": 3886
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 74,
+                    "startColumn": 4,
+                    "startOffset": 3891,
+                    "endLine": 75,
+                    "endColumn": 12,
+                    "endOffset": 4002
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 74,
+                        "startColumn": 4,
+                        "startOffset": 3891,
+                        "endLine": 75,
+                        "endColumn": 12,
+                        "endOffset": 4002
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 76,
+                    "startColumn": 4,
+                    "startOffset": 4007,
+                    "endColumn": 69,
+                    "endOffset": 4072
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 76,
+                        "startColumn": 4,
+                        "startOffset": 4007,
+                        "endColumn": 69,
+                        "endOffset": 4072
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 77,
+                    "startColumn": 4,
+                    "startOffset": 4077,
+                    "endLine": 78,
+                    "endColumn": 12,
+                    "endOffset": 4188
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 77,
+                        "startColumn": 4,
+                        "startOffset": 4077,
+                        "endLine": 78,
+                        "endColumn": 12,
+                        "endOffset": 4188
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 79,
+                    "startColumn": 4,
+                    "startOffset": 4193,
+                    "endColumn": 56,
+                    "endOffset": 4245
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 79,
+                        "startColumn": 4,
+                        "startOffset": 4193,
+                        "endColumn": 56,
+                        "endOffset": 4245
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 80,
+                    "startColumn": 4,
+                    "startOffset": 4250,
+                    "endLine": 81,
+                    "endColumn": 12,
+                    "endOffset": 4361
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 80,
+                        "startColumn": 4,
+                        "startOffset": 4250,
+                        "endLine": 81,
+                        "endColumn": 12,
+                        "endOffset": 4361
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 82,
+                    "startColumn": 4,
+                    "startOffset": 4366,
+                    "endColumn": 49,
+                    "endOffset": 4411
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 82,
+                        "startColumn": 4,
+                        "startOffset": 4366,
+                        "endColumn": 49,
+                        "endOffset": 4411
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 83,
+                    "startColumn": 4,
+                    "startOffset": 4416,
+                    "endColumn": 43,
+                    "endOffset": 4455
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 83,
+                        "startColumn": 4,
+                        "startOffset": 4416,
+                        "endColumn": 43,
+                        "endOffset": 4455
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 84,
+                    "startColumn": 4,
+                    "startOffset": 4460,
+                    "endColumn": 57,
+                    "endOffset": 4513
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 84,
+                        "startColumn": 4,
+                        "startOffset": 4460,
+                        "endColumn": 57,
+                        "endOffset": 4513
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 85,
+                    "startColumn": 4,
+                    "startOffset": 4518,
+                    "endColumn": 45,
+                    "endOffset": 4559
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 85,
+                        "startColumn": 4,
+                        "startOffset": 4518,
+                        "endColumn": 45,
+                        "endOffset": 4559
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 86,
+                    "startColumn": 4,
+                    "startOffset": 4564,
+                    "endColumn": 61,
+                    "endOffset": 4621
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 86,
+                        "startColumn": 4,
+                        "startOffset": 4564,
+                        "endColumn": 61,
+                        "endOffset": 4621
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 87,
+                    "startColumn": 4,
+                    "startOffset": 4626,
+                    "endColumn": 67,
+                    "endOffset": 4689
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 87,
+                        "startColumn": 4,
+                        "startOffset": 4626,
+                        "endColumn": 67,
+                        "endOffset": 4689
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 88,
+                    "startColumn": 4,
+                    "startOffset": 4694,
+                    "endColumn": 68,
+                    "endOffset": 4758
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 88,
+                        "startColumn": 4,
+                        "startOffset": 4694,
+                        "endColumn": 68,
+                        "endOffset": 4758
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 89,
+                    "startColumn": 4,
+                    "startOffset": 4763,
+                    "endColumn": 64,
+                    "endOffset": 4823
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 89,
+                        "startColumn": 4,
+                        "startOffset": 4763,
+                        "endColumn": 64,
+                        "endOffset": 4823
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 90,
+                    "startColumn": 4,
+                    "startOffset": 4828,
+                    "endColumn": 65,
+                    "endOffset": 4889
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 90,
+                        "startColumn": 4,
+                        "startOffset": 4828,
+                        "endColumn": 65,
+                        "endOffset": 4889
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 91,
+                    "startColumn": 4,
+                    "startOffset": 4894,
+                    "endColumn": 61,
+                    "endOffset": 4951
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 91,
+                        "startColumn": 4,
+                        "startOffset": 4894,
+                        "endColumn": 61,
+                        "endOffset": 4951
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 92,
+                    "startColumn": 4,
+                    "startOffset": 4956,
+                    "endColumn": 59,
+                    "endOffset": 5011
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 92,
+                        "startColumn": 4,
+                        "startOffset": 4956,
+                        "endColumn": 59,
+                        "endOffset": 5011
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 93,
+                    "startColumn": 4,
+                    "startOffset": 5016,
+                    "endColumn": 59,
+                    "endOffset": 5071
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 93,
+                        "startColumn": 4,
+                        "startOffset": 5016,
+                        "endColumn": 59,
+                        "endOffset": 5071
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 94,
+                    "startColumn": 4,
+                    "startOffset": 5076,
+                    "endColumn": 65,
+                    "endOffset": 5137
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 94,
+                        "startColumn": 4,
+                        "startOffset": 5076,
+                        "endColumn": 65,
+                        "endOffset": 5137
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 95,
+                    "startColumn": 4,
+                    "startOffset": 5142,
+                    "endColumn": 66,
+                    "endOffset": 5204
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 95,
+                        "startColumn": 4,
+                        "startOffset": 5142,
+                        "endColumn": 66,
+                        "endOffset": 5204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 96,
+                    "startColumn": 4,
+                    "startOffset": 5209,
+                    "endColumn": 64,
+                    "endOffset": 5269
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 96,
+                        "startColumn": 4,
+                        "startOffset": 5209,
+                        "endColumn": 64,
+                        "endOffset": 5269
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 97,
+                    "startColumn": 4,
+                    "startOffset": 5274,
+                    "endColumn": 63,
+                    "endOffset": 5333
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 97,
+                        "startColumn": 4,
+                        "startOffset": 5274,
+                        "endColumn": 63,
+                        "endOffset": 5333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 98,
+                    "startColumn": 4,
+                    "startOffset": 5338,
+                    "endColumn": 51,
+                    "endOffset": 5385
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 98,
+                        "startColumn": 4,
+                        "startOffset": 5338,
+                        "endColumn": 51,
+                        "endOffset": 5385
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 99,
+                    "startColumn": 4,
+                    "startOffset": 5390,
+                    "endColumn": 52,
+                    "endOffset": 5438
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 99,
+                        "startColumn": 4,
+                        "startOffset": 5390,
+                        "endColumn": 52,
+                        "endOffset": 5438
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 100,
+                    "startColumn": 4,
+                    "startOffset": 5443,
+                    "endColumn": 55,
+                    "endOffset": 5494
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 100,
+                        "startColumn": 4,
+                        "startOffset": 5443,
+                        "endColumn": 55,
+                        "endOffset": 5494
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 101,
+                    "startColumn": 4,
+                    "startOffset": 5499,
+                    "endColumn": 54,
+                    "endOffset": 5549
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 101,
+                        "startColumn": 4,
+                        "startOffset": 5499,
+                        "endColumn": 54,
+                        "endOffset": 5549
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 102,
+                    "startColumn": 4,
+                    "startOffset": 5554,
+                    "endColumn": 52,
+                    "endOffset": 5602
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 102,
+                        "startColumn": 4,
+                        "startOffset": 5554,
+                        "endColumn": 52,
+                        "endOffset": 5602
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 103,
+                    "startColumn": 4,
+                    "startOffset": 5607,
+                    "endColumn": 53,
+                    "endOffset": 5656
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 103,
+                        "startColumn": 4,
+                        "startOffset": 5607,
+                        "endColumn": 53,
+                        "endOffset": 5656
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 104,
+                    "startColumn": 4,
+                    "startOffset": 5661,
+                    "endColumn": 52,
+                    "endOffset": 5709
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 104,
+                        "startColumn": 4,
+                        "startOffset": 5661,
+                        "endColumn": 52,
+                        "endOffset": 5709
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 105,
+                    "startColumn": 4,
+                    "startOffset": 5714,
+                    "endColumn": 51,
+                    "endOffset": 5761
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 105,
+                        "startColumn": 4,
+                        "startOffset": 5714,
+                        "endColumn": 51,
+                        "endOffset": 5761
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 106,
+                    "startColumn": 4,
+                    "startOffset": 5766,
+                    "endColumn": 54,
+                    "endOffset": 5816
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 4,
+                        "startOffset": 5766,
+                        "endColumn": 54,
+                        "endOffset": 5816
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 107,
+                    "startColumn": 4,
+                    "startOffset": 5821,
+                    "endColumn": 55,
+                    "endOffset": 5872
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 5821,
+                        "endColumn": 55,
+                        "endOffset": 5872
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 108,
+                    "startColumn": 4,
+                    "startOffset": 5877,
+                    "endColumn": 60,
+                    "endOffset": 5933
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 108,
+                        "startColumn": 4,
+                        "startOffset": 5877,
+                        "endColumn": 60,
+                        "endOffset": 5933
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 109,
+                    "startColumn": 4,
+                    "startOffset": 5938,
+                    "endColumn": 57,
+                    "endOffset": 5991
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 109,
+                        "startColumn": 4,
+                        "startOffset": 5938,
+                        "endColumn": 57,
+                        "endOffset": 5991
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 110,
+                    "startColumn": 4,
+                    "startOffset": 5996,
+                    "endColumn": 75,
+                    "endOffset": 6067
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 110,
+                        "startColumn": 4,
+                        "startOffset": 5996,
+                        "endColumn": 75,
+                        "endOffset": 6067
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 111,
+                    "startColumn": 4,
+                    "startOffset": 6072,
+                    "endColumn": 135,
+                    "endOffset": 6203
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 111,
+                        "startColumn": 4,
+                        "startOffset": 6072,
+                        "endColumn": 135,
+                        "endOffset": 6203
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 112,
+                    "startColumn": 4,
+                    "startOffset": 6208,
+                    "endColumn": 53,
+                    "endOffset": 6257
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 112,
+                        "startColumn": 4,
+                        "startOffset": 6208,
+                        "endColumn": 53,
+                        "endOffset": 6257
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 113,
+                    "startColumn": 4,
+                    "startOffset": 6262,
+                    "endColumn": 55,
+                    "endOffset": 6313
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 113,
+                        "startColumn": 4,
+                        "startOffset": 6262,
+                        "endColumn": 55,
+                        "endOffset": 6313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 114,
+                    "startColumn": 4,
+                    "startOffset": 6318,
+                    "endColumn": 73,
+                    "endOffset": 6387
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 114,
+                        "startColumn": 4,
+                        "startOffset": 6318,
+                        "endColumn": 73,
+                        "endOffset": 6387
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 115,
+                    "startColumn": 4,
+                    "startOffset": 6392,
+                    "endColumn": 136,
+                    "endOffset": 6524
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 115,
+                        "startColumn": 4,
+                        "startOffset": 6392,
+                        "endColumn": 136,
+                        "endOffset": 6524
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 116,
+                    "startColumn": 4,
+                    "startOffset": 6529,
+                    "endLine": 122,
+                    "endColumn": 12,
+                    "endOffset": 6815
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 116,
+                        "startColumn": 4,
+                        "startOffset": 6529,
+                        "endLine": 122,
+                        "endColumn": 12,
+                        "endOffset": 6815
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 123,
+                    "startColumn": 4,
+                    "startOffset": 6820,
+                    "endLine": 125,
+                    "endColumn": 12,
+                    "endOffset": 6975
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 123,
+                        "startColumn": 4,
+                        "startOffset": 6820,
+                        "endLine": 125,
+                        "endColumn": 12,
+                        "endOffset": 6975
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 126,
+                    "startColumn": 4,
+                    "startOffset": 6980,
+                    "endLine": 132,
+                    "endColumn": 12,
+                    "endOffset": 7335
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 126,
+                        "startColumn": 4,
+                        "startOffset": 6980,
+                        "endLine": 132,
+                        "endColumn": 12,
+                        "endOffset": 7335
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 133,
+                    "startColumn": 4,
+                    "startOffset": 7340,
+                    "endLine": 137,
+                    "endColumn": 12,
+                    "endOffset": 7569
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 133,
+                        "startColumn": 4,
+                        "startOffset": 7340,
+                        "endLine": 137,
+                        "endColumn": 12,
+                        "endOffset": 7569
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 138,
+                    "startColumn": 4,
+                    "startOffset": 7574,
+                    "endLine": 141,
+                    "endColumn": 12,
+                    "endOffset": 7792
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 138,
+                        "startColumn": 4,
+                        "startOffset": 7574,
+                        "endLine": 141,
+                        "endColumn": 12,
+                        "endOffset": 7792
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 142,
+                    "startColumn": 4,
+                    "startOffset": 7797,
+                    "endLine": 145,
+                    "endColumn": 12,
+                    "endOffset": 8023
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 142,
+                        "startColumn": 4,
+                        "startOffset": 7797,
+                        "endLine": 145,
+                        "endColumn": 12,
+                        "endOffset": 8023
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 146,
+                    "startColumn": 4,
+                    "startOffset": 8028,
+                    "endLine": 150,
+                    "endColumn": 12,
+                    "endOffset": 8265
+                },
+                "from": {
+                    "file": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 146,
+                        "startColumn": 4,
+                        "startOffset": 8028,
+                        "endLine": 150,
+                        "endColumn": 12,
+                        "endOffset": 8265
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {

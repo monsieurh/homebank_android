@@ -17,18 +17,21 @@ import java.io.InputStream;
 import static android.content.Context.MODE_PRIVATE;
 
 public class XhbFileParser {
+    private static final String SHAREDPREFS_ID = "HOMEBANK";
+    private static final String LAST_FILE_KEY = "LAST_FILE";
     private final static OperationFactory operationFactory = new OperationFactory();
     private final static PayeeFactory payeeFactory = new PayeeFactory();
     private final static AccountFactory accountFactory = new AccountFactory();
     private final static CategoryFactory categoryFactory = new CategoryFactory();
 
-    public static XHB parse(InputStream fileInputStream) throws SAXException, IOException, ParserConfigurationException {
+    public static XHB parse(Activity activity) throws SAXException, IOException, ParserConfigurationException {
+        InputStream inputStream = activity.getContentResolver().openInputStream(getSaveFileUri(activity));
         XHB history = new XHB();
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(false);
         dbf.setValidating(false);
 
-        Document doc = dbf.newDocumentBuilder().parse(fileInputStream);
+        Document doc = dbf.newDocumentBuilder().parse(inputStream);
         NodeList categories = doc.getElementsByTagName("cat");
         for (int i = 0; i < categories.getLength(); i++) {
             history.addCategory(categoryFactory.fromNode(categories.item(i)));
@@ -66,7 +69,16 @@ public class XhbFileParser {
     }
 
     public static XHB parseLastfile(Activity activity) throws IOException, ParserConfigurationException, SAXException {
-        Uri lastFile = Uri.parse(activity.getPreferences(MODE_PRIVATE).getString("lastFile", ""));
-        return parse(activity.getContentResolver().openInputStream(lastFile));
+        return parse(activity);
+    }
+
+    private static Uri getSaveFileUri(Activity activity) {
+        return Uri.parse(
+                activity.getSharedPreferences(SHAREDPREFS_ID, MODE_PRIVATE).getString(LAST_FILE_KEY, "")
+        );
+    }
+
+    public static void setSaveFileUri(Activity activity, Uri fileUri) {
+        activity.getSharedPreferences(SHAREDPREFS_ID, MODE_PRIVATE).edit().putString(LAST_FILE_KEY, fileUri.toString()).apply();
     }
 }

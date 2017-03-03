@@ -4,6 +4,18 @@
         "source": "/home/hub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-mdpi-v4/tab_dropbox.png"
     },
     {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/tab_dropbox.png",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-mdpi-v4/tab_dropbox.png"
+    },
+    {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/icon_new.png",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-mdpi-v4/icon_new.png"
+    },
+    {
         "merged": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/icon_new.png",
         "source": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-mdpi-v4/icon_new.png"
     },

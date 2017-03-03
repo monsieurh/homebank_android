@@ -129,7 +129,7 @@ public class Category implements Serializable {
         return children;
     }
 
-    public void filterForMonth(int month) {
+    public void filterForMonth(int month) {//fixme
         for (int i = operations.size() - 1; i >= 0; i--) {
             if (operations.get(i).getDate().getMonth() != month) {
                 operations.remove(i);

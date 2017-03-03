@@ -1,11 +1,23 @@
 [
     {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/layout/bottom_bar_light.xml",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/layout/bottom_bar_light.xml"
+    },
+    {
         "merged": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/layout/app_store_interstitial.xml",
         "source": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/layout/app_store_interstitial.xml"
     },
     {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/layout/app_store_interstitial.xml",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/layout/app_store_interstitial.xml"
+    },
+    {
         "merged": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/layout/bottom_buttons_light.xml",
         "source": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/layout/bottom_buttons_light.xml"
+    },
+    {
+        "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/layout/bottom_buttons_light.xml",
+        "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/layout/bottom_buttons_light.xml"
     },
     {
         "merged": "/home/hub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/layout/bottom_buttons_light.xml",
