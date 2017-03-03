@@ -103,10 +103,14 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         }
     }
 
+    /*
+    todo: apparently, permission.MANAGE_DOCUMENTS can't be persisted nor granted;
+    causing a permission request on every app startup. Should investigate
+     */
     private boolean hasPerms() {
         int perms = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         perms |= ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        perms |= ContextCompat.checkSelfPermission(this, Manifest.permission.MANAGE_DOCUMENTS);
+//        perms |= ContextCompat.checkSelfPermission(this, Manifest.permission.MANAGE_DOCUMENTS);
         return perms != PackageManager.PERMISSION_GRANTED;
     }
 
@@ -118,7 +122,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
                     new String[]{
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.READ_EXTERNAL_STORAGE,
-                            Manifest.permission.MANAGE_DOCUMENTS
+//                            Manifest.permission.MANAGE_DOCUMENTS
                     },
                     PERMISSION_CUSTOM_CODE
             );
@@ -130,8 +134,8 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
             int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION & Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
-            getContentResolver().takePersistableUriPermission(fileUri, flags);
             fileUri = data.getData();
+            getContentResolver().takePersistableUriPermission(fileUri, flags);
             onFileSelected();
         }
         if (requestCode == DBX_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
