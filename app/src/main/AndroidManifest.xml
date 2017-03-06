@@ -22,9 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.OperationListActivity">
+        <activity
+                android:name=".activities.OperationListActivity"
+                android:parentActivityName=".activities.BudgetSummaryActivity">
         </activity>
-        <activity android:name=".activities.AboutActivity">
+        <activity
+                android:name=".activities.AboutActivity"
+                android:parentActivityName=".activities.BudgetSummaryActivity">
         </activity>
 
     </application>

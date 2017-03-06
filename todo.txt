@@ -33,6 +33,6 @@ Looking for the application ?
 gitignore
 
 # feedback Maud
-- Fleche retour sur la liste des operations
-- affichage de categories lorsque le nom est trop long
+- [OK]Fleche retour sur la liste des operations
+- [OK]affichage de categories lorsque le nom est trop long
 - draw to refresh (comme reddit ou autre)
