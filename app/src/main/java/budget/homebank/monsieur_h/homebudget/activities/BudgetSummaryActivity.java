@@ -49,6 +49,7 @@ public class BudgetSummaryActivity extends AppCompatActivity implements OnClickL
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        overridePendingTransition(R.anim.from_left, R.anim.to_right);
 
         expandableListView = (ExpandableListView) findViewById(R.id.expandable_category_list);
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {

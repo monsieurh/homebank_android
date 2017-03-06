@@ -1,14 +1,6 @@
 [
     {
-        "merged": "/home/hub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/tab_dropbox.png",
-        "source": "/home/hub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-ldpi-v4/tab_dropbox.png"
-    },
-    {
         "merged": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/tab_dropbox.png",
         "source": "/home/ahub/src/misc/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-ldpi-v4/tab_dropbox.png"
-    },
-    {
-        "merged": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/tab_dropbox.png",
-        "source": "/home/ahub/Dropbox/dev/HomeBudget/dropboxChooserSDK/build/intermediates/bundles/debug/res/drawable-ldpi-v4/tab_dropbox.png"
     }
 ]

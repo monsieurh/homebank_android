@@ -35,4 +35,5 @@ gitignore
 # feedback Maud
 - [OK]Fleche retour sur la liste des operations
 - [OK]affichage de categories lorsque le nom est trop long
+- [OK]adds a transition
 - draw to refresh (comme reddit ou autre)

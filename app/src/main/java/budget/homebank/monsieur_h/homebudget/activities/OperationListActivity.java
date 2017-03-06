@@ -32,6 +32,7 @@ public class OperationListActivity extends AppCompatActivity {
         int category_key = getIntent().getExtras().getInt("CATEGORY_KEY");
         month = getIntent().getExtras().getInt("MONTH");
         operationListView = (ListView) findViewById(R.id.operation_list);
+        overridePendingTransition(R.anim.from_right, R.anim.to_left);
         try {
             XHB h = XhbFileParser.parseLastfile(this);
             category = h.findCategory(category_key);
