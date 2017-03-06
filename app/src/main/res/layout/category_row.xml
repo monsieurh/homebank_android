@@ -19,6 +19,7 @@
                 android:paddingLeft="50sp"
                 android:paddingRight="0dp"
                 android:paddingTop="8sp"
+                android:layout_toLeftOf="@+id/subcategory_whatsleft"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 tools:text="SubCataaaa"
                 android:textStyle="normal|italic"/>
@@ -28,7 +29,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/subcategory_whatsleft"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/subcategory"
                 android:paddingLeft="0dp"
                 android:paddingRight="32sp"
                 android:paddingTop="8sp"
