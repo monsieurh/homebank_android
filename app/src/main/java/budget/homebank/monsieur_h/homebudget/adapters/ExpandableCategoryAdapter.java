@@ -12,6 +12,8 @@ import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.Util;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
@@ -22,9 +24,28 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
 
     public ExpandableCategoryAdapter(Context context, List<Category> initialList, int month) {
         this.groupList = initialList;
+        sortCategories();
         this.inflater = LayoutInflater.from(context);
         this.month = month;
         this.strFmt = initialList.size() > 0 ? initialList.get(0).getXhb().getDefaultCurrency().getFormat() : "%+.2f";
+    }
+
+    private void sortCategories() {
+        Comparator<Category> categoryComparator = new Comparator<Category>() {
+            @Override
+            public int compare(Category o1, Category o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        };
+        Collections.sort(groupList, categoryComparator);
+
+        for (Category cat : groupList) {
+            List<Category> children = cat.getChildren();
+            if (children.isEmpty())
+                continue;
+
+            Collections.sort(children, categoryComparator);
+        }
     }
 
     @Override
