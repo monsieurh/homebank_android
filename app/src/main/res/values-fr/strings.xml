@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Homebank compagnion</string>
+    <string name="app_name">Homebank Compagnon</string>
     <string name="action_settings">Paramètres</string>
     <string name="montly_budget_activity_title">Budget mensuel</string>
     <string name="open_dropbox_file">Ouvrir un fichier Dropbox</string>
     <string name="open_local_file">Ouvrir un fichier local</string>
     <string name="about">Á propos</string>
-    <string name="about_authors">Homeban est développé par Maxime Doyen. Homebank Android Compagnion par Hubert Ray</string>
-    <string name="about_companion">L\'application compagnion ne fonctionne qu\'avec un fichier Homebank et non pas seule.</string>
-    <string name="about_help">Vous pouvez aider en financant le développement de Homebank ou en <a href="market://details?id=com.monsieur_h">notant l\'application compagnon sur le store</a>.</string>
-    <string name="about_homebank">"Cette application est une application compagnon pour Homebank. Homebank est un logiciel de comptabilité libre et gratuit pour Linux, Macintosh et Windows, propriété de Maxime Doyen. Homebank peut être téléchargé <a href="http://homebank.free.fr">sur son site officiel</a>. "</string>
+    <string name="about_authors">Homebank est développé par Maxime Doyen. Homebank Android Compagnon par Hubert Ray</string>
+    <string name="about_companion">L\'application Compagnon ne fonctionne qu\'avec un fichier Homebank et non pas seule.</string>
+    <string name="about_help">Vous pouvez aider en financant le développement de Homebank ou en <a href="market://details?id=com.monsieur_h">notant l\'application Compagnon sur le store</a>.</string>
+    <string name="about_homebank">"Cette application est une application Compagnon pour Homebank. Homebank est un logiciel de comptabilité libre et gratuit pour Linux, Macintosh et Windows, propriété de Maxime Doyen. Homebank peut être téléchargé <a href="http://homebank.free.fr">sur son site officiel</a>. "</string>
 </resources>
