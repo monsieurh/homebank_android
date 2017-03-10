@@ -27,7 +27,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         sortCategories();
         this.inflater = LayoutInflater.from(context);
         this.month = month;
-        this.strFmt = initialList.size() > 0 ? initialList.get(0).getXhb().getDefaultCurrency().getFormat() : "%+.2f";
+        this.strFmt = initialList.size() > 0 ? initialList.get(0).getXhb().getDefaultCurrency().getFormat() : "%.2f";
     }
 
     private void sortCategories() {
@@ -53,8 +53,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         Category category = (Category) getGroup(i);
         float budget = category.getMonthlyBudget(month);
         float expense = category.getMonthlyExpense(month);
-        float whatsLeft = (budget - expense) * -1;
-
+        float whatsLeft = (budget - expense);
+        if (whatsLeft != 0) whatsLeft *= -1;
         if (view == null) {
             view = inflater.inflate(R.layout.group_heading, null);
         }
@@ -89,7 +89,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         Category category = (Category) getChild(i, j);
         float budget = category.getMonthlyBudget(month);
         float expense = category.getMonthlyExpense(month);
-        float whatsLeft = (budget - expense) * -1;
+        float whatsLeft = (budget - expense);
+        if (whatsLeft != 0) whatsLeft *= -1;
         if (view == null) {
             view = inflater.inflate(R.layout.category_row, null);
         }

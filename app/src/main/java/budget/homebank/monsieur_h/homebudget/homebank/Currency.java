@@ -34,6 +34,6 @@ public class Currency {
     }
 
     public String getFormat() {
-        return String.format("%%+.%df %c", decimalPrecision, symbol);//todo check for thousand separator (',' in french)
+        return String.format("%%.%df %c", decimalPrecision, symbol);//todo check for thousand separator (',' in french)
     }
 }
