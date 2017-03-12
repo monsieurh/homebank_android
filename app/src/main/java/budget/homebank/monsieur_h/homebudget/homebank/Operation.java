@@ -16,6 +16,7 @@ public class Operation {
     private Account account;
     private List<SubOperation> subOperations = new ArrayList<>();
     private XHB xhb;
+    private OperationFlags.Status status;
 
     public Operation(float amount, int accountKey, Date date) {
 
@@ -106,5 +107,19 @@ public class Operation {
 
     public void setXhb(XHB xhb) {
         this.xhb = xhb;
+    }
+
+    public OperationFlags.Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(int statusCode) {
+        switch (statusCode) {
+            case 0:
+                this.status = OperationFlags.Status.TXN_STATUS_NONE;
+                break;
+            case 2:
+                this.status = OperationFlags.Status.TXN_STATUS_RECONCILED;
+        }
     }
 }

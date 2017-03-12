@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -17,10 +18,21 @@
             android:layout_height="match_parent">
 
 
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ope_reconciled"
+                android:id="@+id/operation_status_icon"
+                android:baselineAlignBottom="true"
+                android:paddingLeft="4sp"
+                android:paddingRight="4sp"
+                android:paddingTop="4sp"/>
+
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/operation_status_icon"
 
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/operation_payee"/>
@@ -55,7 +67,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_toRightOf="@id/operation_date"
                 android:id="@+id/operation_wording"
-                android:textStyle="normal|italic"
+                android:textStyle="normal"
                 android:textAlignment="viewEnd"/>
     </RelativeLayout>
 

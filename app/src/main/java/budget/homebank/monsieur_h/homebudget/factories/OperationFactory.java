@@ -46,6 +46,13 @@ public class OperationFactory implements HBFactory<Operation> {
             operation.setPayeeKey(Integer.parseInt(payeeKey.getNodeValue()));
         }
 
+        Node status = attributes.getNamedItem("st");
+        if (status != null) {
+            operation.setStatus(Integer.parseInt(status.getNodeValue()));
+        } else {
+            operation.setStatus(0);
+        }
+
         if (operation.hasFlag(OperationFlags.OF_SPLIT)) {
             List<SubOperation> split = createSplitOperation(attributes);
             operation.setSubOperations(split);

@@ -5,13 +5,16 @@ import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
 import budget.homebank.monsieur_h.homebudget.homebank.Operation;
+import budget.homebank.monsieur_h.homebudget.homebank.OperationFlags;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class OperationListAdapter implements ListAdapter {
     private final Category category;
@@ -48,6 +51,12 @@ public class OperationListAdapter implements ListAdapter {
 
         TextView wordingView = (TextView) convertView.findViewById(R.id.operation_wording);
         wordingView.setText(operation.getWording());
+
+        Date currentDate = new Date();
+        if (operation.getDate().compareTo(currentDate) > 0 || operation.getStatus() != OperationFlags.Status.TXN_STATUS_RECONCILED) {
+            ImageView icon = (ImageView) convertView.findViewById(R.id.operation_status_icon);
+            icon.setImageResource(R.mipmap.ope_cleared);
+        }
         return convertView;
     }
 

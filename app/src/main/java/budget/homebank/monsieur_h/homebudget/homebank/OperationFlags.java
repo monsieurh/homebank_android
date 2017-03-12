@@ -12,6 +12,12 @@ public class OperationFlags {
     public static int OF_LIMIT = 1 << 7;//scheduled
     public static int OF_SPLIT = 1 << 8;
 
+    public enum Status {
+        TXN_STATUS_NONE,//0
+        TXN_STATUS_CLEARED,//1
+        TXN_STATUS_RECONCILED,//2
+        TXN_STATUS_REMIND//3
+    }
     /*
     from transaction.h
     OF_OLDVALID 1<<0 //deprecated
