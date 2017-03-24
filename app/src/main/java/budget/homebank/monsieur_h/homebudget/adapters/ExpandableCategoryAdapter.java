@@ -53,8 +53,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         Category category = (Category) getGroup(i);
         float budget = category.getMonthlyBudget(month);
         float expense = category.getMonthlyExpense(month);
-        float whatsLeft = (budget - expense);
-        if (whatsLeft != 0) whatsLeft *= -1;
+        float balance = (budget - expense);
+        if (balance != 0) balance *= -1;
         if (view == null) {
             view = inflater.inflate(R.layout.group_heading, null);
         }
@@ -62,8 +62,12 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         TextView heading = (TextView) view.findViewById(R.id.heading);
         heading.setText(category.getName());
 
-        TextView amount = (TextView) view.findViewById(R.id.heading_amount);
-        amount.setText(String.format(strFmt, whatsLeft));
+        TextView categoryHeading = (TextView) view.findViewById(R.id.heading_amount);
+        String budgetAmount = String.format(strFmt, budget);
+        String expenseAmount = String.format(strFmt, expense);
+        String balanceStr = String.format(strFmt, balance);
+
+        categoryHeading.setText(String.format(inflater.getContext().getResources().getString(R.string.balance_budget_expense), balanceStr, budgetAmount, expenseAmount));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
         int progress;
@@ -89,8 +93,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         Category category = (Category) getChild(i, j);
         float budget = category.getMonthlyBudget(month);
         float expense = category.getMonthlyExpense(month);
-        float whatsLeft = (budget - expense);
-        if (whatsLeft != 0) whatsLeft *= -1;
+        float balance = (budget - expense);
+        if (balance != 0) balance *= -1;
         if (view == null) {
             view = inflater.inflate(R.layout.category_row, null);
         }
@@ -98,8 +102,11 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         TextView sequence = (TextView) view.findViewById(R.id.subcategory);
         sequence.setText(category.getName());
 
-        TextView childItem = (TextView) view.findViewById(R.id.subcategory_whatsleft);
-        childItem.setText(String.format(strFmt, whatsLeft));
+        TextView childItem = (TextView) view.findViewById(R.id.subcategory_balance);
+        String balanceStr = String.format(strFmt, balance);
+        String budgetAmount = String.format(strFmt, budget);
+        String expenseAmount = String.format(strFmt, expense);
+        childItem.setText(String.format(inflater.getContext().getResources().getString(R.string.balance_budget_expense), balanceStr, budgetAmount, expenseAmount));
 
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);
         int progress;

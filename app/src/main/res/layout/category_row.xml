@@ -19,24 +19,32 @@
                 android:paddingLeft="50sp"
                 android:paddingRight="0dp"
                 android:paddingTop="8sp"
-                android:layout_toLeftOf="@+id/subcategory_whatsleft"
+                android:layout_toLeftOf="@+id/subcategory_balance"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 tools:text="SubCataaaa"
                 android:textStyle="normal|italic"/>
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/subcategory_whatsleft"
-                android:layout_alignParentTop="true"
-                android:paddingLeft="0dp"
-                android:paddingRight="32sp"
-                android:paddingTop="8sp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_alignParentRight="true"
-                android:textAlignment="viewEnd"
-                tools:text="-00.00"
-                android:textStyle="normal|italic"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/subcategory_balance"
+                    android:layout_alignParentTop="true"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="32sp"
+                    android:paddingTop="8sp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="viewEnd"
+                    tools:text="-00.00"
+                    android:textStyle="normal|italic"
+                    android:layout_weight="1"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

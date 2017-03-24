@@ -17,21 +17,29 @@
                 android:paddingTop="16sp"
                 android:paddingRight="16sp"
                 android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/heading_amount"
+
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 tools:text="Category"/>
 
-        <TextView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/heading_amount"
-                android:paddingLeft="16sp"
-                android:paddingTop="16sp"
-                android:paddingRight="32sp"
-                android:layout_alignParentRight="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                tools:text="+256.00"
-                android:textSize="18sp"/>
+                android:layout_alignParentEnd="true">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/heading_amount"
+                    android:paddingLeft="16sp"
+                    android:paddingTop="16sp"
+                    android:paddingRight="32sp"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    tools:text="+256.00"
+                    android:textSize="18sp"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
