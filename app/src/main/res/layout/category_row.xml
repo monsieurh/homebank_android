@@ -5,57 +5,43 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <RelativeLayout
+    <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/heading"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:paddingStart="@dimen/category_title_leftpadding"
+            android:paddingEnd="@dimen/category_title_leftpadding"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Category"
+            android:textAlignment="viewStart"/>
 
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/subcategory"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:paddingLeft="50sp"
-                android:paddingRight="0dp"
-                android:paddingTop="8sp"
-                android:layout_toLeftOf="@+id/subcategory_balance"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                tools:text="SubCataaaa"
-                android:textStyle="normal|italic"/>
-
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/subcategory_balance"
-                    android:layout_alignParentTop="true"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="32sp"
-                    android:paddingTop="8sp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_alignParentRight="true"
-                    android:textAlignment="viewEnd"
-                    tools:text="-00.00"
-                    android:textStyle="normal|italic"
-                    android:layout_weight="1"/>
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/heading_amount"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:paddingStart="@dimen/category_leftpadding"
+            android:paddingEnd="@dimen/category_leftpadding"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            tools:text="+256.00"/>
 
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/child_progress"
-            android:paddingLeft="50sp"
-            android:paddingRight="32sp"
-            android:paddingBottom="8sp"/>
-
+            android:id="@+id/progress"
+            android:max="100"
+            android:layout_marginLeft="32sp"
+            android:layout_marginRight="32sp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:paddingStart="@dimen/category_leftpadding"
+            android:paddingEnd="@dimen/category_leftpadding"
+            android:progress="0"
+            />
 
 </LinearLayout>

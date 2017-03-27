@@ -33,7 +33,7 @@ public class OperationListAdapter implements ListAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Operation operation = (Operation) getItem(position);
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.child_row_operation, null);
+            convertView = inflater.inflate(R.layout.operation_row, null);
         }
 
         TextView operation_account_name = (TextView) convertView.findViewById(R.id.operation_account_name);

@@ -56,7 +56,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         float balance = (budget - expense);
         if (balance != 0) balance *= -1;
         if (view == null) {
-            view = inflater.inflate(R.layout.group_heading, null);
+            view = inflater.inflate(R.layout.category_row, null);
         }
 
         TextView heading = (TextView) view.findViewById(R.id.heading);
@@ -96,7 +96,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         float balance = (budget - expense);
         if (balance != 0) balance *= -1;
         if (view == null) {
-            view = inflater.inflate(R.layout.category_row, null);
+            view = inflater.inflate(R.layout.subcategory_row, null);
         }
 
         TextView sequence = (TextView) view.findViewById(R.id.subcategory);
