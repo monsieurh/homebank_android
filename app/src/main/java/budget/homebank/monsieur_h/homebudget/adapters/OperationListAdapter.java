@@ -43,7 +43,12 @@ public class OperationListAdapter implements ListAdapter {
         text.setText(operation.getPayee().getName());
 
         TextView balanceView = (TextView) convertView.findViewById(R.id.operation_balance);
-        balanceView.setText(String.format(strFmt, operation.getAmount()));
+
+        String amountString = String.format(strFmt, operation.getAmount());
+        if (operation.hasFlag(OperationFlags.OF_SPLIT)) {
+            amountString += " (" + String.format(strFmt, operation.getAmountForCategory(category.getKey())) + ")";
+        }
+        balanceView.setText(amountString);
 
         TextView dateView = (TextView) convertView.findViewById(R.id.operation_date);
         dateView.setText(SimpleDateFormat.getDateInstance().format(operation.getDate()));

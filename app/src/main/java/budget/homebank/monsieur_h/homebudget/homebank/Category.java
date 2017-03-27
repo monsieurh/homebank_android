@@ -99,7 +99,7 @@ public class Category implements Serializable {
         double sum = 0;
         for (Operation ope : operations) {
             if (ope.getDate().getMonth() == month) {
-                sum += ope.getAmount();
+                sum += ope.getAmountForCategory(key);
             }
         }
         for (Category child : getChildren()) {

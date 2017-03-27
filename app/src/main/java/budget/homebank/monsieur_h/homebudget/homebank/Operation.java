@@ -52,6 +52,19 @@ public class Operation {
         return amount;
     }
 
+    public float getAmountForCategory(int categoryKey) {
+        if (subOperations.size() == 0) {
+            return amount;
+        }
+
+        float sum = 0;
+        for (SubOperation sub : subOperations) {
+            if (sub.categoryKey != categoryKey) continue;
+            sum += sub.amount;
+        }
+        return sum;
+    }
+
     public void setFlags(int flags) {
         this.flags = flags;
     }
