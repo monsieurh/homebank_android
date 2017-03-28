@@ -33,10 +33,10 @@ public class AccountListAdapter implements ListAdapter {
 
         TextView subtext = (TextView) convertView.findViewById(R.id.subtext);
 
-        String futureAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getFuture());
-        String bankAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getFuture());
+        String futureAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getFutureAmount());
+        String bankAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getBankAmount());
 
-        subtext.setText(String.format("Futur: %s", futureAmount));
+        subtext.setText(String.format("Futur: %s Banque : %s", futureAmount, bankAmount));
         return convertView;
     }
 

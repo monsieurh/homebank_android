@@ -150,7 +150,8 @@ public class HomeActivity extends AppCompatActivity {
         if (xhb != null) {
             setTitle(xhb.getProperties().getTitle());
         }
-        mSectionsPagerAdapter.initFragments();
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 
     @Override

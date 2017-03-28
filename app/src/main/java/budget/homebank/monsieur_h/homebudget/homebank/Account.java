@@ -57,7 +57,7 @@ public class Account {
         this.xhb = xhb;
     }
 
-    public float getFuture() {
+    public float getFutureAmount() {
         float sum = getInitialAmount();
         for (Operation op : operations) {
             sum += op.getAmount();
@@ -68,4 +68,26 @@ public class Account {
     public float getInitialAmount() {
         return getCurrency().fixNegativeZero(initialAmount);
     }
+
+    public float getBankAmount() {
+        float sum = getInitialAmount();
+        for (Operation op : operations) {
+            if (op.getStatus() != OperationFlags.Status.TXN_STATUS_RECONCILED) {
+                continue;
+            }
+            sum += op.getAmount();
+        }
+        return getCurrency().fixNegativeZero(sum);
+    }
+
+//    public float getTodayAmount() {
+//        float sum = getInitialAmount();
+//        for (Operation op : operations) {
+//            if (op.getStatus() != OperationFlags.Status.) {
+//                continue;
+//            }
+//            sum += op.getAmount();
+//        }
+//        return getCurrency().fixNegativeZero(sum);
+//    }
 }

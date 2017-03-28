@@ -17,6 +17,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
+        initFragments();
     }
 
     public void initFragments() {
