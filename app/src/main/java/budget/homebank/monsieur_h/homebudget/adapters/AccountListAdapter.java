@@ -32,7 +32,11 @@ public class AccountListAdapter implements ListAdapter {
         accountName.setText(account.getName());
 
         TextView subtext = (TextView) convertView.findViewById(R.id.subtext);
-        subtext.setText(String.format("%.2f", account.getFuture()));
+
+        String futureAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getFuture());
+        String bankAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getFuture());
+
+        subtext.setText(String.format("Futur: %s", futureAmount));
         return convertView;
     }
 

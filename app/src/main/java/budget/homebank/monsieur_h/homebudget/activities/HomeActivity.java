@@ -150,7 +150,7 @@ public class HomeActivity extends AppCompatActivity {
         if (xhb != null) {
             setTitle(xhb.getProperties().getTitle());
         }
-        mSectionsPagerAdapter.refresh();
+        mSectionsPagerAdapter.initFragments();
     }
 
     @Override

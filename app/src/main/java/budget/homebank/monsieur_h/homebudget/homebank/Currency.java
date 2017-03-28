@@ -36,4 +36,8 @@ public class Currency {
     public String getFormat() {
         return String.format("%%.%df %c", decimalPrecision, symbol);//todo check for thousand separator (',' in french)
     }
+
+    public float fixNegativeZero(float amount) {
+        return Math.abs(amount) < 1f / decimalPrecision ? Math.abs(amount) : amount;
+    }
 }

@@ -17,14 +17,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
-        budgetSummaryFragment = new BudgetSummaryFragment();
-        accountListFragment = new AccountListFragment();
     }
 
-    public void refresh() {
-        accountListFragment.refresh();
-        budgetSummaryFragment.refresh();
-
+    public void initFragments() {
+        budgetSummaryFragment = new BudgetSummaryFragment();
+        accountListFragment = new AccountListFragment();
     }
 
     @Override

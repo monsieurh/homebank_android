@@ -22,7 +22,12 @@ public class BudgetSummaryFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.category_list, container, false);
         expandableListView = (ExpandableListView) rootView.findViewById(R.id.expandable_category_list);
         addOnClickListeners();
-        refresh();
+        listAdapter = new ExpandableCategoryAdapter(
+                getActivity(),
+                HomeActivity.xhb.getTopCategoriesForMonthlyBudget(HomeActivity.CURRENT_MONTH),
+                HomeActivity.CURRENT_MONTH
+        );
+        expandableListView.setAdapter(listAdapter);
         return rootView;
     }
 
@@ -55,14 +60,5 @@ public class BudgetSummaryFragment extends Fragment {
                 return true;
             }
         });
-    }
-
-    public void refresh() {
-        listAdapter = new ExpandableCategoryAdapter(
-                getActivity(),
-                HomeActivity.xhb.getTopCategoriesForMonthlyBudget(HomeActivity.CURRENT_MONTH),
-                HomeActivity.CURRENT_MONTH
-        );
-        expandableListView.setAdapter(listAdapter);
     }
 }

@@ -21,12 +21,8 @@ public class AccountListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.account_list, container, false);
         accountListView = (ListView) rootView.findViewById(R.id.account_list);
-        refresh();
-        return rootView;
-    }
-
-    public void refresh() {
         accountListAdapter = new AccountListAdapter(getActivity(), HomeActivity.xhb, HomeActivity.CURRENT_MONTH);
         accountListView.setAdapter(accountListAdapter);
+        return rootView;
     }
 }

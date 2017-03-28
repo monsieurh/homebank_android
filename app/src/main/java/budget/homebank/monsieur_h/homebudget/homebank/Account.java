@@ -46,7 +46,7 @@ public class Account {
     }
 
     public Currency getCurrency() {
-        return currency;
+        return currency == null ? xhb.getDefaultCurrency() : currency;
     }
 
     public void setCurrency(Currency currency) {
@@ -58,14 +58,14 @@ public class Account {
     }
 
     public float getFuture() {
-        float sum = 0;
+        float sum = getInitialAmount();
         for (Operation op : operations) {
             sum += op.getAmount();
         }
-        return sum + getInitialAmount();
+        return getCurrency().fixNegativeZero(sum);
     }
 
     public float getInitialAmount() {
-        return initialAmount;
+        return getCurrency().fixNegativeZero(initialAmount);
     }
 }
