@@ -80,14 +80,14 @@ public class Account {
         return getCurrency().fixNegativeZero(sum);
     }
 
-//    public float getTodayAmount() {
-//        float sum = getInitialAmount();
-//        for (Operation op : operations) {
-//            if (op.getStatus() != OperationFlags.Status.) {
-//                continue;
-//            }
-//            sum += op.getAmount();
-//        }
-//        return getCurrency().fixNegativeZero(sum);
-//    }
+    public float getTodayAmount() {//todo:dis
+        float sum = getInitialAmount();
+        for (Operation op : operations) {
+            if (op.isFuture()) {
+                continue;
+            }
+            sum += op.getAmount();
+        }
+        return getCurrency().fixNegativeZero(sum);
+    }
 }

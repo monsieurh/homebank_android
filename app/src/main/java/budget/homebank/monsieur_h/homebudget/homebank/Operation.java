@@ -16,7 +16,7 @@ public class Operation {
     private Account account;
     private List<SubOperation> subOperations = new ArrayList<>();
     private XHB xhb;
-    private OperationFlags.Status status;
+    private OperationFlags.Status status = OperationFlags.Status.TXN_STATUS_NONE;
 
     public Operation(float amount, int accountKey, Date date) {
 
@@ -133,6 +133,11 @@ public class Operation {
                 break;
             case 2:
                 this.status = OperationFlags.Status.TXN_STATUS_RECONCILED;
+                break;
         }
+    }
+
+    public boolean isFuture() {
+        return getDate().compareTo(new Date()) > 0;
     }
 }
