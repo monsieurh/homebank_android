@@ -197,7 +197,7 @@ public class HomeActivity extends AppCompatActivity {
                 case 0:
                     return "Budget";
                 case 1:
-                    return "Budget aussi ?";//todo : translate
+                    return "Comptes";//todo : translate
             }
             return null;
         }

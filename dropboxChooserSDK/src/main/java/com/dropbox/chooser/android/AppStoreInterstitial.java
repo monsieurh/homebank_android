@@ -24,7 +24,7 @@ class AppStoreInterstitial {
     private static final int MAX_DIALOG_WIDTH_DP = 590;
     private static final int MAX_DIALOG_HEIGHT_DP = 700;
     private static final int DLG_PADDING_DP = 10;
-    private static final int APPROX_STATUSBAR_HEIGHT_DP = 25; // TODO: be better to have the right one and know if it's on top or bottom
+    private static final int APPROX_STATUSBAR_HEIGHT_DP = 25;
 
     @SuppressLint("NewApi") // lint isn't clever enough to figure out that we branched manually :(
     public static void showInterstitial(ActivityLike thing) {
