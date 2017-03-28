@@ -12,8 +12,6 @@ import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.ExpandableCategoryAdapter;
 import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
-import java.util.Calendar;
-
 public class BudgetSummaryFragment extends Fragment {
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
@@ -60,8 +58,11 @@ public class BudgetSummaryFragment extends Fragment {
     }
 
     private void updateView() {
-        int month = Calendar.getInstance().get(Calendar.MONTH);
-        listAdapter = new ExpandableCategoryAdapter(getActivity(), HomeActivity.xhb.getTopCategoriesForMonthlyBudget(month), month);
+        listAdapter = new ExpandableCategoryAdapter(
+                getActivity(),
+                HomeActivity.xhb.getTopCategoriesForMonthlyBudget(HomeActivity.CURRENT_MONTH),
+                HomeActivity.CURRENT_MONTH
+        );
         expandableListView.setAdapter(listAdapter);
     }
 }

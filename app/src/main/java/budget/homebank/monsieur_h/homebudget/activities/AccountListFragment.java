@@ -10,8 +10,6 @@ import android.widget.ListView;
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.AccountListAdapter;
 
-import java.util.Calendar;
-
 public class AccountListFragment extends Fragment {
 
     private ListView accountListView;
@@ -22,7 +20,7 @@ public class AccountListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.account_list, container, false);
         accountListView = (ListView) rootView.findViewById(R.id.account_list);
-        accountListAdapter = new AccountListAdapter(getActivity(), HomeActivity.xhb, Calendar.getInstance().get(Calendar.MONTH));
+        accountListAdapter = new AccountListAdapter(getActivity(), HomeActivity.xhb, HomeActivity.CURRENT_MONTH);
         accountListView.setAdapter(accountListAdapter);
         return rootView;
     }

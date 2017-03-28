@@ -29,6 +29,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -37,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final int LOCAL_CHOOSE_FILE_REQUEST = 2;
     private static final int PERMISSION_CUSTOM_CODE = 16;
     public static XHB xhb = new XHB();
+    static int CURRENT_MONTH = Calendar.getInstance().get(Calendar.MONTH);
     private ExpandableListView expandableListView;
     private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
@@ -168,7 +170,7 @@ public class HomeActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
