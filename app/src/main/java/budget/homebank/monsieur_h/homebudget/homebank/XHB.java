@@ -160,4 +160,8 @@ public class XHB {
     public Currency getDefaultCurrency() {
         return currencies.get(getProperties().getDefaultCurrencyCode());
     }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 }
