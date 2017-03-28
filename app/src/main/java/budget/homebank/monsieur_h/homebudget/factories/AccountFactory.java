@@ -8,10 +8,15 @@ public class AccountFactory implements HBFactory<Account> {
     @Override
     public Account fromNode(Node node) {
         NamedNodeMap attributes = node.getAttributes();
+        float initialAmount = 0;
+        if (attributes.getNamedItem("initial") != null) {
+            initialAmount = Float.parseFloat(attributes.getNamedItem("initial").getNodeValue());
+        }
         Account account = new Account(
                 Integer.parseInt(attributes.getNamedItem("key").getNodeValue()),
                 attributes.getNamedItem("name").getNodeValue(),
-                Integer.parseInt(attributes.getNamedItem("curr").getNodeValue())
+                Integer.parseInt(attributes.getNamedItem("curr").getNodeValue()),
+                initialAmount
         );
 
         Node flags = attributes.getNamedItem("flags");

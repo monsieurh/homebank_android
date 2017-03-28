@@ -9,8 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -19,9 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ExpandableListView;
 import budget.homebank.monsieur_h.homebudget.R;
-import budget.homebank.monsieur_h.homebudget.adapters.ExpandableCategoryAdapter;
+import budget.homebank.monsieur_h.homebudget.adapters.SectionsPagerAdapter;
 import budget.homebank.monsieur_h.homebudget.factories.XhbFileParser;
 import budget.homebank.monsieur_h.homebudget.homebank.XHB;
 import com.dropbox.chooser.android.DbxChooser;
@@ -39,8 +36,6 @@ public class HomeActivity extends AppCompatActivity {
     private static final int PERMISSION_CUSTOM_CODE = 16;
     public static XHB xhb = new XHB();
     static int CURRENT_MONTH = Calendar.getInstance().get(Calendar.MONTH);
-    private ExpandableListView expandableListView;
-    private ExpandableCategoryAdapter listAdapter;
     private Uri fileUri;
 
     /**
@@ -122,6 +117,42 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
+            int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION & Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
+            fileUri = data.getData();
+            getContentResolver().takePersistableUriPermission(fileUri, flags);
+            onFileSelected();
+        }
+        if (requestCode == DBX_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
+            DbxChooser.Result result = new DbxChooser.Result(data);
+            fileUri = result.getLink();
+
+            onFileSelected();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void onFileSelected() {
+        try {
+            XhbFileParser.setSaveFileUri(this, fileUri);
+            xhb = XhbFileParser.parse(this);
+            updateView();
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void updateView() {
+        if (xhb != null) {
+            setTitle(xhb.getProperties().getTitle());
+        }
+        mSectionsPagerAdapter.refresh();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -164,46 +195,4 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            switch (position) {
-                case 0:
-                    return new AccountListFragment();
-                default:
-                case 1:
-                    return new BudgetSummaryFragment();
-            }
-        }
-
-        @Override
-        public int getCount() {
-            // Show 2 pages
-            return 2;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Budget";
-                case 1:
-                    return "Comptes";//todo : translate
-            }
-            return null;
-        }
-
-
-    }
 }

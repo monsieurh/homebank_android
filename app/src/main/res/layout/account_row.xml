@@ -3,11 +3,20 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
+              android:padding="@dimen/activity_horizontal_margin"
               android:layout_height="match_parent">
 
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/account_name"
-            tools:text="AccountTitle"/>
+            tools:text="AccountTitle"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/subtext"
+            android:textStyle="normal|italic"/>
 </LinearLayout>

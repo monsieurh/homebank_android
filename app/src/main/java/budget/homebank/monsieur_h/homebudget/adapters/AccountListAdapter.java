@@ -30,6 +30,9 @@ public class AccountListAdapter implements ListAdapter {
         }
         TextView accountName = (TextView) convertView.findViewById(R.id.account_name);
         accountName.setText(account.getName());
+
+        TextView subtext = (TextView) convertView.findViewById(R.id.subtext);
+        subtext.setText(String.format("%.2f", account.getFuture()));
         return convertView;
     }
 

@@ -22,7 +22,7 @@ public class BudgetSummaryFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.category_list, container, false);
         expandableListView = (ExpandableListView) rootView.findViewById(R.id.expandable_category_list);
         addOnClickListeners();
-        updateView();
+        refresh();
         return rootView;
     }
 
@@ -57,7 +57,7 @@ public class BudgetSummaryFragment extends Fragment {
         });
     }
 
-    private void updateView() {
+    public void refresh() {
         listAdapter = new ExpandableCategoryAdapter(
                 getActivity(),
                 HomeActivity.xhb.getTopCategoriesForMonthlyBudget(HomeActivity.CURRENT_MONTH),
