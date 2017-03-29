@@ -37,7 +37,7 @@ public class AccountListAdapter implements ListAdapter {
         String bankAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getBankAmount());
         String todayAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getTodayAmount());
 
-        subtext.setText(String.format("Banque: %s Auj : %s Futur: %s", bankAmount, todayAmount, futureAmount));
+        subtext.setText(String.format("Banque: %s\nAujourd'hui : %s\nFutur: %s", bankAmount, todayAmount, futureAmount));
         return convertView;
     }
 
