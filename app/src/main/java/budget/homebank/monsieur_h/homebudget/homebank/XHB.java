@@ -16,19 +16,26 @@ public class XHB {
         NO_CATEGORY.setXhb(this);
         NO_PAYEE.setXhb(this);
 
-        for (Category child : categories) {
-            child.setXhb(this);
-            if (child.getParentKey() != 0) {
-                Category parent = findCategory(child.getParentKey());
-                parent.addChild(child);
-                child.setParent(parent);
-            }
-        }
+        createCategoryHierarchy();
+        setPayeeFileReference();
+        bindOperationAndCategories();
+        setAccountFileReference();
+        roundOperationsAmount();
+    }
 
-        for (Payee payee : payees) {
-            payee.setXhb(this);
+    private void roundOperationsAmount() {
+        for (Operation operation : operations) {
+            operation.round();
         }
+    }
 
+    private void setAccountFileReference() {
+        for (Account account : accounts) {
+            account.setXhb(this);
+        }
+    }
+
+    private void bindOperationAndCategories() {
         for (Operation op : operations) {
             findCategory(op.getCategoryKey()).addOperation(op);
             op.setPayee(findPayee(op.getPayeeKey()));
@@ -43,9 +50,22 @@ public class XHB {
                 }
             }
         }
+    }
 
-        for (Account account : accounts) {
-            account.setXhb(this);
+    private void setPayeeFileReference() {
+        for (Payee payee : payees) {
+            payee.setXhb(this);
+        }
+    }
+
+    private void createCategoryHierarchy() {
+        for (Category child : categories) {
+            child.setXhb(this);
+            if (child.getParentKey() != 0) {
+                Category parent = findCategory(child.getParentKey());
+                parent.addChild(child);
+                child.setParent(parent);
+            }
         }
     }
 

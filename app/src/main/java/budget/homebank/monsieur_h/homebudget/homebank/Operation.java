@@ -1,13 +1,15 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Operation {
-    private final float amount;
     private final int accountKey;
     private final Date date;
+    private double amount;
     private int payeeKey;
     private int categoryKey;
     private String wording;
@@ -48,11 +50,11 @@ public class Operation {
         return date;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public float getAmountForCategory(int categoryKey) {
+    public double getAmountForCategory(int categoryKey) {
         if (subOperations.size() == 0) {
             return amount;
         }
@@ -139,5 +141,17 @@ public class Operation {
 
     public boolean isFuture() {
         return getDate().compareTo(new Date()) > 0;
+    }
+
+    void round() {
+        final double amount = getAmount();
+        final Currency currency = getAccount().getCurrency();
+        final int precision = currency.decimalPrecision;
+
+        final double precisionMultiplier = Math.pow(10, precision);
+        this.amount = (float) (Math.round(amount * precisionMultiplier) / precisionMultiplier);
+        if (this.amount != amount) {
+            Log.e("PRECISION", "Error in precision of operation amount. Fixing...");
+        }
     }
 }

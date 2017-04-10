@@ -9,22 +9,34 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.homebank.Account;
+import budget.homebank.monsieur_h.homebudget.homebank.AccountFlags;
 import budget.homebank.monsieur_h.homebudget.homebank.XHB;
 
+import java.util.ArrayList;
+
 public class AccountListAdapter implements ListAdapter {
-    private final XHB xhb;
+    private final ArrayList<Account> accounts = new ArrayList<>();
     private final int month;
     private final LayoutInflater inflater;
 
     public AccountListAdapter(Context context, XHB xhb, int month) {
-        this.xhb = xhb;
+        createAccountList(xhb);
         this.month = month;
         inflater = LayoutInflater.from(context);
     }
 
+    public void createAccountList(XHB xhb) {
+        for (Account account : xhb.getAccounts()) {
+            if (account.hasFlag(AccountFlags.AF_CLOSED) || account.hasFlag(AccountFlags.AF_NOSUMMARY)) {
+                continue;
+            }
+            accounts.add(account);
+        }
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Account account = xhb.getAccounts().get(position);
+        Account account = accounts.get(position);
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.account_row, null);
         }
@@ -33,9 +45,9 @@ public class AccountListAdapter implements ListAdapter {
 
         TextView subtext = (TextView) convertView.findViewById(R.id.subtext);
 
-        String futureAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getFutureAmount());
-        String bankAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getBankAmount());
-        String todayAmount = String.format(xhb.getDefaultCurrency().getFormat(), account.getTodayAmount());
+        String futureAmount = String.format(account.getCurrency().getFormat(), account.getFutureAmount());
+        String bankAmount = String.format(account.getCurrency().getFormat(), account.getBankAmount());
+        String todayAmount = String.format(account.getCurrency().getFormat(), account.getTodayAmount());
 
         subtext.setText(String.format("Banque: %s\nAujourd'hui : %s\nFutur: %s", bankAmount, todayAmount, futureAmount));
         return convertView;
@@ -63,12 +75,12 @@ public class AccountListAdapter implements ListAdapter {
 
     @Override
     public int getCount() {
-        return xhb.getAccounts().size();
+        return accounts.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return xhb.getAccounts().get(position);
+        return accounts.get(position);
     }
 
     @Override
