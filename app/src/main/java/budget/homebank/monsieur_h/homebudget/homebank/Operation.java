@@ -1,15 +1,16 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
-import android.util.Log;
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import budget.homebank.monsieur_h.homebudget.Util;
+
 public class Operation {
     private final int accountKey;
     private final Date date;
-    private double amount;
+    private BigDecimal amount = Util.NewBig();
     private int payeeKey;
     private int categoryKey;
     private String wording;
@@ -22,7 +23,7 @@ public class Operation {
 
     public Operation(float amount, int accountKey, Date date) {
 
-        this.amount = amount;
+        this.amount = Util.NewBig(amount);
         this.accountKey = accountKey;
         this.date = date;
     }
@@ -50,19 +51,19 @@ public class Operation {
         return date;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public double getAmountForCategory(int categoryKey) {
+    public BigDecimal getAmountForCategory(int categoryKey) {
         if (subOperations.size() == 0) {
             return amount;
         }
 
-        float sum = 0;
-        for (SubOperation sub : subOperations) {
-            if (sub.categoryKey != categoryKey) continue;
-            sum += sub.amount;
+        BigDecimal sum = Util.NewBig();
+        for (SubOperation subOperation : subOperations) {
+            if (subOperation.categoryKey != categoryKey) continue;
+            sum = sum.add(subOperation.amount);
         }
         return sum;
     }
@@ -141,17 +142,5 @@ public class Operation {
 
     public boolean isFuture() {
         return getDate().compareTo(new Date()) > 0;
-    }
-
-    void round() {
-        final double amount = getAmount();
-        final Currency currency = getAccount().getCurrency();
-        final int precision = currency.decimalPrecision;
-
-        final double precisionMultiplier = Math.pow(10, precision);
-        this.amount = (float) (Math.round(amount * precisionMultiplier) / precisionMultiplier);
-        if (this.amount != amount) {
-            Log.e("PRECISION", "Error in precision of operation amount. Fixing...");
-        }
     }
 }

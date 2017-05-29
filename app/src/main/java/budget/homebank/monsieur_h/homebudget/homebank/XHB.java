@@ -1,6 +1,10 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 
 public class XHB {
     private final Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
@@ -20,13 +24,6 @@ public class XHB {
         setPayeeFileReference();
         bindOperationAndCategories();
         setAccountFileReference();
-        roundOperationsAmount();
-    }
-
-    private void roundOperationsAmount() {
-        for (Operation operation : operations) {
-            operation.round();
-        }
     }
 
     private void setAccountFileReference() {
@@ -72,7 +69,8 @@ public class XHB {
     public List<Category> getTopCategoriesForMonthlyBudget(int month) {
         List<Category> topLevel = new ArrayList<>();
         for (Category category : categories) {
-            if (category.getMonthlyBudget(month) == 0 && !category.hasFlag(CategoryFlags.GF_BUDGET)) {
+            if (category.getMonthlyBudget(month).doubleValue() == 0
+                    && !category.hasFlag(CategoryFlags.GF_BUDGET)) {
                 continue;
             }
             Category copy = new Category(category);

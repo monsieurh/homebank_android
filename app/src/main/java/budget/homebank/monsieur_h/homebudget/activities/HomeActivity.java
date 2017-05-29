@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,16 +18,20 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.dropbox.chooser.android.DbxChooser;
+
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.util.Calendar;
+
+import javax.xml.parsers.ParserConfigurationException;
+
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.SectionsPagerAdapter;
 import budget.homebank.monsieur_h.homebudget.factories.XhbFileParser;
 import budget.homebank.monsieur_h.homebudget.homebank.XHB;
-import com.dropbox.chooser.android.DbxChooser;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -52,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private Parcelable previousPagerState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +78,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
 
-        checkPerms();
-
+        checkPerms();//todo : move this before view and check for previous state view
         try {
             xhb = XhbFileParser.parseLastfile(this);
             Log.d("DEBUG", "Parsed last file automatically");
@@ -196,4 +201,17 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        previousPagerState = mViewPager.onSaveInstanceState();
+        Log.d("PARCEL", "Saved view pager");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mViewPager.onRestoreInstanceState(previousPagerState);
+        Log.d("PARCEL", "Restored view pager");
+    }
 }

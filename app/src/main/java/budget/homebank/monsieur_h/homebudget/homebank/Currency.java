@@ -3,6 +3,8 @@ package budget.homebank.monsieur_h.homebudget.homebank;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
+import java.math.BigDecimal;
+
 public class Currency {
     public final int key;
     public final String iso;
@@ -39,5 +41,9 @@ public class Currency {
 
     public float fixNegativeZero(float amount) {
         return Math.abs(amount) < 1f / decimalPrecision ? Math.abs(amount) : amount;
+    }
+
+    public BigDecimal fixNegativeZero(BigDecimal amount) {
+        return amount;
     }
 }

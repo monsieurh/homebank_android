@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import budget.homebank.monsieur_h.homebudget.R;
-import budget.homebank.monsieur_h.homebudget.Util;
-import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import budget.homebank.monsieur_h.homebudget.R;
+import budget.homebank.monsieur_h.homebudget.Util;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
 public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     private final LayoutInflater inflater;
@@ -51,8 +53,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         Category category = (Category) getGroup(i);
-        float budget = category.getMonthlyBudget(month);
-        float expense = category.getMonthlyExpense(month);
+        float budget = category.getMonthlyBudget(month).floatValue();
+        float expense = category.getMonthlyExpense(month).floatValue();
         float balance = (budget - expense);
         if (balance != 0) balance *= -1;
         if (view == null) {
@@ -72,7 +74,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.progress);
         int progress;
         if (budget != 0) {
-            progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
+            progress = category.getMonthlyExpenseRatio(month).multiply(BigDecimal.valueOf(Util.PROGRESS_PRECISION)).intValue();
             progress = Math.abs(progress);
         } else {
             progress = expense == 0 ? 0 : 101;
@@ -91,8 +93,8 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int i, int j, boolean isLastChild, View view, ViewGroup viewGroup) {
         Category category = (Category) getChild(i, j);
-        float budget = category.getMonthlyBudget(month);
-        float expense = category.getMonthlyExpense(month);
+        float budget = category.getMonthlyBudget(month).floatValue();
+        float expense = category.getMonthlyExpense(month).floatValue();
         float balance = (budget - expense);
         if (balance != 0) balance *= -1;
         if (view == null) {
@@ -111,7 +113,7 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
         ProgressBar bar = (ProgressBar) view.findViewById(R.id.child_progress);
         int progress;
         if (budget != 0) {
-            progress = (int) (category.getMonthlyExpenseRatio(month) * Util.PROGRESS_PRECISION);
+            progress = category.getMonthlyExpenseRatio(month).multiply(BigDecimal.valueOf(Util.PROGRESS_PRECISION)).intValue();
             progress = Math.abs(progress);
         } else {
             progress = expense == 0 ? 0 : 101;

@@ -1,14 +1,17 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import budget.homebank.monsieur_h.homebudget.Util;
 
 public class Category implements Serializable {
     private final String name;
     private final int key;
     private int parentKey;
-    private float[] monthlyBudget = new float[12];
+    private BigDecimal[] monthlyBudget = new BigDecimal[12];
     private float defaultMonthlyBudget = 0f;
     private List<Category> children = new ArrayList<>();
     private int flags;
@@ -19,6 +22,7 @@ public class Category implements Serializable {
     private XHB xhb;
 
     Category(Category original) {
+        initBudget();
         this.name = original.name;
         this.key = original.key;
         this.parentKey = original.parentKey;
@@ -41,6 +45,12 @@ public class Category implements Serializable {
         this.key = key;
     }
 
+    private void initBudget() {
+        for (int i = 0; i < 12; i++) {
+            monthlyBudget[i] = Util.NewBig();
+        }
+    }
+
     void addChild(Category category) {
         if (children.contains(category)) return;
         children.add(category);
@@ -55,13 +65,13 @@ public class Category implements Serializable {
         if (month == 0) {
             setDefaultMonthlyBudget(amount);
         } else {
-            monthlyBudget[month - 1] = amount;// '-1' because January is 0 to me, but 1 to Homebank
+            monthlyBudget[month - 1] = Util.NewBig(amount);// '-1' because January is 0 to me, but 1 to Homebank
         }
     }
 
     private void setDefaultMonthlyBudget(float amount) {
         for (int i = 0; i < 12; i++) {
-            monthlyBudget[i] = amount;
+            monthlyBudget[i] = Util.NewBig(amount);
         }
         defaultMonthlyBudget = amount;
     }
@@ -83,37 +93,37 @@ public class Category implements Serializable {
         this.parentKey = parentKey;
     }
 
-    public float getMonthlyBudget(int month) {
-        float monthly = monthlyBudget[month];
-        if (monthly != 0) {
+    public BigDecimal getMonthlyBudget(int month) {
+        BigDecimal monthly = Util.NewBig(monthlyBudget[month]);
+        if (monthly != null && monthly.doubleValue() != 0) {
             return monthly;
         } else {
             for (Category child : getChildren()) {
-                monthly += child.getMonthlyBudget(month);
+                monthly = monthly.add(child.getMonthlyBudget(month));
             }
             return monthly;
         }
     }
 
-    public float getMonthlyExpense(int month) {
-        double sum = 0;
+    public BigDecimal getMonthlyExpense(int month) {
+        BigDecimal sum = Util.NewBig();
         for (Operation ope : operations) {
             if (ope.getDate().getMonth() == month) {
-                sum += ope.getAmountForCategory(key);
+                sum = sum.add(ope.getAmountForCategory(key));
             }
         }
         for (Category child : getChildren()) {
-            sum += child.getMonthlyExpense(month);
+            sum = sum.add(child.getMonthlyExpense(month));
         }
-        return (float) sum;
+        return sum;
     }
 
-    public float getMonthlyExpenseRatio(int month) {
-        float monthlyBudget = getMonthlyBudget(month);
-        if (monthlyBudget == 0) {
-            return 0;
+    public BigDecimal getMonthlyExpenseRatio(int month) {
+        BigDecimal monthlyBudget = getMonthlyBudget(month);
+        if (monthlyBudget.doubleValue() == 0) {
+            return Util.NewBig();
         }
-        return getMonthlyExpense(month) / monthlyBudget;
+        return getMonthlyExpense(month).divide(monthlyBudget, Util.ROUND_METHOD);
     }
 
     @Override

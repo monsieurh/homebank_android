@@ -1,13 +1,16 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import budget.homebank.monsieur_h.homebudget.Util;
 
 public class Account {
     private final int key;
     private final String name;
     private int currencyKey;
-    private float initialAmount;
+    private BigDecimal initialAmount = Util.NewBig();
     private List<Operation> operations = new ArrayList<Operation>();
     private int flags;
     private Currency currency;
@@ -18,7 +21,8 @@ public class Account {
         this.key = key;
         this.name = name;
         currencyKey = curr;
-        this.initialAmount = initialAmount;
+
+        this.initialAmount = Util.NewBig(initialAmount);
     }
 
     public int getKey() {
@@ -57,36 +61,36 @@ public class Account {
         this.xhb = xhb;
     }
 
-    public float getFutureAmount() {
-        float sum = getInitialAmount();
+    public BigDecimal getFutureAmount() {
+        BigDecimal sum = getInitialAmount();
         for (Operation op : operations) {
-            sum += op.getAmount();
+            sum = sum.add(op.getAmount());
         }
         return getCurrency().fixNegativeZero(sum);
     }
 
-    public float getInitialAmount() {
+    public BigDecimal getInitialAmount() {
         return getCurrency().fixNegativeZero(initialAmount);
     }
 
-    public float getBankAmount() {
-        float sum = getInitialAmount();
+    public BigDecimal getBankAmount() {
+        BigDecimal sum = getInitialAmount();
         for (Operation op : operations) {
             if (op.getStatus() != OperationFlags.Status.TXN_STATUS_RECONCILED) {
                 continue;
             }
-            sum += op.getAmount();
+            sum = sum.add(op.getAmount());
         }
         return getCurrency().fixNegativeZero(sum);
     }
 
-    public float getTodayAmount() {//todo:dis
-        float sum = getInitialAmount();
+    public BigDecimal getTodayAmount() {//todo:dis
+        BigDecimal sum = getInitialAmount();
         for (Operation op : operations) {
             if (op.isFuture()) {
                 continue;
             }
-            sum += op.getAmount();
+            sum = sum.add(op.getAmount());
         }
         return getCurrency().fixNegativeZero(sum);
     }
