@@ -195,7 +195,7 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-            readFileIntent.setType("*/*");//// TODO: 5/29/17 download doc for setType (Android API 25)
+            readFileIntent.setType("application/*");
             try {
                 startActivityForResult(readFileIntent, LOCAL_CHOOSE_FILE_REQUEST);
             } catch (ActivityNotFoundException e) {

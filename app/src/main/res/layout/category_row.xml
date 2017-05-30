@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/heading"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:paddingStart="@dimen/category_title_leftpadding"
-            android:paddingEnd="@dimen/category_title_leftpadding"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            tools:text="Category"
-            android:textAlignment="viewStart"/>
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="0dp"
+        android:paddingEnd="@dimen/category_title_leftpadding"
+        android:paddingStart="@dimen/category_title_leftpadding"
+        android:paddingTop="0dp"
+        android:textAlignment="viewStart"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:text="Category" />
 
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/heading_amount"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:paddingStart="@dimen/category_leftpadding"
-            android:paddingEnd="@dimen/category_leftpadding"
-            android:textAlignment="viewStart"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            tools:text="+256.00"/>
+        android:id="@+id/heading_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="0dp"
+        android:paddingEnd="@dimen/category_leftpadding"
+        android:paddingStart="@dimen/category_leftpadding"
+        android:paddingTop="0dp"
+        android:textAlignment="viewStart"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:text="+256.00" />
 
     <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/progress"
-            android:max="100"
-            android:layout_marginLeft="32sp"
-            android:layout_marginRight="32sp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:paddingStart="@dimen/category_leftpadding"
-            android:paddingEnd="@dimen/category_leftpadding"
-            android:progress="0"
-            />
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:max="100"
+        android:paddingBottom="0dp"
+        android:paddingEnd="@dimen/category_leftpadding"
+        android:paddingStart="@dimen/category_leftpadding"
+        android:paddingTop="0dp"
+        android:progress="0" />
 
 </LinearLayout>

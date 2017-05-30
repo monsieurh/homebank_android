@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/subcategory"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:paddingStart="@dimen/subcategory_title_leftpadding"
-            android:paddingEnd="@dimen/subcategory_title_leftpadding"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            tools:text="SubCategoryName"
-            android:textStyle="normal|italic"
-            android:layout_weight="1"/>
+        android:id="@+id/subcategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="0dp"
+        android:paddingEnd="@dimen/subcategory_title_leftpadding"
+        android:paddingStart="@dimen/subcategory_title_leftpadding"
+        android:paddingTop="0dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="normal|italic"
+        tools:text="SubCategoryName" />
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/subcategory_balance"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:paddingStart="@dimen/subcategory_leftpadding"
-            android:paddingEnd="@dimen/subcategory_leftpadding"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textAlignment="viewStart"
-            tools:text="-00.00"
-            android:textStyle="normal|italic"
-            android:layout_weight="1"/>
+        android:id="@+id/subcategory_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="0dp"
+        android:paddingEnd="@dimen/subcategory_leftpadding"
+        android:paddingStart="@dimen/subcategory_leftpadding"
+        android:paddingTop="0dp"
+        android:textAlignment="viewStart"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="normal|italic"
+        tools:text="-00.00" />
 
     <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/child_progress"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:paddingStart="@dimen/subcategory_leftpadding"
-            android:paddingEnd="@dimen/subcategory_leftpadding"
-            />
+        android:id="@+id/child_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="0dp"
+        android:paddingEnd="@dimen/category_leftpadding"
+        android:paddingStart="@dimen/category_leftpadding"
+        android:paddingTop="0dp" />
 
 
 </LinearLayout>
