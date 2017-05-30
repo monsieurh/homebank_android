@@ -24,12 +24,7 @@ public class AccountListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.account_list, container, false);
-        if (previousListViewState == null) {
-            accountListView = (ListView) rootView.findViewById(R.id.account_list);
-        } else {
-            accountListView.onRestoreInstanceState(previousListViewState);
-            Log.d("PARCEL", "Restored account list");
-        }
+        accountListView = (ListView) rootView.findViewById(R.id.account_list);
         accountListAdapter = new AccountListAdapter(getActivity(), HomeActivity.xhb, HomeActivity.CURRENT_MONTH);
         accountListView.setAdapter(accountListAdapter);
         return rootView;

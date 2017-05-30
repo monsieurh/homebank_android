@@ -62,8 +62,22 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setupView();
+        tryReadFile();
+        checkPerms();//todo : move this before view and check for previous state view
+    }
 
+    private void tryReadFile() {
+        try {
+            xhb = XhbFileParser.parseLastfile(this);
+            Log.d("DEBUG", "Parsed last file automatically");
+        } catch (SAXException | IOException | ParserConfigurationException | SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setupView() {
+        setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -75,16 +89,7 @@ public class HomeActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-
-        checkPerms();//todo : move this before view and check for previous state view
-        try {
-            xhb = XhbFileParser.parseLastfile(this);
-            Log.d("DEBUG", "Parsed last file automatically");
-        } catch (SAXException | IOException | ParserConfigurationException | SecurityException e) {
-            e.printStackTrace();
-        }
+        tabLayout.setupWithViewPager(mViewPager, true);
     }
 
 
@@ -128,6 +133,7 @@ public class HomeActivity extends AppCompatActivity {
         if (requestCode == LOCAL_CHOOSE_FILE_REQUEST && resultCode == RESULT_OK) {
             int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION & Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION & Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
             fileUri = data.getData();
+            //noinspection WrongConstant
             getContentResolver().takePersistableUriPermission(fileUri, flags);
             onFileSelected();
         }
@@ -146,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
             xhb = XhbFileParser.parse(this);
             updateView();
         } catch (SAXException | IOException | ParserConfigurationException e) {
-            e.printStackTrace();
+            e.printStackTrace();//// TODO: 5/29/17 toast here
         }
     }
 
@@ -189,7 +195,7 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-            readFileIntent.setType("*/*");
+            readFileIntent.setType("*/*");//// TODO: 5/29/17 download doc for setType (Android API 25)
             try {
                 startActivityForResult(readFileIntent, LOCAL_CHOOSE_FILE_REQUEST);
             } catch (ActivityNotFoundException e) {
