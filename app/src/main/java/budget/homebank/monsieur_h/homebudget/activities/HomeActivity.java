@@ -62,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.from_left, R.anim.to_right);
         setupView();
         tryReadFile();
         checkPerms();//todo : move this before view and check for previous state view
