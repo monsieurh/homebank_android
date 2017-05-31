@@ -1,8 +1,11 @@
 package budget.homebank.monsieur_h.homebudget.adapters;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.activities.AccountListFragment;
 import budget.homebank.monsieur_h.homebudget.activities.BudgetSummaryFragment;
 
@@ -12,11 +15,13 @@ import budget.homebank.monsieur_h.homebudget.activities.BudgetSummaryFragment;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+    private final Context context;
     private AccountListFragment accountListFragment;
     private BudgetSummaryFragment budgetSummaryFragment;
 
-    public SectionsPagerAdapter(FragmentManager fm) {
+    public SectionsPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.context = context;
         initFragments();
     }
 
@@ -48,9 +53,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Comptes";
+                return context.getResources().getString(R.string.account_tab);
             case 1:
-                return "Budget";//todo : translate
+                return context.getResources().getString(R.string.budget_tab);
         }
         return null;
     }

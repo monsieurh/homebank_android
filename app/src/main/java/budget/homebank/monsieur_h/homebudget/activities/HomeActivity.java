@@ -1,6 +1,7 @@
 package budget.homebank.monsieur_h.homebudget.activities;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -83,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -162,10 +163,11 @@ public class HomeActivity extends AppCompatActivity {
         if (xhb != null) {
             setTitle(xhb.getProperties().getTitle());
         }
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this);
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -206,19 +208,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        previousPagerState = mViewPager.onSaveInstanceState();
-        Log.d("PARCEL", "Saved view pager");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mViewPager.onRestoreInstanceState(previousPagerState);
-        Log.d("PARCEL", "Restored view pager");
     }
 }

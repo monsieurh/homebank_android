@@ -7,19 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.homebank.Account;
 import budget.homebank.monsieur_h.homebudget.homebank.AccountFlags;
 import budget.homebank.monsieur_h.homebudget.homebank.XHB;
 
-import java.util.ArrayList;
-
 public class AccountListAdapter implements ListAdapter {
     private final ArrayList<Account> accounts = new ArrayList<>();
     private final int month;
     private final LayoutInflater inflater;
+    private final Context context;
 
     public AccountListAdapter(Context context, XHB xhb, int month) {
+        this.context = context;
         createAccountList(xhb);
         this.month = month;
         inflater = LayoutInflater.from(context);
@@ -49,7 +52,7 @@ public class AccountListAdapter implements ListAdapter {
         String bankAmount = String.format(account.getCurrency().getFormat(), account.getBankAmount());
         String todayAmount = String.format(account.getCurrency().getFormat(), account.getTodayAmount());
 
-        subtext.setText(String.format("Banque: %s\nAujourd'hui : %s\nFutur: %s", bankAmount, todayAmount, futureAmount));
+        subtext.setText(String.format(context.getResources().getString(R.string.account_content), bankAmount, todayAmount, futureAmount));
         return convertView;
     }
 

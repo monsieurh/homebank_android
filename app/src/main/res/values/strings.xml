@@ -9,7 +9,10 @@
     <string name="about_companion">The android companion app will only work with an homebank file, and not on its own.</string>
     <string name="about_authors">Homebank is developed Maxime Doyen. Homebank Android Companion is developed by Hubert Ray</string>
     <string name="about_help">You can help by funding homebank development, or by <a href="market://details?id=com.monsieur_h">rating the companion app on the store.</a></string>
-    <string formatted="false" name="balance_budget_expense">Balance : %s\nBudget : %s\nExpense : %s</string>
+    <string name="balance_budget_expense" formatted="false">Balance : %s\nBudget : %s\nExpense : %s</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="account_tab">Accounts</string>
+    <string name="budget_tab">Budget</string>
+    <string name="account_content" formatted="false">Bank: %s Today: %s Future: %s</string>
 </resources>
