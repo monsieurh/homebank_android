@@ -4,4 +4,4 @@ It is a port of the personal accounting software [HomeBank](http://homebank.free
 As such it is released under the [GPL license](LICENSE)
 
 ## Google play page
-Soon
+[here](https://play.google.com/store/apps/details?id=monsieur_h.budget.homebank)
