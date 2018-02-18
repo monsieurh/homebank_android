@@ -1,10 +1,6 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class XHB {
     private final Category NO_CATEGORY = new Category("NO_CATEGORY", 0);
@@ -66,7 +62,7 @@ public class XHB {
         }
     }
 
-    public List<Category> getTopCategoriesForMonthlyBudget(int month) {
+    public List<Category> getTopCategoriesForMonthlyBudget(int month, int year) {
         List<Category> topLevel = new ArrayList<>();
         for (Category category : categories) {
             if (category.getMonthlyBudget(month).doubleValue() == 0
@@ -74,7 +70,7 @@ public class XHB {
                 continue;
             }
             Category copy = new Category(category);
-            copy.filterForMonth(month);
+            copy.filterForMonth(month, year);
             if (!copy.hasParent()) {
                 topLevel.add(copy);
             }

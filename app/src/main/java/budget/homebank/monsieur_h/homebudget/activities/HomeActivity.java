@@ -19,20 +19,16 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.dropbox.chooser.android.DbxChooser;
-
-import org.xml.sax.SAXException;
-
-import java.io.IOException;
-import java.util.Calendar;
-
-import javax.xml.parsers.ParserConfigurationException;
-
 import budget.homebank.monsieur_h.homebudget.R;
 import budget.homebank.monsieur_h.homebudget.adapters.SectionsPagerAdapter;
 import budget.homebank.monsieur_h.homebudget.factories.XhbFileParser;
 import budget.homebank.monsieur_h.homebudget.homebank.XHB;
+import com.dropbox.chooser.android.DbxChooser;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -42,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final int PERMISSION_CUSTOM_CODE = 16;
     public static XHB xhb = new XHB();
     static int CURRENT_MONTH = Calendar.getInstance().get(Calendar.MONTH);
+    static int CURRENT_YEAR = Calendar.getInstance().get(Calendar.YEAR);
     private Uri fileUri;
 
     /**

@@ -8,27 +8,28 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import budget.homebank.monsieur_h.homebudget.R;
+import budget.homebank.monsieur_h.homebudget.Util;
+import budget.homebank.monsieur_h.homebudget.homebank.Category;
 
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import budget.homebank.monsieur_h.homebudget.R;
-import budget.homebank.monsieur_h.homebudget.Util;
-import budget.homebank.monsieur_h.homebudget.homebank.Category;
-
 public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
     private final LayoutInflater inflater;
     private final int month;
+    private final int year;
     private final String strFmt;
     private List<Category> groupList;
 
-    public ExpandableCategoryAdapter(Context context, List<Category> initialList, int month) {
+    public ExpandableCategoryAdapter(Context context, List<Category> initialList, int month, int year) {
         this.groupList = initialList;
         sortCategories();
         this.inflater = LayoutInflater.from(context);
         this.month = month;
+        this.year = year;
         this.strFmt = initialList.size() > 0 ? initialList.get(0).getXhb().getDefaultCurrency().getFormat() : "%.2f";
     }
 
@@ -176,5 +177,9 @@ public class ExpandableCategoryAdapter extends BaseExpandableListAdapter {
 
     public int getMonth() {
         return month;
+    }
+
+    public int getYear() {
+        return year;
     }
 }

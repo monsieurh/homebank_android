@@ -1,11 +1,12 @@
 package budget.homebank.monsieur_h.homebudget.homebank;
 
+import budget.homebank.monsieur_h.homebudget.Util;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import budget.homebank.monsieur_h.homebudget.Util;
 
 public class Category implements Serializable {
     private final String name;
@@ -139,9 +140,10 @@ public class Category implements Serializable {
         return children;
     }
 
-    public void filterForMonth(int month) {//fixme
+    public void filterForMonth(int month, int year) {
         for (int i = operations.size() - 1; i >= 0; i--) {
-            if (operations.get(i).getDate().getMonth() != month) {
+            Date date = operations.get(i).getDate();
+            if (date.getMonth() != month || date.getYear() != year) {
                 operations.remove(i);
             }
         }

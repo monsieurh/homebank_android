@@ -24,8 +24,9 @@ public class BudgetSummaryFragment extends Fragment {
         addOnClickListeners();
         listAdapter = new ExpandableCategoryAdapter(
                 getActivity(),
-                HomeActivity.xhb.getTopCategoriesForMonthlyBudget(HomeActivity.CURRENT_MONTH),
-                HomeActivity.CURRENT_MONTH
+                HomeActivity.xhb.getTopCategoriesForMonthlyBudget(HomeActivity.CURRENT_MONTH, HomeActivity.CURRENT_YEAR),
+                HomeActivity.CURRENT_MONTH,
+                HomeActivity.CURRENT_YEAR
         );
         expandableListView.setAdapter(listAdapter);
         return rootView;
@@ -42,6 +43,7 @@ public class BudgetSummaryFragment extends Fragment {
                 Intent intent = new Intent(getActivity().getBaseContext(), OperationListActivity.class);
                 intent.putExtra("CATEGORY_KEY", child.getKey());
                 intent.putExtra("MONTH", listAdapter.getMonth());
+                intent.putExtra("YEAR", listAdapter.getYear());
                 startActivity(intent);
                 return true;
             }
